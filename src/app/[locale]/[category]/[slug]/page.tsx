@@ -147,6 +147,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const postUrl = `${siteUrl}/${locale}/${category}/${slug}`;
   const alternateLocale = locale === "ko" ? "en" : "ko";
 
+  // 동적 OG 이미지 URL 생성
+  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description || "")}&category=${encodeURIComponent(category)}`;
+
   return {
     title: post.title,
     description: post.description,
@@ -165,6 +168,20 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       publishedTime: post.date,
       url: postUrl,
       siteName: siteName,
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: post.title,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images: [ogImageUrl],
     },
   };
 }
