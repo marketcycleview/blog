@@ -21,7 +21,7 @@ export default function ContactPage() {
 
     // 실제로는 API로 전송하거나 이메일 서비스 연동
     // 여기서는 mailto 링크로 대체
-    const mailtoLink = `mailto:contact@example.com?subject=${encodeURIComponent(
+    const mailtoLink = `mailto:goodmind.goodthinking.goodbooks@gmail.com?subject=${encodeURIComponent(
       formData.subject
     )}&body=${encodeURIComponent(
       `이름: ${formData.name}\n이메일: ${formData.email}\n\n${formData.message}`
@@ -160,8 +160,8 @@ export default function ContactPage() {
             <span className="text-2xl">📧</span>
             <span>
               <strong>{t.emailDirect}:</strong>{" "}
-              <a href="mailto:contact@example.com" className="text-blue-600 hover:underline">
-                contact@example.com
+              <a href="mailto:goodmind.goodthinking.goodbooks@gmail.com" className="text-blue-600 hover:underline">
+                goodmind.goodthinking.goodbooks@gmail.com
               </a>
             </span>
           </p>
