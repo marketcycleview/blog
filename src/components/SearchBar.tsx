@@ -15,8 +15,8 @@ export function SearchBar({ locale, placeholder, className = "" }: SearchBarProp
 
   const defaultPlaceholder =
     locale === "ko"
-      ? "궁금한 정보를 검색하세요... (예: 민생지원금, 뉴발란스)"
-      : "Search for information... (e.g., subsidy, reviews)";
+      ? "궁금한 정보를 검색하세요... (예: 청년월세, 실업급여)"
+      : "Search for information... (e.g., child allowance, pension)";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
