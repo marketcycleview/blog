@@ -1,13 +1,54 @@
 import type { Metadata } from "next";
 import "../globals.css";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteName = "SEO 블로그";
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "SEO 블로그",
-    template: "%s | SEO 블로그",
+    default: siteName,
+    template: `%s | ${siteName}`,
   },
   description: "정보와 리뷰를 한 곳에서 - 지원금, 제품 리뷰, 트렌딩 이슈",
-  keywords: ["지원금", "리뷰", "트렌딩", "정보"],
+  keywords: ["지원금", "리뷰", "트렌딩", "정보", "정책", "신청방법"],
+  authors: [{ name: siteName }],
+  creator: siteName,
+  publisher: siteName,
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
+  openGraph: {
+    type: "website",
+    locale: "ko_KR",
+    alternateLocale: "en_US",
+    url: siteUrl,
+    siteName: siteName,
+    title: siteName,
+    description: "정보와 리뷰를 한 곳에서 - 지원금, 제품 리뷰, 트렌딩 이슈",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: siteName,
+    description: "정보와 리뷰를 한 곳에서 - 지원금, 제품 리뷰, 트렌딩 이슈",
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    // Google Search Console 인증 코드 (나중에 추가)
+    // google: "your-google-verification-code",
+  },
 };
 
 interface RootLayoutProps {
