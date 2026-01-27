@@ -33,12 +33,37 @@ const config: Config = {
                 color: "#1d4ed8",
               },
             },
+            table: {
+              width: "100%",
+              borderCollapse: "collapse",
+              marginTop: "1.5rem",
+              marginBottom: "1.5rem",
+            },
+            "thead th": {
+              backgroundColor: "#f8fafc",
+              fontWeight: "600",
+              padding: "0.75rem 1rem",
+              borderBottom: "2px solid #e2e8f0",
+              textAlign: "left",
+            },
+            "tbody td": {
+              padding: "0.75rem 1rem",
+              borderBottom: "1px solid #e2e8f0",
+            },
+            "tbody tr:hover": {
+              backgroundColor: "#f8fafc",
+            },
+            img: {
+              borderRadius: "0.5rem",
+              marginTop: "1.5rem",
+              marginBottom: "1.5rem",
+            },
           },
         },
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
 
 export default config;

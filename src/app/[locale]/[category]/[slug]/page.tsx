@@ -2,7 +2,9 @@ import { getPostBySlug, getAllPosts } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { ReviewSection } from "@/components/ReviewSection";
+import { AdPlaceholder } from "@/components/AdPlaceholder";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 interface PageProps {
   params: Promise<{ locale: string; category: string; slug: string }>;
@@ -11,45 +13,120 @@ interface PageProps {
 // MDX에서 사용할 커스텀 컴포넌트
 const components = {
   ReviewSection,
-  // 필요한 컴포넌트 추가
+  AdPlaceholder,
+  // 이미지 컴포넌트 (Next.js Image 최적화)
+  img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
+    const { src, alt, ...rest } = props;
+    if (!src) return null;
+
+    // 외부 URL인 경우 일반 img 태그 사용
+    if (src.startsWith("http")) {
+      return (
+        <figure className="my-6">
+          <img
+            src={src}
+            alt={alt || ""}
+            className="w-full rounded-lg shadow-md"
+            loading="lazy"
+            {...rest}
+          />
+          {alt && (
+            <figcaption className="text-center text-sm text-gray-500 mt-2">
+              {alt}
+            </figcaption>
+          )}
+        </figure>
+      );
+    }
+
+    // 내부 이미지는 Next.js Image 사용
+    return (
+      <figure className="my-6">
+        <Image
+          src={src}
+          alt={alt || ""}
+          width={800}
+          height={450}
+          className="w-full rounded-lg shadow-md"
+          {...rest}
+        />
+        {alt && (
+          <figcaption className="text-center text-sm text-gray-500 mt-2">
+            {alt}
+          </figcaption>
+        )}
+      </figure>
+    );
+  },
+  // 헤딩 컴포넌트
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1 className="text-3xl font-bold mt-8 mb-4" {...props} />
   ),
   h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="text-2xl font-bold mt-6 mb-3" {...props} />
+    <h2 className="text-2xl font-bold mt-8 mb-4 pb-2 border-b" {...props} />
   ),
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 className="text-xl font-semibold mt-4 mb-2" {...props} />
+    <h3 className="text-xl font-semibold mt-6 mb-3" {...props} />
   ),
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mb-4 leading-relaxed" {...props} />
+    <p className="mb-4 leading-relaxed text-gray-700" {...props} />
   ),
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className="mb-4 pl-6 list-disc" {...props} />
+    <ul className="mb-4 pl-6 list-disc space-y-1" {...props} />
   ),
   ol: (props: React.OlHTMLAttributes<HTMLOListElement>) => (
-    <ol className="mb-4 pl-6 list-decimal" {...props} />
+    <ol className="mb-4 pl-6 list-decimal space-y-1" {...props} />
   ),
   li: (props: React.LiHTMLAttributes<HTMLLIElement>) => (
-    <li className="mb-2" {...props} />
+    <li className="text-gray-700" {...props} />
   ),
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
-    <a className="text-blue-600 hover:text-blue-800 underline" {...props} />
+    <a
+      className="text-blue-600 hover:text-blue-800 underline underline-offset-2"
+      target={props.href?.startsWith("http") ? "_blank" : undefined}
+      rel={props.href?.startsWith("http") ? "noopener noreferrer" : undefined}
+      {...props}
+    />
   ),
   blockquote: (props: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => (
-    <blockquote className="border-l-4 border-gray-300 pl-4 italic my-4 text-gray-700" {...props} />
+    <blockquote
+      className="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-blue-50 rounded-r-lg italic text-gray-700"
+      {...props}
+    />
   ),
+  // 테이블 (반응형 래퍼 포함)
   table: (props: React.TableHTMLAttributes<HTMLTableElement>) => (
-    <div className="overflow-x-auto mb-4">
-      <table className="w-full border-collapse" {...props} />
+    <div className="overflow-x-auto my-6 rounded-lg border border-gray-200 shadow-sm">
+      <table className="w-full min-w-full divide-y divide-gray-200" {...props} />
     </div>
   ),
+  thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <thead className="bg-gray-50" {...props} />
+  ),
+  tbody: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
+    <tbody className="bg-white divide-y divide-gray-200" {...props} />
+  ),
+  tr: (props: React.HTMLAttributes<HTMLTableRowElement>) => (
+    <tr className="hover:bg-gray-50 transition-colors" {...props} />
+  ),
   th: (props: React.ThHTMLAttributes<HTMLTableCellElement>) => (
-    <th className="border border-gray-300 px-4 py-2 text-left bg-gray-100 font-semibold" {...props} />
+    <th
+      className="px-4 py-3 text-left text-sm font-semibold text-gray-900 whitespace-nowrap"
+      {...props}
+    />
   ),
   td: (props: React.TdHTMLAttributes<HTMLTableCellElement>) => (
-    <td className="border border-gray-300 px-4 py-2 text-left" {...props} />
+    <td className="px-4 py-3 text-sm text-gray-700" {...props} />
   ),
+  // 코드 블록
+  pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
+    <pre className="my-4 p-4 bg-gray-900 text-gray-100 rounded-lg overflow-x-auto text-sm" {...props} />
+  ),
+  code: (props: React.HTMLAttributes<HTMLElement>) => (
+    <code className="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-sm font-mono" {...props} />
+  ),
+  // 수평선
+  hr: () => <hr className="my-8 border-t-2 border-gray-200" />,
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -97,10 +174,10 @@ export default async function PostPage({ params }: PageProps) {
           </a>
         </div>
         <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
-        <div className="flex items-center gap-4 text-gray-500">
+        <div className="flex flex-wrap items-center gap-4 text-gray-500">
           <time dateTime={post.date}>{post.date}</time>
           {post.tags.length > 0 && (
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
                 <span key={tag} className="text-xs bg-gray-100 px-2 py-1 rounded">
                   #{tag}
@@ -111,10 +188,16 @@ export default async function PostPage({ params }: PageProps) {
         </div>
       </header>
 
+      {/* 광고 영역 - 상단 */}
+      <AdPlaceholder slot="top" />
+
       {/* 콘텐츠 */}
-      <div className="prose max-w-none">
+      <div className="prose prose-lg max-w-none">
         <MDXRemote source={post.content} components={components} />
       </div>
+
+      {/* 광고 영역 - 하단 */}
+      <AdPlaceholder slot="bottom" />
 
       {/* 푸터 */}
       <footer className="mt-12 pt-8 border-t">
