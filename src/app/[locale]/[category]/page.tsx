@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { getPostsByCategory } from "@/lib/posts";
 import { notFound } from "next/navigation";
+import { SearchBar } from "@/components/SearchBar";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 
@@ -54,7 +55,8 @@ export default async function CategoryPage({ params }: PageProps) {
       {/* 카테고리 헤더 */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold mb-2">{categoryName}</h1>
-        <p className="text-gray-600">{categoryDesc}</p>
+        <p className="text-gray-600 mb-4">{categoryDesc}</p>
+        <SearchBar locale={locale} />
       </div>
 
       {/* 글 목록 */}
