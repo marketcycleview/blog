@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "../globals.css";
+import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 const siteName = "SEO 블로그";
+const siteDescription = "정보와 리뷰를 한 곳에서 - 지원금, 제품 리뷰, 트렌딩 이슈";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
     default: siteName,
     template: `%s | ${siteName}`,
   },
-  description: "정보와 리뷰를 한 곳에서 - 지원금, 제품 리뷰, 트렌딩 이슈",
+  description: siteDescription,
   keywords: ["지원금", "리뷰", "트렌딩", "정보", "정책", "신청방법"],
   authors: [{ name: siteName }],
   creator: siteName,
@@ -20,6 +22,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  alternates: {
+    canonical: siteUrl,
+    languages: {
+      "ko": `${siteUrl}/ko`,
+      "en": `${siteUrl}/en`,
+      "x-default": `${siteUrl}/ko`,
+    },
+  },
   openGraph: {
     type: "website",
     locale: "ko_KR",
@@ -27,12 +37,12 @@ export const metadata: Metadata = {
     url: siteUrl,
     siteName: siteName,
     title: siteName,
-    description: "정보와 리뷰를 한 곳에서 - 지원금, 제품 리뷰, 트렌딩 이슈",
+    description: siteDescription,
   },
   twitter: {
     card: "summary_large_image",
     title: siteName,
-    description: "정보와 리뷰를 한 곳에서 - 지원금, 제품 리뷰, 트렌딩 이슈",
+    description: siteDescription,
   },
   robots: {
     index: true,
@@ -64,6 +74,24 @@ export default async function RootLayout({
 
   return (
     <html lang={locale}>
+      <head>
+        {/* hreflang tags for multilingual SEO */}
+        <link rel="alternate" hrefLang="ko" href={`${siteUrl}/ko`} />
+        <link rel="alternate" hrefLang="en" href={`${siteUrl}/en`} />
+        <link rel="alternate" hrefLang="x-default" href={`${siteUrl}/ko`} />
+
+        {/* JSON-LD Structured Data */}
+        <OrganizationJsonLd
+          name={siteName}
+          url={siteUrl}
+          description={siteDescription}
+        />
+        <WebSiteJsonLd
+          name={siteName}
+          url={siteUrl}
+          description={siteDescription}
+        />
+      </head>
       <body className="min-h-screen bg-white">
         <header className="border-b bg-white sticky top-0 z-50">
           <nav className="max-w-6xl mx-auto px-4 py-4">

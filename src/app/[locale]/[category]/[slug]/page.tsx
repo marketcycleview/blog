@@ -3,9 +3,13 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { ReviewSection } from "@/components/ReviewSection";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
+import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Image from "next/image";
 import remarkGfm from "remark-gfm";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
+const siteName = "SEO 블로그";
 
 interface PageProps {
   params: Promise<{ locale: string; category: string; slug: string }>;
@@ -140,15 +144,27 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     };
   }
 
+  const postUrl = `${siteUrl}/${locale}/${category}/${slug}`;
+  const alternateLocale = locale === "ko" ? "en" : "ko";
+
   return {
     title: post.title,
     description: post.description,
     keywords: post.keywords,
+    alternates: {
+      canonical: postUrl,
+      languages: {
+        [locale]: postUrl,
+        [alternateLocale]: `${siteUrl}/${alternateLocale}/${category}/${slug}`,
+      },
+    },
     openGraph: {
       title: post.title,
       description: post.description,
       type: "article",
       publishedTime: post.date,
+      url: postUrl,
+      siteName: siteName,
     },
   };
 }
@@ -161,10 +177,36 @@ export default async function PostPage({ params }: PageProps) {
     notFound();
   }
 
+  const postUrl = `${siteUrl}/${locale}/${category}/${slug}`;
+  const categoryNames: Record<string, Record<string, string>> = {
+    ko: { subsidy: "지원금", review: "리뷰", trending: "트렌딩" },
+    en: { subsidy: "Subsidy", review: "Review", trending: "Trending" },
+  };
+  const homeName = locale === "ko" ? "홈" : "Home";
+  const categoryDisplayName = categoryNames[locale]?.[category] || category;
+
   return (
-    <article className="max-w-3xl mx-auto">
-      {/* 헤더 */}
-      <header className="mb-8">
+    <>
+      {/* JSON-LD Structured Data */}
+      <ArticleJsonLd
+        title={post.title}
+        description={post.description}
+        url={postUrl}
+        datePublished={post.date}
+        authorName={siteName}
+        publisherName={siteName}
+      />
+      <BreadcrumbJsonLd
+        items={[
+          { name: homeName, url: `${siteUrl}/${locale}` },
+          { name: categoryDisplayName, url: `${siteUrl}/${locale}/${category}` },
+          { name: post.title, url: postUrl },
+        ]}
+      />
+
+      <article className="max-w-3xl mx-auto">
+        {/* 헤더 */}
+        <header className="mb-8">
         <div className="flex items-center gap-2 text-sm text-gray-500 mb-3">
           <a href={`/${locale}`} className="hover:text-gray-700">
             {locale === "ko" ? "홈" : "Home"}
@@ -220,6 +262,7 @@ export default async function PostPage({ params }: PageProps) {
         </div>
       </footer>
     </article>
+    </>
   );
 }
 
