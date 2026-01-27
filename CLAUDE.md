@@ -392,6 +392,45 @@ MDX에서 직접 광고 컴포넌트 삽입 가능:
 - https://www.gov.kr (X)
 ```
 
+**⚠️ URL 검증 필수 규칙 (매우 중요)**:
+
+LinkButton에 URL을 추가하기 전에 **반드시** 해당 URL이 실제로 존재하는 페이지인지 확인해야 합니다.
+
+```
+검증 방법:
+1. WebFetch 도구로 URL 접속 테스트
+2. 404 에러, 리다이렉트, 페이지 없음 확인
+3. 페이지 내용이 관련 주제와 일치하는지 확인
+
+검증 체크리스트:
+[ ] URL이 실제로 접속 가능한가?
+[ ] 404 에러가 발생하지 않는가?
+[ ] 페이지 내용이 버튼 라벨과 일치하는가?
+[ ] 메인 홈페이지가 아닌 상세 페이지인가?
+[ ] HTTPS를 사용하는가?
+```
+
+```
+❌ 검증 없이 URL 추가 금지:
+- 추측으로 URL 작성 (X)
+- 예전에 봤던 URL 그대로 사용 (X)
+- 비슷한 패턴으로 URL 생성 (X)
+
+✅ 반드시 검증 후 추가:
+- WebFetch로 페이지 존재 확인 (O)
+- 실제 페이지 내용 확인 (O)
+- 정확한 상세 페이지 URL 사용 (O)
+```
+
+**주요 사이트별 신뢰할 수 있는 URL 패턴**:
+```
+복지로: https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF[숫자]
+정부24: https://www.gov.kr/portal/rcvfvrSvc/dtlEx/[숫자]
+고용24: https://www.work24.go.kr/cm/main.do (메인) 또는 상세 페이지
+홈택스: https://www.hometax.go.kr/websquare/websquare.html?w2xPath=[경로]
+국민연금: https://www.nps.or.kr/jsppage/[경로]
+```
+
 **섹션별 버튼 배치 예시**:
 ```markdown
 ## 신청 방법
