@@ -52,7 +52,7 @@ export function middleware(request: NextRequest) {
 
 export const config = {
   matcher: [
-    // 정적 파일 및 API 제외
-    "/((?!_next/static|_next/image|favicon.ico|api).*)",
+    // 정적 파일, API, sitemap, robots 제외
+    "/((?!_next/static|_next/image|favicon.ico|api|sitemap.xml|robots.txt).*)",
   ],
 };
