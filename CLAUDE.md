@@ -354,6 +354,82 @@ MDX에서 직접 광고 컴포넌트 삽입 가능:
 
 ---
 
+#### 외부 링크 버튼 가이드 (CTA 버튼)
+
+> **핵심**: 외부 링크는 버튼 형식으로 크게 만들어 클릭 유도. 체류 시간 증가 + 광고 노출 기회 증가.
+
+**LinkButton 컴포넌트 사용**:
+```markdown
+<LinkButton href="https://www.bokjiro.go.kr/specific-page" label="복지로에서 아동수당 신청하기" />
+```
+
+**버튼 배치 규칙**:
+- 각 섹션 끝에 관련 공식 링크 버튼 배치
+- 신청 방법 섹션에는 반드시 "신청하러 가기" 버튼
+- 본문 중간중간에 CTA 버튼 삽입 (2-3개 섹션마다)
+
+**버튼 라벨 예시**:
+```
+✅ 좋은 예:
+- "복지로에서 아동수당 신청하기"
+- "고용24에서 실업급여 조회하기"
+- "홈택스에서 연말정산 간소화 서비스 이용하기"
+
+❌ 나쁜 예:
+- "여기 클릭"
+- "바로가기"
+- "링크"
+```
+
+**링크 URL 규칙 (매우 중요)**:
+```
+✅ 정확한 상세 페이지 URL 사용:
+- https://www.bokjiro.go.kr/ssis-tbu/twataa/wlfareInfo/moveTWAT52011M.do?wlfareInfoId=WLF00000123
+- https://www.gov.kr/portal/rcvfvrSvc/dtlEx/149200000099
+
+❌ 메인 홈페이지 URL 사용 금지:
+- https://www.bokjiro.go.kr (X)
+- https://www.gov.kr (X)
+```
+
+**섹션별 버튼 배치 예시**:
+```markdown
+## 신청 방법
+
+신청은 온라인과 오프라인 모두 가능합니다.
+
+### 온라인 신청
+
+복지로 홈페이지에서 24시간 신청 가능합니다.
+
+<LinkButton href="https://www.bokjiro.go.kr/exact-page-url" label="복지로에서 온라인 신청하기" />
+
+### 오프라인 신청
+
+주민센터 방문 신청도 가능합니다.
+
+---
+
+## 관련 링크
+
+<LinkButton href="https://url1" label="보건복지부 공식 안내 확인하기" />
+<LinkButton href="https://url2" label="정부24에서 신청하기" />
+```
+
+**글 하단 관련 링크 섹션 필수**:
+모든 글 마지막에 공식 출처 링크를 버튼으로 배치:
+```markdown
+---
+
+## 관련 링크
+
+<LinkButton href="https://exact-url-1" label="보건복지부 공식 안내" />
+<LinkButton href="https://exact-url-2" label="복지로 상세 페이지" />
+<LinkButton href="https://exact-url-3" label="정부24 신청 페이지" />
+```
+
+---
+
 ### 콘텐츠 유형별 가이드
 
 ---

@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { ReviewSection } from "@/components/ReviewSection";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
+import { LinkButton } from "@/components/LinkButton";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -19,6 +20,7 @@ interface PageProps {
 const components = {
   ReviewSection,
   AdPlaceholder,
+  LinkButton,
   // 이미지 컴포넌트 (Next.js Image 최적화)
   img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
     const { src, alt, width, height, ...rest } = props;
