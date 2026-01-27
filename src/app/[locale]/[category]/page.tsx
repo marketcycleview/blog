@@ -1,6 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getPostsByCategory } from "@/lib/posts";
 import { notFound } from "next/navigation";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 
 const validCategories = ["subsidy", "review", "trending"];
 
@@ -56,30 +59,50 @@ export default async function CategoryPage({ params }: PageProps) {
 
       {/* 글 목록 */}
       {posts.length > 0 ? (
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {posts.map((post) => (
-            <Link
-              key={post.slug}
-              href={`/${locale}/${category}/${post.slug}`}
-              className="block p-6 bg-white border rounded-lg hover:shadow-lg transition"
-            >
-              <div className="text-sm text-gray-500 mb-2">{post.date}</div>
-              <h2 className="text-lg font-semibold mb-2 line-clamp-2">{post.title}</h2>
-              <p className="text-gray-600 text-sm line-clamp-3">{post.description}</p>
-              {post.tags.length > 0 && (
-                <div className="mt-3 flex flex-wrap gap-2">
-                  {post.tags.slice(0, 3).map((tag) => (
-                    <span
-                      key={tag}
-                      className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded"
-                    >
-                      #{tag}
-                    </span>
-                  ))}
+        <div className="space-y-4">
+          {posts.map((post) => {
+            const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(category)}`;
+
+            return (
+              <Link
+                key={post.slug}
+                href={`/${locale}/${category}/${post.slug}`}
+                className="flex flex-col sm:flex-row gap-4 p-4 bg-white border rounded-lg hover:shadow-lg transition group"
+              >
+                {/* 썸네일 이미지 */}
+                <div className="relative w-full sm:w-48 h-32 sm:h-28 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+                  <Image
+                    src={ogImageUrl}
+                    alt={post.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    sizes="(max-width: 640px) 100vw, 192px"
+                  />
                 </div>
-              )}
-            </Link>
-          ))}
+
+                {/* 텍스트 영역 */}
+                <div className="flex-1 min-w-0">
+                  <div className="text-xs text-gray-500 mb-2">{post.date}</div>
+                  <h2 className="text-lg font-semibold mb-1 line-clamp-2 group-hover:text-blue-600 transition-colors">
+                    {post.title}
+                  </h2>
+                  <p className="text-gray-600 text-sm line-clamp-2 mb-2">{post.description}</p>
+                  {post.tags.length > 0 && (
+                    <div className="flex flex-wrap gap-2">
+                      {post.tags.slice(0, 3).map((tag) => (
+                        <span
+                          key={tag}
+                          className="text-xs bg-gray-100 text-gray-600 px-2 py-0.5 rounded"
+                        >
+                          #{tag}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </Link>
+            );
+          })}
         </div>
       ) : (
         <div className="text-center py-16 bg-gray-50 rounded-lg">
