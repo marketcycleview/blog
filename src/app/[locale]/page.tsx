@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { getAllPosts } from "@/lib/posts";
+import { SearchBar } from "@/components/SearchBar";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -17,18 +18,22 @@ export default async function HomePage({ params }: PageProps) {
   return (
     <div>
       {/* 히어로 섹션 */}
-      <section className="text-center py-12 mb-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl">
+      <section className="text-center py-12 mb-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl px-4">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           {locale === "ko"
             ? "정보와 리뷰를 한 곳에서"
             : "Information & Reviews in One Place"}
         </h1>
-        <p className="text-xl text-gray-600 mb-8">
+        <p className="text-xl text-gray-600 mb-6">
           {locale === "ko"
             ? "지원금 정보, 제품 리뷰, 실시간 트렌딩 이슈"
             : "Subsidy Info, Product Reviews, Trending Issues"}
         </p>
-        <div className="flex justify-center gap-4">
+
+        {/* 검색창 */}
+        <SearchBar locale={locale} className="mb-8" />
+
+        <div className="flex flex-wrap justify-center gap-4">
           <Link
             href={`/${locale}/subsidy`}
             className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"

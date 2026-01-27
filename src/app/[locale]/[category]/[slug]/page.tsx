@@ -5,6 +5,7 @@ import { ReviewSection } from "@/components/ReviewSection";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import type { Metadata } from "next";
 import Image from "next/image";
+import remarkGfm from "remark-gfm";
 
 interface PageProps {
   params: Promise<{ locale: string; category: string; slug: string }>;
@@ -193,7 +194,15 @@ export default async function PostPage({ params }: PageProps) {
 
       {/* 콘텐츠 */}
       <div className="prose prose-lg max-w-none">
-        <MDXRemote source={post.content} components={components} />
+        <MDXRemote
+          source={post.content}
+          components={components}
+          options={{
+            mdxOptions: {
+              remarkPlugins: [remarkGfm],
+            },
+          }}
+        />
       </div>
 
       {/* 광고 영역 - 하단 */}
