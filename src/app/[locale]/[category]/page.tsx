@@ -1,0 +1,112 @@
+import Link from "next/link";
+import { getPostsByCategory } from "@/lib/posts";
+import { notFound } from "next/navigation";
+
+const validCategories = ["subsidy", "review", "trending"];
+
+const categoryNames = {
+  ko: {
+    subsidy: "지원금/정책 정보",
+    review: "제품 리뷰",
+    trending: "트렌딩 이슈",
+  },
+  en: {
+    subsidy: "Subsidies & Policies",
+    review: "Product Reviews",
+    trending: "Trending Issues",
+  },
+};
+
+const categoryDescriptions = {
+  ko: {
+    subsidy: "정부/지자체 지원금, 복지 정책, 세금 관련 정보를 한눈에 확인하세요.",
+    review: "실사용자 리뷰를 모아 제품의 장단점을 객관적으로 분석합니다.",
+    trending: "실시간 화제가 되는 이슈와 뉴스를 빠르게 정리합니다.",
+  },
+  en: {
+    subsidy: "Find government subsidies, welfare policies, and tax information.",
+    review: "We collect real user reviews to objectively analyze product pros and cons.",
+    trending: "Quick summary of trending issues and news.",
+  },
+};
+
+interface PageProps {
+  params: Promise<{ locale: string; category: string }>;
+}
+
+export default async function CategoryPage({ params }: PageProps) {
+  const { locale, category } = await params;
+
+  if (!validCategories.includes(category)) {
+    notFound();
+  }
+
+  const posts = await getPostsByCategory(locale, category);
+  const lang = locale as "ko" | "en";
+  const categoryName = categoryNames[lang]?.[category as keyof typeof categoryNames.ko] || category;
+  const categoryDesc = categoryDescriptions[lang]?.[category as keyof typeof categoryDescriptions.ko] || "";
+
+  return (
+    <div>
+      {/* 카테고리 헤더 */}
+      <div className="mb-8">
+        <h1 className="text-3xl font-bold mb-2">{categoryName}</h1>
+        <p className="text-gray-600">{categoryDesc}</p>
+      </div>
+
+      {/* 글 목록 */}
+      {posts.length > 0 ? (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {posts.map((post) => (
+            <Link
+              key={post.slug}
+              href={`/${locale}/${category}/${post.slug}`}
+              className="block p-6 bg-white border rounded-lg hover:shadow-lg transition"
+            >
+              <div className="text-sm text-gray-500 mb-2">{post.date}</div>
+              <h2 className="text-lg font-semibold mb-2 line-clamp-2">{post.title}</h2>
+              <p className="text-gray-600 text-sm line-clamp-3">{post.description}</p>
+              {post.tags.length > 0 && (
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {post.tags.slice(0, 3).map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs bg-gray-100 text-gray-600 px-2 py-1 rounded"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              )}
+            </Link>
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-16 bg-gray-50 rounded-lg">
+          <p className="text-gray-500 text-lg">
+            {locale === "ko"
+              ? "아직 작성된 글이 없습니다."
+              : "No posts yet."}
+          </p>
+          <p className="text-gray-400 mt-2">
+            {locale === "ko"
+              ? "곧 새로운 콘텐츠가 업데이트됩니다."
+              : "New content coming soon."}
+          </p>
+        </div>
+      )}
+    </div>
+  );
+}
+
+export function generateStaticParams() {
+  const locales = ["ko", "en"];
+  const categories = ["subsidy", "review", "trending"];
+
+  return locales.flatMap((locale) =>
+    categories.map((category) => ({
+      locale,
+      category,
+    }))
+  );
+}
