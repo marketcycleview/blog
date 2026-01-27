@@ -1,6 +1,9 @@
 import Link from "next/link";
+import Image from "next/image";
 import { getAllPosts } from "@/lib/posts";
 import { SearchBar } from "@/components/SearchBar";
+
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
@@ -59,10 +62,10 @@ export default async function HomePage({ params }: PageProps) {
             {locale === "ko" ? "전체 보기 →" : "View All →"}
           </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="space-y-4">
           {subsidyPosts.length > 0 ? (
             subsidyPosts.map((post) => (
-              <PostCard key={post.slug} post={post} locale={locale} />
+              <PostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
             ))
           ) : (
             <EmptyCard locale={locale} category="subsidy" />
@@ -80,10 +83,10 @@ export default async function HomePage({ params }: PageProps) {
             {locale === "ko" ? "전체 보기 →" : "View All →"}
           </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="space-y-4">
           {reviewPosts.length > 0 ? (
             reviewPosts.map((post) => (
-              <PostCard key={post.slug} post={post} locale={locale} />
+              <PostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
             ))
           ) : (
             <EmptyCard locale={locale} category="review" />
@@ -101,10 +104,10 @@ export default async function HomePage({ params }: PageProps) {
             {locale === "ko" ? "전체 보기 →" : "View All →"}
           </Link>
         </div>
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="space-y-4">
           {trendingPosts.length > 0 ? (
             trendingPosts.map((post) => (
-              <PostCard key={post.slug} post={post} locale={locale} />
+              <PostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
             ))
           ) : (
             <EmptyCard locale={locale} category="trending" />
@@ -123,15 +126,46 @@ interface Post {
   category: string;
 }
 
-function PostCard({ post, locale }: { post: Post; locale: string }) {
+const categoryLabels: Record<string, { ko: string; en: string; icon: string }> = {
+  subsidy: { ko: "지원금", en: "Subsidy", icon: "💰" },
+  review: { ko: "리뷰", en: "Review", icon: "⭐" },
+  trending: { ko: "트렌딩", en: "Trending", icon: "🔥" },
+};
+
+function PostCard({ post, locale, siteUrl }: { post: Post; locale: string; siteUrl: string }) {
+  // OG 이미지 URL 생성
+  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}`;
+  const label = categoryLabels[post.category] || { ko: "정보", en: "Info", icon: "📄" };
+
   return (
     <Link
       href={`/${locale}/${post.category}/${post.slug}`}
-      className="block p-6 bg-white border rounded-lg hover:shadow-lg transition"
+      className="flex flex-col sm:flex-row gap-4 p-4 bg-white border rounded-lg hover:shadow-lg transition group"
     >
-      <div className="text-sm text-gray-500 mb-2">{post.date}</div>
-      <h3 className="text-lg font-semibold mb-2 line-clamp-2">{post.title}</h3>
-      <p className="text-gray-600 text-sm line-clamp-2">{post.description}</p>
+      {/* 썸네일 이미지 */}
+      <div className="relative w-full sm:w-48 h-32 sm:h-28 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
+        <Image
+          src={ogImageUrl}
+          alt={post.title}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          sizes="(max-width: 640px) 100vw, 192px"
+        />
+      </div>
+
+      {/* 텍스트 영역 */}
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
+          <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 rounded-full">
+            {label.icon} {locale === "ko" ? label.ko : label.en}
+          </span>
+          <span>{post.date}</span>
+        </div>
+        <h3 className="text-lg font-semibold mb-1 line-clamp-2 group-hover:text-blue-600 transition-colors">
+          {post.title}
+        </h3>
+        <p className="text-gray-600 text-sm line-clamp-2">{post.description}</p>
+      </div>
     </Link>
   );
 }
