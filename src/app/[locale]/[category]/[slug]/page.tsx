@@ -17,7 +17,7 @@ const components = {
   AdPlaceholder,
   // 이미지 컴포넌트 (Next.js Image 최적화)
   img: (props: React.ImgHTMLAttributes<HTMLImageElement>) => {
-    const { src, alt, ...rest } = props;
+    const { src, alt, width, height, ...rest } = props;
     if (!src || typeof src !== "string") return null;
 
     // 외부 URL인 경우 일반 img 태그 사용
