@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import "../globals.css";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
-const siteName = "SEO 블로그";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
+const siteName = "InfoTalker";
 const siteDescription = "정보와 리뷰를 한 곳에서 - 지원금, 제품 리뷰, 트렌딩 이슈";
+const adsenseClientId = "ca-pub-1372813266832773";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -75,6 +76,13 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
+        {/* Google AdSense */}
+        <script
+          async
+          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClientId}`}
+          crossOrigin="anonymous"
+        />
+
         {/* hreflang tags for multilingual SEO */}
         <link rel="alternate" hrefLang="ko" href={`${siteUrl}/ko`} />
         <link rel="alternate" hrefLang="en" href={`${siteUrl}/en`} />
@@ -97,7 +105,7 @@ export default async function RootLayout({
           <nav className="max-w-6xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
               <a href={`/${locale}`} className="text-xl font-bold text-gray-900">
-                SEO 블로그
+                {siteName}
               </a>
               <div className="flex items-center gap-6">
                 <a href={`/${locale}/subsidy`} className="text-gray-600 hover:text-gray-900">
@@ -131,7 +139,7 @@ export default async function RootLayout({
         <footer className="border-t bg-gray-50 mt-16">
           <div className="max-w-6xl mx-auto px-4 py-8">
             <div className="text-center text-gray-600 text-sm">
-              <p>© 2026 SEO 블로그. All rights reserved.</p>
+              <p>© 2026 {siteName}. All rights reserved.</p>
               <div className="mt-2 flex justify-center gap-4">
                 <a href={`/${locale}/privacy`} className="hover:text-gray-900">
                   개인정보처리방침
