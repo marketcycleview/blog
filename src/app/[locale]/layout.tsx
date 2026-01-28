@@ -117,6 +117,9 @@ export default async function RootLayout({
                 <a href={`/${locale}/trending`} className="text-gray-600 hover:text-gray-900">
                   트렌딩
                 </a>
+                <a href={`/${locale}/tools/saju`} className="text-gray-600 hover:text-gray-900">
+                  사주
+                </a>
                 {/* 언어 전환 */}
                 <div className="flex gap-2 text-sm">
                   <a href="/ko" className={locale === "ko" ? "font-bold" : "text-gray-500"}>
