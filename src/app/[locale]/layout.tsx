@@ -4,7 +4,7 @@ import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 const siteName = "InfoTalker";
-const siteDescription = "정보와 리뷰를 한 곳에서 - 지원금, 제품 리뷰, 트렌딩 이슈";
+const siteDescription = "복지, 금융, 세금 정보를 한 곳에서 - 지원금, 대출, 연말정산";
 const adsenseClientId = "ca-pub-1372813266832773";
 
 export const metadata: Metadata = {
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     template: `%s | ${siteName}`,
   },
   description: siteDescription,
-  keywords: ["지원금", "리뷰", "트렌딩", "정보", "정책", "신청방법"],
+  keywords: ["지원금", "복지정책", "대출", "금융", "세금", "연말정산", "신청방법"],
   authors: [{ name: siteName }],
   creator: siteName,
   publisher: siteName,
@@ -110,12 +110,6 @@ export default async function RootLayout({
               <div className="flex items-center gap-6">
                 <a href={`/${locale}/subsidy`} className="text-gray-600 hover:text-gray-900">
                   {locale === "ko" ? "지원금" : "Subsidy"}
-                </a>
-                <a href={`/${locale}/review`} className="text-gray-600 hover:text-gray-900">
-                  {locale === "ko" ? "리뷰" : "Review"}
-                </a>
-                <a href={`/${locale}/trending`} className="text-gray-600 hover:text-gray-900">
-                  {locale === "ko" ? "트렌딩" : "Trending"}
                 </a>
                 <a href={`/${locale}/tools`} className="text-gray-600 hover:text-gray-900">
                   {locale === "ko" ? "도구" : "Tools"}

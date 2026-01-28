@@ -17,7 +17,6 @@ export default async function HomePage({ params }: PageProps) {
 
   // 카테고리별로 최신 글 가져오기
   const subsidyPosts = posts.filter((p) => p.category === "subsidy").slice(0, 3);
-  const reviewPosts = posts.filter((p) => p.category === "review").slice(0, 3);
   const trendingPosts = posts.filter((p) => p.category === "trending").slice(0, 3);
 
   return (
@@ -26,13 +25,13 @@ export default async function HomePage({ params }: PageProps) {
       <section className="text-center py-12 mb-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl px-4">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           {locale === "ko"
-            ? "정보와 리뷰를 한 곳에서"
-            : "Information & Reviews in One Place"}
+            ? "내 돈 챙기기, 여기서 시작"
+            : "Manage Your Money Here"}
         </h1>
         <p className="text-xl text-gray-600 mb-6">
           {locale === "ko"
-            ? "지원금 정보, 제품 리뷰, 실시간 트렌딩 이슈"
-            : "Subsidy Info, Product Reviews, Trending Issues"}
+            ? "복지 지원금, 금융 정보, 세금 가이드"
+            : "Welfare Benefits, Finance Info, Tax Guide"}
         </p>
 
         {/* 검색창 */}
@@ -89,27 +88,6 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
-      {/* 리뷰 섹션 */}
-      <section className="mb-12">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">
-            {locale === "ko" ? "⭐ 제품 리뷰" : "⭐ Product Reviews"}
-          </h2>
-          <Link href={`/${locale}/review`} className="px-4 py-2 bg-orange-500 text-white text-sm rounded-lg hover:bg-orange-600 transition">
-            {locale === "ko" ? "전체 보기" : "View All"}
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {reviewPosts.length > 0 ? (
-            reviewPosts.map((post) => (
-              <VerticalPostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
-            ))
-          ) : (
-            <EmptyCard locale={locale} category="review" />
-          )}
-        </div>
-      </section>
-
       {/* 트렌딩 섹션 */}
       <section className="mb-12">
         <div className="flex justify-between items-center mb-6">
@@ -161,8 +139,9 @@ interface Post {
 
 const categoryLabels: Record<string, { ko: string; en: string; icon: string }> = {
   subsidy: { ko: "지원금", en: "Subsidy", icon: "💰" },
-  review: { ko: "리뷰", en: "Review", icon: "⭐" },
   trending: { ko: "트렌딩", en: "Trending", icon: "🔥" },
+  finance: { ko: "금융", en: "Finance", icon: "🏦" },
+  tax: { ko: "세금", en: "Tax", icon: "📋" },
 };
 
 // 세로형 카드 (메인페이지용 - 3열 그리드)
@@ -239,13 +218,15 @@ function EmptyCard({ locale, category }: { locale: string; category: string }) {
   const messages = {
     ko: {
       subsidy: "아직 지원금 정보가 없습니다.",
-      review: "아직 리뷰가 없습니다.",
       trending: "아직 트렌딩 이슈가 없습니다.",
+      finance: "아직 금융 정보가 없습니다.",
+      tax: "아직 세금 정보가 없습니다.",
     },
     en: {
       subsidy: "No subsidy info yet.",
-      review: "No reviews yet.",
       trending: "No trending issues yet.",
+      finance: "No finance info yet.",
+      tax: "No tax info yet.",
     },
   };
 
