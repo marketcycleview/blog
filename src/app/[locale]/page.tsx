@@ -34,22 +34,7 @@ export default async function HomePage({ params }: PageProps) {
         </p>
 
         {/* 검색창 */}
-        <SearchBar locale={locale} className="mb-8" />
-
-        <div className="flex flex-wrap justify-center gap-4">
-          <Link
-            href={`/${locale}/subsidy`}
-            className="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
-          >
-            {locale === "ko" ? "지원금 정보 보기" : "View Subsidies"}
-          </Link>
-          <Link
-            href={`/${locale}/review`}
-            className="px-6 py-3 bg-white text-blue-600 border border-blue-600 rounded-lg hover:bg-blue-50 transition"
-          >
-            {locale === "ko" ? "리뷰 보기" : "View Reviews"}
-          </Link>
-        </div>
+        <SearchBar locale={locale} />
       </section>
 
       {/* 지원금/정책 섹션 */}
@@ -62,10 +47,10 @@ export default async function HomePage({ params }: PageProps) {
             {locale === "ko" ? "전체 보기 →" : "View All →"}
           </Link>
         </div>
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {subsidyPosts.length > 0 ? (
             subsidyPosts.map((post) => (
-              <PostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
+              <VerticalPostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
             ))
           ) : (
             <EmptyCard locale={locale} category="subsidy" />
@@ -83,10 +68,10 @@ export default async function HomePage({ params }: PageProps) {
             {locale === "ko" ? "전체 보기 →" : "View All →"}
           </Link>
         </div>
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {reviewPosts.length > 0 ? (
             reviewPosts.map((post) => (
-              <PostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
+              <VerticalPostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
             ))
           ) : (
             <EmptyCard locale={locale} category="review" />
@@ -104,10 +89,10 @@ export default async function HomePage({ params }: PageProps) {
             {locale === "ko" ? "전체 보기 →" : "View All →"}
           </Link>
         </div>
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
           {trendingPosts.length > 0 ? (
             trendingPosts.map((post) => (
-              <PostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
+              <VerticalPostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
             ))
           ) : (
             <EmptyCard locale={locale} category="trending" />
@@ -132,9 +117,41 @@ const categoryLabels: Record<string, { ko: string; en: string; icon: string }> =
   trending: { ko: "트렌딩", en: "Trending", icon: "🔥" },
 };
 
+// 세로형 카드 (메인페이지용 - 3열 그리드)
+function VerticalPostCard({ post, locale, siteUrl }: { post: Post; locale: string; siteUrl: string }) {
+  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}&v=3`;
+
+  return (
+    <Link
+      href={`/${locale}/${post.category}/${post.slug}`}
+      className="flex flex-col bg-white border rounded-lg overflow-hidden hover:shadow-lg transition group"
+    >
+      {/* 썸네일 이미지 - 세로형은 이미지가 크게 */}
+      <div className="relative w-full aspect-[1200/630] bg-gray-100">
+        <Image
+          src={ogImageUrl}
+          alt={post.title}
+          fill
+          className="object-cover group-hover:scale-105 transition-transform duration-300"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+        />
+      </div>
+
+      {/* 텍스트 영역 */}
+      <div className="p-4">
+        <div className="text-xs text-gray-500 mb-2">{post.date}</div>
+        <h3 className="text-base font-semibold line-clamp-2 group-hover:text-blue-600 transition-colors">
+          {post.title}
+        </h3>
+      </div>
+    </Link>
+  );
+}
+
+// 가로형 카드 (카테고리 페이지용 - 유지)
 function PostCard({ post, locale, siteUrl }: { post: Post; locale: string; siteUrl: string }) {
   // OG 이미지 URL 생성
-  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}&v=2`;
+  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}&v=3`;
   const label = categoryLabels[post.category] || { ko: "정보", en: "Info", icon: "📄" };
 
   return (
