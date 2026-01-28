@@ -119,7 +119,7 @@ const categoryLabels: Record<string, { ko: string; en: string; icon: string }> =
 
 // 세로형 카드 (메인페이지용 - 3열 그리드)
 function VerticalPostCard({ post, locale, siteUrl }: { post: Post; locale: string; siteUrl: string }) {
-  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}&v=3`;
+  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}&v=4`;
 
   return (
     <Link
@@ -151,7 +151,7 @@ function VerticalPostCard({ post, locale, siteUrl }: { post: Post; locale: strin
 // 가로형 카드 (카테고리 페이지용 - 유지)
 function PostCard({ post, locale, siteUrl }: { post: Post; locale: string; siteUrl: string }) {
   // OG 이미지 URL 생성
-  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}&v=3`;
+  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}&v=4`;
   const label = categoryLabels[post.category] || { ko: "정보", en: "Info", icon: "📄" };
 
   return (
