@@ -19,6 +19,68 @@ const categoryConfig: Record<string, { bgGradient: string }> = {
   },
 };
 
+// 제목을 여러 줄로 분리하는 함수
+function splitTitle(title: string): string[] {
+  // 일반적인 패턴으로 분리: 연도 + 주제 + 유형
+
+  // 1. 연도 패턴 분리 (2024년, 2025년, 2026년 등)
+  const yearMatch = title.match(/^(\d{4}년?\s*)/);
+  let remaining = title;
+  const lines: string[] = [];
+
+  if (yearMatch) {
+    lines.push(yearMatch[1].trim());
+    remaining = title.slice(yearMatch[0].length);
+  }
+
+  // 2. 끝부분 패턴 분리 (총정리, 완벽 가이드, 방법, 비교 등)
+  const suffixPatterns = [
+    /\s*(총정리|완벽\s*가이드|완벽정리|핵심정리|상세정리)$/,
+    /\s*(신청방법|신청\s*방법|가입방법|가입\s*방법)$/,
+    /\s*(비교|차이점|장단점)$/,
+    /\s*(추천|순위|TOP\s*\d+)$/i,
+    /\s*(후기|리뷰|실사용)$/,
+  ];
+
+  let suffix = "";
+  for (const pattern of suffixPatterns) {
+    const match = remaining.match(pattern);
+    if (match) {
+      suffix = match[1].trim();
+      remaining = remaining.slice(0, -match[0].length).trim();
+      break;
+    }
+  }
+
+  // 3. 남은 부분이 메인 주제
+  if (remaining) {
+    // 너무 길면 적절히 자르기
+    if (remaining.length > 15) {
+      const midPoint = Math.ceil(remaining.length / 2);
+      const spaceIndex = remaining.indexOf(" ", midPoint - 5);
+      if (spaceIndex > 0 && spaceIndex < remaining.length - 3) {
+        lines.push(remaining.slice(0, spaceIndex).trim());
+        lines.push(remaining.slice(spaceIndex).trim());
+      } else {
+        lines.push(remaining);
+      }
+    } else {
+      lines.push(remaining);
+    }
+  }
+
+  if (suffix) {
+    lines.push(suffix);
+  }
+
+  // 최소 1줄, 최대 3줄
+  if (lines.length === 0) {
+    return [title.slice(0, 20)];
+  }
+
+  return lines.slice(0, 3);
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
 
@@ -27,8 +89,20 @@ export async function GET(request: NextRequest) {
 
   const config = categoryConfig[category] || categoryConfig.default;
 
-  // 제목 15자 이내로
-  const shortTitle = title.length > 15 ? title.slice(0, 15) : title;
+  // 제목을 여러 줄로 분리
+  const titleLines = splitTitle(title);
+
+  // 줄 수에 따라 폰트 크기 조정
+  const getFontSize = (lineIndex: number, totalLines: number): number => {
+    if (totalLines === 1) return 72;
+    if (totalLines === 2) {
+      return lineIndex === 0 ? 56 : 64;
+    }
+    // 3줄: 첫 줄(연도) 작게, 가운데(주제) 크게, 마지막(유형) 중간
+    if (lineIndex === 0) return 48;
+    if (lineIndex === 1) return 64;
+    return 52;
+  };
 
   return new ImageResponse(
     (
@@ -44,20 +118,32 @@ export async function GET(request: NextRequest) {
           fontFamily: "sans-serif",
         }}
       >
-        {/* 제목 - 크게, 중앙 정렬 */}
+        {/* 제목 - 여러 줄 */}
         <div
           style={{
-            fontSize: 90,
-            fontWeight: 800,
-            color: "white",
-            textAlign: "center",
-            lineHeight: 1.2,
-            textShadow: "0 4px 20px rgba(0,0,0,0.3)",
-            padding: "0 60px",
-            wordBreak: "keep-all",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "8px",
+            padding: "0 80px",
           }}
         >
-          {shortTitle}
+          {titleLines.map((line, index) => (
+            <div
+              key={index}
+              style={{
+                fontSize: getFontSize(index, titleLines.length),
+                fontWeight: index === 1 || titleLines.length === 1 ? 800 : 700,
+                color: "white",
+                textAlign: "center",
+                lineHeight: 1.3,
+                textShadow: "0 4px 20px rgba(0,0,0,0.3)",
+              }}
+            >
+              {line}
+            </div>
+          ))}
         </div>
 
         {/* 하단: 사이트명 */}

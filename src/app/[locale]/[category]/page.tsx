@@ -63,7 +63,7 @@ export default async function CategoryPage({ params }: PageProps) {
       {posts.length > 0 ? (
         <div className="space-y-4">
           {posts.map((post) => {
-            const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(category)}&v=2`;
+            const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(category)}&v=3`;
 
             return (
               <Link
