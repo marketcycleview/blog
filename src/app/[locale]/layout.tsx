@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "../globals.css";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
+import { AdClickProtection } from "@/components/ads/AdClickProtection";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 const siteName = "InfoTalker";
@@ -76,6 +77,9 @@ export default async function RootLayout({
   return (
     <html lang={locale}>
       <head>
+        {/* Naver Search Advisor */}
+        <meta name="naver-site-verification" content="f9d7ef5f3094536e0f69b04486afad2ead82dc95" />
+
         {/* Google AdSense */}
         <script
           async
@@ -101,6 +105,9 @@ export default async function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-white">
+        {/* 광고 무효 클릭 방지 */}
+        <AdClickProtection />
+
         <header className="border-b bg-white sticky top-0 z-50">
           <nav className="max-w-6xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
