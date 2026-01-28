@@ -5,6 +5,7 @@ import { ReviewSection } from "@/components/ReviewSection";
 import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { LinkButton } from "@/components/LinkButton";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
+import { WelfareFinderButton } from "@/components/WelfareFinderButton";
 import type { Metadata } from "next";
 import Image from "next/image";
 import remarkGfm from "remark-gfm";
@@ -281,6 +282,9 @@ export default async function PostPage({ params }: PageProps) {
         </div>
       </footer>
     </article>
+
+    {/* subsidy 카테고리에만 플로팅 버튼 표시 */}
+    {category === "subsidy" && <WelfareFinderButton locale={locale} />}
     </>
   );
 }
