@@ -63,20 +63,20 @@ export const JIJANGGAN: Record<JijiType, CheonganType[]> = {
   '해': ['임', '갑'],
 };
 
-// 시진 시간 범위
+// 시진 시간 범위 (30분 기준 - 전통 초정법)
 export const SIJIN_HOURS: { jiji: JijiType; label: string; range: string }[] = [
-  { jiji: '자', label: '자시', range: '23:00 ~ 01:00' },
-  { jiji: '축', label: '축시', range: '01:00 ~ 03:00' },
-  { jiji: '인', label: '인시', range: '03:00 ~ 05:00' },
-  { jiji: '묘', label: '묘시', range: '05:00 ~ 07:00' },
-  { jiji: '진', label: '진시', range: '07:00 ~ 09:00' },
-  { jiji: '사', label: '사시', range: '09:00 ~ 11:00' },
-  { jiji: '오', label: '오시', range: '11:00 ~ 13:00' },
-  { jiji: '미', label: '미시', range: '13:00 ~ 15:00' },
-  { jiji: '신', label: '신시', range: '15:00 ~ 17:00' },
-  { jiji: '유', label: '유시', range: '17:00 ~ 19:00' },
-  { jiji: '술', label: '술시', range: '19:00 ~ 21:00' },
-  { jiji: '해', label: '해시', range: '21:00 ~ 23:00' },
+  { jiji: '자', label: '자시', range: '23:30 ~ 01:29' },
+  { jiji: '축', label: '축시', range: '01:30 ~ 03:29' },
+  { jiji: '인', label: '인시', range: '03:30 ~ 05:29' },
+  { jiji: '묘', label: '묘시', range: '05:30 ~ 07:29' },
+  { jiji: '진', label: '진시', range: '07:30 ~ 09:29' },
+  { jiji: '사', label: '사시', range: '09:30 ~ 11:29' },
+  { jiji: '오', label: '오시', range: '11:30 ~ 13:29' },
+  { jiji: '미', label: '미시', range: '13:30 ~ 15:29' },
+  { jiji: '신', label: '신시', range: '15:30 ~ 17:29' },
+  { jiji: '유', label: '유시', range: '17:30 ~ 19:29' },
+  { jiji: '술', label: '술시', range: '19:30 ~ 21:29' },
+  { jiji: '해', label: '해시', range: '21:30 ~ 23:29' },
 ];
 
 // 오행 색상
