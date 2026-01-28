@@ -94,14 +94,14 @@ export async function GET(request: NextRequest) {
 
   // 줄 수에 따라 폰트 크기 조정
   const getFontSize = (lineIndex: number, totalLines: number): number => {
-    if (totalLines === 1) return 72;
+    if (totalLines === 1) return 84;
     if (totalLines === 2) {
-      return lineIndex === 0 ? 56 : 64;
+      return lineIndex === 0 ? 64 : 76;
     }
     // 3줄: 첫 줄(연도) 작게, 가운데(주제) 크게, 마지막(유형) 중간
-    if (lineIndex === 0) return 48;
-    if (lineIndex === 1) return 64;
-    return 52;
+    if (lineIndex === 0) return 56;
+    if (lineIndex === 1) return 76;
+    return 60;
   };
 
   return new ImageResponse(
