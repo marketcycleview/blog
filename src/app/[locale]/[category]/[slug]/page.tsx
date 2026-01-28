@@ -150,7 +150,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const alternateLocale = locale === "ko" ? "en" : "ko";
 
   // 동적 OG 이미지 URL 생성
-  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description || "")}&category=${encodeURIComponent(category)}`;
+  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&description=${encodeURIComponent(post.description || "")}&category=${encodeURIComponent(category)}&v=2`;
 
   return {
     title: post.title,

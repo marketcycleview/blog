@@ -134,7 +134,7 @@ const categoryLabels: Record<string, { ko: string; en: string; icon: string }> =
 
 function PostCard({ post, locale, siteUrl }: { post: Post; locale: string; siteUrl: string }) {
   // OG 이미지 URL 생성
-  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}`;
+  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}&v=2`;
   const label = categoryLabels[post.category] || { ko: "정보", en: "Info", icon: "📄" };
 
   return (
