@@ -104,8 +104,9 @@ export default async function RootLayout({
         <header className="border-b bg-white sticky top-0 z-50">
           <nav className="max-w-6xl mx-auto px-4 py-4">
             <div className="flex items-center justify-between">
-              <a href={`/${locale}`} className="text-xl font-bold text-gray-900">
-                {siteName}
+              <a href={`/${locale}`} className="flex items-baseline gap-2">
+                <span className="text-xl font-bold text-gray-900">InfoTalker</span>
+                <span className="text-sm font-medium text-gray-500">인포토커</span>
               </a>
               <div className="flex items-center gap-6">
                 <a href={`/${locale}/subsidy`} className="text-gray-600 hover:text-gray-900">
