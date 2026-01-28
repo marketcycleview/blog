@@ -53,7 +53,7 @@ export default async function HomePage({ params }: PageProps) {
         {/* 복지 정책 찾기 CTA 배너 */}
         <Link
           href={`/${locale}/tools/welfare-finder`}
-          className="block mb-6 p-4 sm:p-6 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl text-white hover:from-blue-700 hover:to-indigo-700 transition-all shadow-lg hover:shadow-xl group"
+          className="block mb-6 p-4 sm:p-6 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl text-white hover:from-emerald-600 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl group"
         >
           <div className="flex items-center justify-between">
             <div>
@@ -63,7 +63,7 @@ export default async function HomePage({ params }: PageProps) {
                   {locale === "ko" ? "나에게 맞는 지원금 찾기" : "Find Benefits for You"}
                 </h3>
               </div>
-              <p className="text-blue-100 text-sm sm:text-base">
+              <p className="text-emerald-100 text-sm sm:text-base">
                 {locale === "ko"
                   ? "나이, 소득, 상황에 맞는 지원금을 1분 만에 확인하세요"
                   : "Find eligible benefits based on your age, income, and situation in 1 minute"}
