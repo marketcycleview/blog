@@ -1,0 +1,738 @@
+[
+  {
+    "slug": "2026-ai-dolbom-service",
+    "title": "2026년 아이돌봄서비스 지원대상 확대, 이용요금, 신청방법 총정리",
+    "description": "2026년 아이돌봄서비스 지원대상이 기준중위소득 250%까지 확대됩니다. 시간당 12,790원부터, 최대 90% 정부지원 받을 수 있어요. 이용요금, 지원비율, 신청방법 총정리.",
+    "date": "2026-01-28",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-choejeo-imgeum",
+    "title": "2026년 최저임금 총정리 (시급, 월급, 주휴수당 계산법)",
+    "description": "2026년 최저임금 시급 10,320원으로 확정. 월급 환산 2,156,880원, 주휴수당 포함 시급 12,384원. 계산 방법, 연봉 환산, 위반 시 신고 방법까지 총정리.",
+    "date": "2026-01-28",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-geunyang-dream-saeop",
+    "title": "2026년 그냥드림 사업 총정리 (신청 없이 먹거리·생필품 지원받는 방법)",
+    "description": "그냥드림 사업은 별도 신청 없이 1인당 2만원 상당의 먹거리와 생필품을 받을 수 있습니다. 이용 장소, 지원 품목, 이용 방법을 정리했습니다.",
+    "date": "2026-01-28",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-gujik-chokjin-sudang",
+    "title": "2026년 구직촉진수당 월 60만원 총정리 (신청방법, 자격요건)",
+    "description": "2026년 구직촉진수당이 월 50만원에서 60만원으로 인상됩니다. 국민취업지원제도 1유형 자격요건과 신청방법, 취업활동계획 이행 조건까지 정리했습니다.",
+    "date": "2026-01-28",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-hakjageum-daechul",
+    "title": "2026년 학자금대출 확대 총정리 (취업후상환, 대학원생 생활비 대출)",
+    "description": "2026년 학자금대출 지원 대상이 확대됩니다. 취업후상환 등록금 대출 전 대학생 확대, 대학원생 생활비 대출 6구간까지 확대. 금리 1.7% 동결.",
+    "date": "2026-01-28",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-munhwa-yesul-pass",
+    "title": "2026년 청년문화예술패스 신청방법, 지원금액, 사용처 총정리",
+    "description": "만 19~20세 청년(2006~2007년생)을 위한 문화예술패스. 수도권 15만원, 비수도권 20만원 지원. 공연, 전시, 영화 관람에 사용 가능하며 2026년 6월 30일까지 신청받습니다.",
+    "date": "2026-01-28",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-nonguchon-gibon-sodeuk",
+    "title": "2026년 농어촌 기본소득 신청방법 총정리 (10개 군, 월 15만원)",
+    "description": "농어촌 기본소득, 10개 군 주민에게 월 15만원 지역사랑상품권 지급. 연천, 정선, 옥천, 청양, 순창 등 신청자격과 신청방법 총정리.",
+    "date": "2026-01-28",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-yukagi-geunro-danchwuk",
+    "title": "2026년 육아기 근로시간 단축 급여 총정리 - 월 최대 102.5만원 (상한액 인상)",
+    "description": "2026년 육아기 근로시간 단축 급여 상한액 인상. 주 10시간 단축 시 월 최대 62.5만원, 25시간 단축 시 102.5만원. 신청 자격과 급여 계산법 총정리.",
+    "date": "2026-01-28",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-adong-sudang",
+    "title": "2026년 아동수당 총정리 (만 8세 확대, 월 10만원 지급)",
+    "description": "2026년 아동수당 지급 대상이 만 8세로 확대됩니다. 월 10만원 기본 지급, 비수도권은 최대 3만원 추가. 신청방법과 지급일정까지 정리했습니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "age": {
+        "min": 0,
+        "max": 8,
+        "note": "만 9세 미만 (2018년생 이후)"
+      },
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [
+        "infant",
+        "child"
+      ],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 100000,
+      "duration": 96,
+      "type": "monthly",
+      "note": "월 10만원, 비수도권은 최대 3만원 추가"
+    }
+  },
+  {
+    "slug": "2026-bumo-geupyeo",
+    "title": "2026년 부모급여 총정리 (만 0세 100만원, 만 1세 50만원)",
+    "description": "2026년 부모급여 신청방법과 자격요건을 정리했습니다. 만 0세 월 100만원, 만 1세 월 50만원 지급. 어린이집 이용 시 차액 계산법까지 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-butimmok-daechul",
+    "title": "2026년 버팀목 전세자금대출 조건, 금리, 한도 총정리 (청년, 신혼부부)",
+    "description": "버팀목 전세자금대출 2026년 최신 조건 정리. 일반/청년/신혼부부별 금리(최저 1.7%), 대출한도(최대 3억원), 필요서류, 신청방법까지 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-cheongnyeon-doyak-gyejwa",
+    "title": "2026년 청년도약계좌 총정리 (가입조건, 정부기여금, 신청방법)",
+    "description": "청년도약계좌 가입조건과 소득별 정부기여금, 신청방법을 정리했습니다. 월 최대 70만원 납입하면 5년 만기 시 최대 5천만원 목돈 마련 가능합니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "age": {
+        "min": 19,
+        "max": 34
+      },
+      "income": {
+        "type": "median",
+        "percent": 250,
+        "note": "총급여 7,500만원 이하"
+      },
+      "targetGroups": [
+        "youth",
+        "worker",
+        "selfemployed"
+      ],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 60000,
+      "duration": 60,
+      "type": "monthly",
+      "note": "정부기여금 월 최대 6만원, 5년 만기 시 최대 5천만원"
+    }
+  },
+  {
+    "slug": "2026-cheongnyeon-iljari-doyak",
+    "title": "2026년 청년일자리도약장려금 총정리 (신청방법, 자격요건, 지원금액)",
+    "description": "2026년 청년일자리도약장려금 신청 방법, 기업/청년 자격 요건, 지역별 지원금액을 상세히 정리했습니다. 비수도권 우대 지원 내용까지 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-cheongnyeon-mirae-jeokgeum",
+    "title": "2026년 청년미래적금 신청방법, 자격요건 총정리 (6월 출시)",
+    "description": "2026년 6월 출시 예정인 청년미래적금 자격요건, 기여금, 신청방법 총정리. 3년 만에 최대 2,200만원 목돈 마련 가능. 청년도약계좌와 비교 분석까지 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-cheongnyeon-naeil-jeochuk",
+    "title": "2026년 청년내일저축계좌 신청자격, 지원금, 만기금액 총정리",
+    "description": "청년내일저축계좌 2026년 신청 정보입니다. 자격요건, 월 10~30만원 정부지원금, 3년 만기 최대 1,440만원 수령 방법을 정리했습니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-cheongnyeon-wolse-jiwon",
+    "title": "2026년 청년월세지원 신청방법 총정리 (자격요건, 지원금액, 신청기간)",
+    "description": "청년월세지원 월 20만원, 최대 24개월 받을 수 있습니다. 2026년 자격요건, 소득기준, 신청방법을 한눈에 정리했습니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "age": {
+        "min": 19,
+        "max": 34,
+        "note": "서울시/인천시는 만 39세까지"
+      },
+      "income": {
+        "type": "median",
+        "percent": 60,
+        "note": "청년가구 기준, 원가구는 100% 이하"
+      },
+      "asset": {
+        "max": 12200
+      },
+      "targetGroups": [
+        "youth",
+        "renter"
+      ],
+      "housing": [
+        "rent"
+      ],
+      "householdType": [
+        "single",
+        "independent"
+      ],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 200000,
+      "duration": 24,
+      "type": "monthly",
+      "note": "실제 월세의 최대 20만원"
+    }
+  },
+  {
+    "slug": "2026-cheotmannam-iyonggwon",
+    "title": "2026년 첫만남이용권 신청 총정리 - 첫째 200만원, 둘째 이상 300만원",
+    "description": "2026년 첫만남이용권(출산축하금) 신청방법과 사용처를 정리했습니다. 첫째 200만원, 둘째 이상 300만원 지급. 국민행복카드 발급부터 잔액 조회까지 한번에 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-didimddol-daechul",
+    "title": "2026년 디딤돌 대출 조건, 금리, 한도 총정리 (생애최초, 신혼부부 우대)",
+    "description": "2026년 디딤돌대출 조건 총정리. 연 2.55%~4.15% 금리, 최대 3.2억원 한도, 신혼부부/생애최초 우대금리와 신청방법까지 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-euryo-geupyeo",
+    "title": "2026년 의료급여 제도 총정리 (1종 2종 차이, 본인부담금, 신청방법)",
+    "description": "2026년 의료급여 1종과 2종의 차이점, 본인부담금, 자격요건, 신청 방법을 정리했습니다. 부양비 완전 폐지로 약 5만 명이 새롭게 혜택받습니다. 1인 가구 기준 월 102만원 이하면 신청 가능합니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-geongang-boheom-gyeonggam",
+    "title": "2026년 건강보험료 경감/감면 총정리 (대상, 감면율, 신청방법)",
+    "description": "2026년 건강보험료 경감 대상과 감면율을 정리했습니다. 65세 이상, 한부모가정, 장애인, 농어촌 거주자 등 경감 혜택과 피부양자 자격요건까지 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-geunro-jangryeogeum",
+    "title": "2026년 근로장려금 신청방법 총정리 (자격요건, 지급금액, 신청기간)",
+    "description": "2026년 근로장려금 신청 자격, 소득/재산 기준, 가구유형별 지급금액(단독 165만원, 맞벌이 330만원), 5월 정기신청 방법까지 한눈에 정리했습니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-gicho-yeonggeum",
+    "title": "2026년 기초연금 수급자격, 지급액, 신청방법 총정리",
+    "description": "2026년 기초연금 선정기준액 247만원(단독), 최대 지급액 월 349,360원 등 수급자격과 신청방법을 정리했습니다. 65세 이상 어르신이라면 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-gijun-jungwi-sodeuk",
+    "title": "2026년 기준 중위소득 총정리 (가구별 금액, 급여별 선정기준)",
+    "description": "2026년 기준 중위소득이 역대 최대 6.51% 인상됐습니다. 가구원수별 금액과 생계급여, 의료급여, 주거급여, 교육급여 선정기준을 표로 정리했습니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-gingeup-bokji-jiwon",
+    "title": "2026년 긴급복지지원제도 총정리 (위기상황별 지원금액, 신청방법)",
+    "description": "갑작스러운 위기상황에 처했을 때 받을 수 있는 긴급복지지원제도를 정리했습니다. 생계, 의료, 주거, 교육지원 금액과 129 신청방법까지 안내합니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-gukmin-chwieop-jiwon",
+    "title": "2026년 국민취업지원제도 신청방법 총정리 (1유형, 2유형 자격요건)",
+    "description": "2026년 국민취업지원제도 1유형, 2유형 자격요건과 신청방법을 정리했습니다. 구직촉진수당 월 60만원, 최대 360만원 받는 방법과 부양가족 추가급여까지 안내합니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-gukmin-yeongeum-suryeong",
+    "title": "2026년 국민연금 수령액 계산 및 예상연금 조회 방법",
+    "description": "2026년 국민연금 수령 나이, 예상연금 조회방법, 수령액 계산법, 조기수령/연기수령 조건을 정리했습니다. 물가상승률 2.1% 반영으로 평균 수급액 월 69만원입니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-hanbumo-jiwon",
+    "title": "2026년 한부모가족 지원금 총정리 (아동양육비, 자격요건, 신청방법)",
+    "description": "2026년 한부모가족 지원금 총정리입니다. 아동양육비 월 23만원, 추가아동양육비 월 10만원, 학용품비 연 10만원까지. 소득 기준이 중위소득 65%로 완화되어 약 1만 명이 새롭게 혜택받습니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-jangaein-yeongeum",
+    "title": "2026년 장애인연금 신청자격, 지급액, 신청방법 총정리",
+    "description": "2026년 장애인연금 기초급여 34만 9,700원, 부가급여 최대 9만원. 중증장애인 자격요건, 소득인정액 기준, 신청방법까지 정리했습니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-janyeo-jangryeogeum",
+    "title": "2026년 자녀장려금 신청방법 총정리 (자격요건, 지급금액, 신청기간)",
+    "description": "2026년 자녀장려금 신청 자격과 지급금액을 정리했습니다. 자녀 1명당 최대 100만원, 부부합산 연소득 7천만원 미만 대상. 5월 정기신청 놓치지 마세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-jeongicha-bojogeum",
+    "title": "2026년 전기차 보조금 총정리 (차종별 금액, 전환지원금, 신청방법)",
+    "description": "2026년 전기차 국고보조금, 지자체 보조금, 전환지원금까지 한눈에 정리했습니다. 최대 1,400만원 받는 방법과 차종별 금액, 신청 절차를 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-jijache-minsaeng-jiwongeum",
+    "title": "2026년 지자체별 민생지원금 총정리 (지급액, 신청기간, 신청방법)",
+    "description": "2026년 설 명절 전후 지급되는 지자체별 민생지원금 현황을 정리했습니다. 보은군 60만원, 영동군 50만원, 군위군 54만원 등 지역별 지급액과 신청방법을 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-jugeo-geupyeo",
+    "title": "2026년 주거급여 신청방법 총정리 (자격요건, 임차급여, 수선유지급여)",
+    "description": "2026년 주거급여 신청자격과 지급금액을 정리했습니다. 기준 중위소득 48% 이하 가구 대상, 지역별 기준임대료와 수선유지급여 금액까지 한눈에 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-jutaek-cheongnyak",
+    "title": "2026년 주택청약종합저축 총정리 (가입방법, 납입금액, 청약점수, 당첨 전략)",
+    "description": "2026년 주택청약종합저축 총정리. 금리 최대 3.1%, 소득공제 연 300만원 한도, 1순위 조건과 가점 계산법까지 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-modu-card",
+    "title": "2026년 모두의 카드 총정리 - 대중교통비 무제한 환급받는 방법",
+    "description": "K패스 모두의 카드 신청방법, 환급 기준금액, K패스와 차이점, 기후동행카드 비교까지 한번에 정리했습니다. 월 6만2천원만 내면 교통비 무제한!",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-naeil-baeum-card",
+    "title": "2026년 국민내일배움카드 신청방법 총정리 (지원금액, 자격요건, 훈련과정)",
+    "description": "국민내일배움카드로 5년간 최대 500만원 훈련비 지원받는 방법을 정리했습니다. 신청자격, 자비부담률, HRD-Net 훈련과정 찾는 법까지 한눈에 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-saenggye-geupyeo",
+    "title": "2026년 생계급여 신청방법 총정리 (자격요건, 지급금액, 신청기간)",
+    "description": "2026년 생계급여 선정기준, 가구원수별 지급금액(1인 82만원, 4인 207만원), 신청 방법을 정리했습니다. 기준 중위소득 32% 이하 대상, 역대 최대 인상으로 4만명 추가 수급.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-silup-geupyeo",
+    "title": "2026년 실업급여 총정리 (수급 자격, 금액, 신청방법)",
+    "description": "2026년 실업급여 일 상한액 68,100원, 하한액 66,048원으로 인상. 수급 자격요건, 지급 기간(최대 270일), 신청 절차를 총정리했습니다.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-sosanggongin-voucher",
+    "title": "2026년 소상공인 경영안정바우처 신청방법 총정리 (자격요건, 지원금액, 사용처)",
+    "description": "2026년 소상공인 경영안정바우처 25만원 신청 자격, 지원대상, 사용처, 신청기간까지 한눈에 정리했습니다. 영세 소상공인이라면 꼭 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-yeonmal-jeongsang",
+    "title": "2026년 연말정산 총정리 (2025년 귀속) - 일정, 공제항목, 환급 꿀팁",
+    "description": "2026년 연말정산 일정과 간소화서비스 이용법을 정리했습니다. 소득공제/세액공제 항목별 한도, 고향사랑기부제 활용법, 환급 많이 받는 꿀팁까지 한눈에 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  },
+  {
+    "slug": "2026-yuka-hyujik-geupyeo",
+    "title": "2026년 육아휴직급여 신청방법 총정리 - 월 최대 250만원, 6+6 부모육아휴직제",
+    "description": "2026년 육아휴직급여 신청방법과 지급액을 정리했습니다. 월 최대 250만원, 6+6 부모육아휴직제 활용 시 부부 합산 월 최대 900만원. 자격요건과 신청기간을 확인하세요.",
+    "date": "2026-01-27",
+    "category": "subsidy",
+    "eligibility": {
+      "targetGroups": [],
+      "region": null,
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "type": "other"
+    }
+  }
+]
