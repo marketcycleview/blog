@@ -200,33 +200,33 @@ export default function SajuCalculator() {
       {result && (
         <>
           {/* 탭 */}
-          <div className="flex gap-2 mt-8 mb-2">
+          <div className="grid grid-cols-3 gap-2 mt-8 mb-4">
             <button
               onClick={() => setActiveTab('result')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              className={`px-4 py-4 rounded-xl text-base font-semibold transition-all shadow-sm ${
                 activeTab === 'result'
-                  ? 'bg-slate-800 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-slate-800 text-white shadow-md'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               사주 결과
             </button>
             <button
               onClick={() => setActiveTab('fortune')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              className={`px-4 py-4 rounded-xl text-base font-semibold transition-all shadow-sm ${
                 activeTab === 'fortune'
-                  ? 'bg-slate-800 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-purple-600 text-white shadow-md'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               {currentYear}년 운세
             </button>
             <button
               onClick={() => setActiveTab('compatibility')}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+              className={`px-4 py-4 rounded-xl text-base font-semibold transition-all shadow-sm ${
                 activeTab === 'compatibility'
-                  ? 'bg-slate-800 text-white'
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                  ? 'bg-pink-500 text-white shadow-md'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               궁합 보기
