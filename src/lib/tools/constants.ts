@@ -11,9 +11,10 @@ export interface Tool {
   };
   icon: string;
   href: string;
-  category: "fortune" | "calculator" | "finder" | "other";
+  category: "welfare" | "finance" | "tax" | "calculator" | "other";
   isNew?: boolean;
   isPopular?: boolean;
+  hidden?: boolean; // 목록에서 숨김 (페이지는 유지)
 }
 
 // 카테고리 정보
@@ -21,23 +22,29 @@ export const TOOL_CATEGORIES: Record<
   string,
   { ko: string; en: string; icon: string; color: string }
 > = {
-  fortune: {
-    ko: "운세/사주",
-    en: "Fortune",
-    icon: "🔮",
+  welfare: {
+    ko: "복지/지원금",
+    en: "Welfare",
+    icon: "💰",
+    color: "blue",
+  },
+  finance: {
+    ko: "금융/대출",
+    en: "Finance",
+    icon: "🏦",
+    color: "green",
+  },
+  tax: {
+    ko: "세금/연말정산",
+    en: "Tax",
+    icon: "📋",
     color: "purple",
   },
   calculator: {
-    ko: "계산기",
+    ko: "생활 계산기",
     en: "Calculator",
     icon: "🧮",
-    color: "blue",
-  },
-  finder: {
-    ko: "검색/찾기",
-    en: "Finder",
-    icon: "🔍",
-    color: "green",
+    color: "orange",
   },
   other: {
     ko: "기타",
@@ -49,6 +56,23 @@ export const TOOL_CATEGORIES: Record<
 
 // 도구 목록
 export const TOOLS: Tool[] = [
+  // === 복지/지원금 ===
+  {
+    id: "welfare-finder",
+    title: {
+      ko: "복지 정책 찾기",
+      en: "Welfare Policy Finder",
+    },
+    description: {
+      ko: "나에게 맞는 복지 정책 검색",
+      en: "Find welfare policies that fit you",
+    },
+    icon: "🔍",
+    href: "/tools/welfare-finder",
+    category: "welfare",
+    isPopular: true,
+  },
+  // === 숨김 처리된 도구 (페이지는 유지, 목록에서만 제외) ===
   {
     id: "saju",
     title: {
@@ -61,8 +85,8 @@ export const TOOLS: Tool[] = [
     },
     icon: "🔮",
     href: "/tools/saju",
-    category: "fortune",
-    isPopular: true,
+    category: "other",
+    hidden: true,
   },
   {
     id: "today-fortune",
@@ -76,8 +100,8 @@ export const TOOLS: Tool[] = [
     },
     icon: "🌅",
     href: "/tools/today-fortune",
-    category: "fortune",
-    isNew: true,
+    category: "other",
+    hidden: true,
   },
   {
     id: "zodiac-fortune",
@@ -91,46 +115,37 @@ export const TOOLS: Tool[] = [
     },
     icon: "🐴",
     href: "/tools/zodiac-fortune",
-    category: "fortune",
-  },
-  {
-    id: "welfare-finder",
-    title: {
-      ko: "복지 정책 찾기",
-      en: "Welfare Policy Finder",
-    },
-    description: {
-      ko: "나에게 맞는 복지 정책 검색",
-      en: "Find welfare policies that fit you",
-    },
-    icon: "🔍",
-    href: "/tools/welfare-finder",
-    category: "finder",
-    isPopular: true,
+    category: "other",
+    hidden: true,
   },
 ];
 
-// 카테고리별 도구 필터링
+// 보이는 도구만 필터링 (hidden 제외)
+export function getVisibleTools(): Tool[] {
+  return TOOLS.filter((tool) => !tool.hidden);
+}
+
+// 카테고리별 도구 필터링 (hidden 제외)
 export function getToolsByCategory(category: string): Tool[] {
-  return TOOLS.filter((tool) => tool.category === category);
+  return TOOLS.filter((tool) => tool.category === category && !tool.hidden);
 }
 
-// 인기 도구만 가져오기
+// 인기 도구만 가져오기 (hidden 제외)
 export function getPopularTools(): Tool[] {
-  return TOOLS.filter((tool) => tool.isPopular);
+  return TOOLS.filter((tool) => tool.isPopular && !tool.hidden);
 }
 
-// 새로운 도구만 가져오기
+// 새로운 도구만 가져오기 (hidden 제외)
 export function getNewTools(): Tool[] {
-  return TOOLS.filter((tool) => tool.isNew);
+  return TOOLS.filter((tool) => tool.isNew && !tool.hidden);
 }
 
-// 메인페이지용 도구 (최대 6개)
+// 메인페이지용 도구 (최대 6개, hidden 제외)
 export function getFeaturedTools(limit: number = 6): Tool[] {
-  // 인기 도구 우선, 그 다음 새로운 도구, 나머지
-  const popular = TOOLS.filter((t) => t.isPopular);
-  const newTools = TOOLS.filter((t) => t.isNew && !t.isPopular);
-  const others = TOOLS.filter((t) => !t.isPopular && !t.isNew);
+  const visible = getVisibleTools();
+  const popular = visible.filter((t) => t.isPopular);
+  const newTools = visible.filter((t) => t.isNew && !t.isPopular);
+  const others = visible.filter((t) => !t.isPopular && !t.isNew);
 
   return [...popular, ...newTools, ...others].slice(0, limit);
 }

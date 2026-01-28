@@ -2,9 +2,9 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ToolCard } from "@/components/ToolCard";
 import {
-  TOOLS,
   TOOL_CATEGORIES,
   getToolsByCategory,
+  getVisibleTools,
 } from "@/lib/tools/constants";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
@@ -16,19 +16,19 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { locale } = await params;
 
-  const title = locale === "ko" ? "무료 도구 모음" : "Free Tools Collection";
+  const title = locale === "ko" ? "복지·금융·세금 무료 도구" : "Welfare & Finance Free Tools";
   const description =
     locale === "ko"
-      ? "사주팔자, 오늘의 운세, 띠별 운세, 복지 정책 찾기 등 다양한 무료 도구를 이용해보세요."
-      : "Try various free tools including Saju analysis, daily fortune, zodiac fortune, welfare policy finder, and more.";
+      ? "복지 정책 찾기, 연봉 실수령액 계산기, 대출 이자 계산기 등 생활에 필요한 무료 도구를 이용해보세요."
+      : "Try free tools for welfare policy finder, salary calculator, loan interest calculator, and more.";
 
   return {
     title,
     description,
     keywords:
       locale === "ko"
-        ? ["무료 사주", "무료 운세", "사주팔자", "오늘의 운세", "띠별 운세", "복지 정책"]
-        : ["free saju", "free fortune", "daily fortune", "zodiac fortune", "welfare policy"],
+        ? ["복지 정책 찾기", "연봉 계산기", "대출 계산기", "연말정산", "지원금 검색", "세금 계산"]
+        : ["welfare policy finder", "salary calculator", "loan calculator", "tax calculator"],
     alternates: {
       canonical: `${siteUrl}/${locale}/tools`,
       languages: {
@@ -60,6 +60,8 @@ export function generateStaticParams() {
 export default async function ToolsPage({ params }: PageProps) {
   const { locale } = await params;
 
+  const visibleTools = getVisibleTools();
+
   // 카테고리별로 도구 그룹화
   const categories = Object.keys(TOOL_CATEGORIES).filter(
     (cat) => getToolsByCategory(cat).length > 0
@@ -68,19 +70,19 @@ export default async function ToolsPage({ params }: PageProps) {
   return (
     <div>
       {/* 히어로 섹션 */}
-      <section className="text-center py-12 mb-12 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-2xl px-4">
+      <section className="text-center py-12 mb-12 bg-gradient-to-r from-blue-50 to-green-50 rounded-2xl px-4">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          {locale === "ko" ? "🛠️ 무료 도구 모음" : "🛠️ Free Tools Collection"}
+          {locale === "ko" ? "💰 복지·금융·세금 도구" : "💰 Welfare & Finance Tools"}
         </h1>
         <p className="text-xl text-gray-600 mb-2">
           {locale === "ko"
-            ? "사주, 운세, 복지 정책 검색까지"
-            : "Saju, Fortune, Welfare Policy Finder and more"}
+            ? "내 돈 챙기기, 여기서 시작하세요"
+            : "Start managing your money here"}
         </p>
         <p className="text-gray-500">
           {locale === "ko"
-            ? `총 ${TOOLS.length}개의 무료 도구를 이용해보세요`
-            : `Try ${TOOLS.length} free tools`}
+            ? `${visibleTools.length}개의 무료 도구를 이용해보세요`
+            : `Try ${visibleTools.length} free tools`}
         </p>
       </section>
 
@@ -90,7 +92,7 @@ export default async function ToolsPage({ params }: PageProps) {
           {locale === "ko" ? "전체 도구" : "All Tools"}
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {TOOLS.map((tool) => (
+          {visibleTools.map((tool) => (
             <ToolCard key={tool.id} tool={tool} locale={locale} />
           ))}
         </div>
@@ -124,57 +126,57 @@ export default async function ToolsPage({ params }: PageProps) {
       {/* SEO 콘텐츠 */}
       <section className="mt-16 prose prose-gray max-w-none">
         <h2 className="text-2xl font-bold mb-4">
-          {locale === "ko" ? "InfoTalker 무료 도구 안내" : "About InfoTalker Free Tools"}
+          {locale === "ko" ? "InfoTalker 생활 경제 도구 안내" : "About InfoTalker Finance Tools"}
         </h2>
 
         {locale === "ko" ? (
           <>
             <p>
-              InfoTalker에서는 다양한 무료 도구를 제공합니다. 회원가입 없이 누구나 바로 사용할 수 있습니다.
+              InfoTalker에서는 복지, 금융, 세금 관련 무료 도구를 제공합니다.
+              회원가입 없이 누구나 바로 사용할 수 있어요.
             </p>
-
-            <h3>운세/사주 도구</h3>
-            <ul>
-              <li>
-                <strong>무료 사주팔자</strong>: 생년월일시를 입력하면 사주팔자, 오행 분석, 대운, 세운까지 확인할 수 있습니다.
-              </li>
-              <li>
-                <strong>오늘의 운세</strong>: 매일 달라지는 일진 운세를 확인해보세요.
-              </li>
-              <li>
-                <strong>2026 띠별 운세</strong>: 병오년 12띠 운세를 한눈에 확인할 수 있습니다.
-              </li>
-            </ul>
 
             <h3>복지 정책 찾기</h3>
             <p>
               나이, 소득, 지역 등 조건을 입력하면 받을 수 있는 복지 정책을 찾아드립니다.
-              청년, 신혼부부, 저소득층 등 다양한 조건에 맞는 정책을 검색해보세요.
+              청년, 신혼부부, 저소득층 등 다양한 조건에 맞는 지원금 정책을 검색해보세요.
+            </p>
+
+            <h3>금융/대출 계산기 (준비중)</h3>
+            <p>
+              대출 이자 계산, 예적금 이자 계산, 원리금균등상환 계산 등
+              금융 관련 계산기를 곧 추가할 예정입니다.
+            </p>
+
+            <h3>세금/연말정산 계산기 (준비중)</h3>
+            <p>
+              연봉 실수령액 계산, 연말정산 환급액 예상, 종합소득세 계산 등
+              세금 관련 도구도 준비 중입니다.
             </p>
           </>
         ) : (
           <>
             <p>
-              InfoTalker provides various free tools. Anyone can use them immediately without registration.
+              InfoTalker provides free tools for welfare, finance, and tax calculations.
+              Anyone can use them immediately without registration.
             </p>
-
-            <h3>Fortune/Saju Tools</h3>
-            <ul>
-              <li>
-                <strong>Free Saju Analysis</strong>: Enter your birth date and time to see your Saju analysis, five elements, and fortune cycles.
-              </li>
-              <li>
-                <strong>Today's Fortune</strong>: Check your daily fortune that changes every day.
-              </li>
-              <li>
-                <strong>2026 Zodiac Fortune</strong>: See the fortune for all 12 zodiac signs in 2026.
-              </li>
-            </ul>
 
             <h3>Welfare Policy Finder</h3>
             <p>
               Enter your age, income, region and other conditions to find welfare policies available to you.
               Search for policies that match various conditions such as youth, newlyweds, and low-income families.
+            </p>
+
+            <h3>Finance Calculators (Coming Soon)</h3>
+            <p>
+              Loan interest calculator, savings interest calculator, and amortization calculator
+              will be added soon.
+            </p>
+
+            <h3>Tax Calculators (Coming Soon)</h3>
+            <p>
+              Net salary calculator, year-end tax refund estimator, and income tax calculator
+              are also in preparation.
             </p>
           </>
         )}
