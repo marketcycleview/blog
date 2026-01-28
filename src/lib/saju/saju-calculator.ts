@@ -56,11 +56,11 @@ function calculateMonthPillar(yearCheongan: CheonganType, lunarMonth: number): P
 
 /**
  * 일주 계산
- * 기준일: 1900년 1월 31일 = 경진일 (간지 index: 16)
+ * 기준일: 2000년 1월 7일 = 갑자일 (간지 index: 0)
  */
 function calculateDayPillar(solarDate: Date): Pillar {
-  const baseDate = new Date(1900, 0, 31); // 1900-01-31
-  const baseGanjiIndex = 16; // 경진
+  const baseDate = new Date(2000, 0, 7); // 2000-01-07
+  const baseGanjiIndex = 0; // 갑자
 
   const diffTime = solarDate.getTime() - baseDate.getTime();
   const diffDays = Math.round(diffTime / (1000 * 60 * 60 * 24));
