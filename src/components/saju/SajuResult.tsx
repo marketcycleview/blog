@@ -127,7 +127,7 @@ export default function SajuResult({ result }: SajuResultProps) {
         </div>
 
         {/* 탭 콘텐츠 */}
-        <div className="p-4 sm:p-6 max-h-[500px] overflow-y-auto">
+        <div className="p-4 sm:p-6">
           {renderTabContent()}
         </div>
       </div>
