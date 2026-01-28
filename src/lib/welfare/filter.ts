@@ -109,7 +109,7 @@ function checkEligibility(
   }
 
   // 7. 주거 형태 매칭
-  if (conditions.housing && eligibility.housing?.length > 0) {
+  if (conditions.housing && eligibility.housing && eligibility.housing.length > 0) {
     if (eligibility.housing.includes(conditions.housing)) {
       matchedCriteria.push("주거 형태 일치");
       score += 10;
