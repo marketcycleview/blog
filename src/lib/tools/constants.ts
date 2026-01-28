@@ -72,52 +72,6 @@ export const TOOLS: Tool[] = [
     category: "welfare",
     isPopular: true,
   },
-  // === 숨김 처리된 도구 (페이지는 유지, 목록에서만 제외) ===
-  {
-    id: "saju",
-    title: {
-      ko: "무료 사주팔자",
-      en: "Free Saju Analysis",
-    },
-    description: {
-      ko: "생년월일시로 보는 사주 분석",
-      en: "Saju analysis based on birth date & time",
-    },
-    icon: "🔮",
-    href: "/tools/saju",
-    category: "other",
-    hidden: true,
-  },
-  {
-    id: "today-fortune",
-    title: {
-      ko: "오늘의 운세",
-      en: "Today's Fortune",
-    },
-    description: {
-      ko: "매일 달라지는 일진 운세",
-      en: "Daily fortune that changes every day",
-    },
-    icon: "🌅",
-    href: "/tools/today-fortune",
-    category: "other",
-    hidden: true,
-  },
-  {
-    id: "zodiac-fortune",
-    title: {
-      ko: "2026 띠별 운세",
-      en: "2026 Zodiac Fortune",
-    },
-    description: {
-      ko: "병오년 12띠 운세 총정리",
-      en: "2026 fortune for all 12 zodiac signs",
-    },
-    icon: "🐴",
-    href: "/tools/zodiac-fortune",
-    category: "other",
-    hidden: true,
-  },
 ];
 
 // 보이는 도구만 필터링 (hidden 제외)
