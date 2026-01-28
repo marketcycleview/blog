@@ -109,16 +109,16 @@ export default async function RootLayout({
               </a>
               <div className="flex items-center gap-6">
                 <a href={`/${locale}/subsidy`} className="text-gray-600 hover:text-gray-900">
-                  지원금
+                  {locale === "ko" ? "지원금" : "Subsidy"}
                 </a>
                 <a href={`/${locale}/review`} className="text-gray-600 hover:text-gray-900">
-                  리뷰
+                  {locale === "ko" ? "리뷰" : "Review"}
                 </a>
                 <a href={`/${locale}/trending`} className="text-gray-600 hover:text-gray-900">
-                  트렌딩
+                  {locale === "ko" ? "트렌딩" : "Trending"}
                 </a>
-                <a href={`/${locale}/tools/saju`} className="text-gray-600 hover:text-gray-900">
-                  사주
+                <a href={`/${locale}/tools`} className="text-gray-600 hover:text-gray-900">
+                  {locale === "ko" ? "도구" : "Tools"}
                 </a>
                 {/* 언어 전환 */}
                 <div className="flex gap-2 text-sm">

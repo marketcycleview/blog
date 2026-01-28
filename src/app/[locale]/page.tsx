@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { getAllPosts } from "@/lib/posts";
 import { SearchBar } from "@/components/SearchBar";
+import { ToolCard } from "@/components/ToolCard";
+import { getFeaturedTools } from "@/lib/tools/constants";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 
@@ -97,6 +99,23 @@ export default async function HomePage({ params }: PageProps) {
           ) : (
             <EmptyCard locale={locale} category="trending" />
           )}
+        </div>
+      </section>
+
+      {/* 무료 도구 섹션 */}
+      <section className="mb-12">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold">
+            {locale === "ko" ? "🛠️ 무료 도구" : "🛠️ Free Tools"}
+          </h2>
+          <Link href={`/${locale}/tools`} className="px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition">
+            {locale === "ko" ? "전체 보기" : "View All"}
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          {getFeaturedTools(4).map((tool) => (
+            <ToolCard key={tool.id} tool={tool} locale={locale} />
+          ))}
         </div>
       </section>
     </div>

@@ -6,14 +6,27 @@
     "date": "2026-01-28",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 0,
+        "max": 12,
+        "note": "만 12세 이하 아동이 있는 가정"
+      },
+      "income": {
+        "type": "median",
+        "percent": 250
+      },
+      "targetGroups": [
+        "infant",
+        "child"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "type": "other",
+      "note": "시간당 12,790원, 정부지원 최대 90%"
     }
   },
   {
@@ -23,14 +36,21 @@
     "date": "2026-01-28",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [
+        "worker"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 2156880,
+      "type": "monthly",
+      "note": "시급 10,320원, 월급 환산 2,156,880원"
     }
   },
   {
@@ -40,14 +60,22 @@
     "date": "2026-01-28",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "none",
+        "note": "별도 심사 없음"
+      },
+      "targetGroups": [
+        "lowIncome"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 20000,
+      "type": "other",
+      "note": "1인당 2만원 상당, 월 1회 (연 최대 3회)"
     }
   },
   {
@@ -57,14 +85,28 @@
     "date": "2026-01-28",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 15,
+        "max": 69
+      },
+      "income": {
+        "type": "median",
+        "percent": 60
+      },
+      "targetGroups": [
+        "jobseeker",
+        "youth"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 600000,
+      "duration": 6,
+      "type": "monthly",
+      "note": "월 60만원 x 6개월 = 총 360만원"
     }
   },
   {
@@ -74,14 +116,21 @@
     "date": "2026-01-28",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "none",
+        "note": "등록금 대출 소득 무관 (2026년~)"
+      },
+      "targetGroups": [
+        "student"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "type": "loan",
+      "note": "등록금 전액, 생활비 대출. 금리 연 1.7%"
     }
   },
   {
@@ -91,14 +140,26 @@
     "date": "2026-01-28",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 19,
+        "max": 20,
+        "note": "2006~2007년생"
+      },
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [
+        "youth"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 200000,
+      "type": "onetime",
+      "note": "수도권 15만원, 비수도권 20만원"
     }
   },
   {
@@ -108,14 +169,24 @@
     "date": "2026-01-28",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [
+        "farmer"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
-      "specialConditions": []
+      "specialConditions": [
+        "인구소멸위기 10개 군 거주자"
+      ]
     },
     "benefit": {
-      "type": "other"
+      "amount": 150000,
+      "duration": 24,
+      "type": "monthly",
+      "note": "월 15~20만원 지역사랑상품권"
     }
   },
   {
@@ -125,14 +196,26 @@
     "date": "2026-01-28",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 0,
+        "max": 12,
+        "note": "만 12세 이하 자녀를 둔 근로자"
+      },
+      "targetGroups": [
+        "worker",
+        "infant",
+        "child"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 1025000,
+      "duration": 36,
+      "type": "monthly",
+      "note": "월 최대 102.5만원, 최대 3년"
     }
   },
   {
@@ -173,14 +256,27 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 0,
+        "max": 1,
+        "note": "만 2세 미만 (0~23개월)"
+      },
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [
+        "infant"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 1000000,
+      "duration": 24,
+      "type": "monthly",
+      "note": "만 0세 월 100만원, 만 1세 월 50만원"
     }
   },
   {
@@ -190,14 +286,32 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "fixed",
+        "maxAmount": 6000,
+        "note": "부부합산 연소득 6천만원 이하 (신혼 7천만원)"
+      },
+      "targetGroups": [
+        "youth",
+        "renter"
+      ],
+      "housing": [
+        "jeonse",
+        "homeless"
+      ],
+      "householdType": [
+        "single",
+        "couple"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 200000000,
+      "type": "loan",
+      "note": "최대 2억원 (신혼/신생아 3억원), 금리 1.7%~3.3%"
     }
   },
   {
@@ -240,14 +354,24 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 15,
+        "max": 34
+      },
+      "targetGroups": [
+        "youth",
+        "jobseeker"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 7200000,
+      "duration": 12,
+      "type": "other",
+      "note": "기업 월 60만원 x 12개월, 청년 최대 720만원"
     }
   },
   {
@@ -257,14 +381,26 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 19,
+        "max": 34,
+        "note": "군필자 최대 40세"
+      },
+      "targetGroups": [
+        "youth",
+        "worker",
+        "selfemployed"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 22000000,
+      "duration": 36,
+      "type": "other",
+      "note": "3년 만기 시 최대 2,200만원, 정부기여금 6~12%"
     }
   },
   {
@@ -274,14 +410,30 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 19,
+        "max": 34,
+        "note": "수급자/차상위는 15~39세"
+      },
+      "income": {
+        "type": "median",
+        "percent": 100
+      },
+      "targetGroups": [
+        "youth",
+        "lowIncome",
+        "worker"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 300000,
+      "duration": 36,
+      "type": "monthly",
+      "note": "정부지원금 월 10~30만원, 3년 만기 시 최대 1,440만원"
     }
   },
   {
@@ -334,14 +486,27 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 0,
+        "max": 0,
+        "note": "출생 아동"
+      },
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [
+        "infant",
+        "pregnant"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 3000000,
+      "type": "onetime",
+      "note": "첫째 200만원, 둘째 이상 300만원"
     }
   },
   {
@@ -351,14 +516,31 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "fixed",
+        "maxAmount": 6000,
+        "note": "부부합산 연소득 6천만원 이하 (생애최초 7천만원)"
+      },
+      "targetGroups": [
+        "renter"
+      ],
+      "housing": [
+        "homeless"
+      ],
+      "householdType": [
+        "single",
+        "couple",
+        "multiChild"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 320000000,
+      "type": "loan",
+      "note": "최대 3.2억원, 금리 2.55%~4.15%"
     }
   },
   {
@@ -368,14 +550,23 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "median",
+        "percent": 40
+      },
+      "targetGroups": [
+        "lowIncome",
+        "disabled",
+        "senior"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "type": "other",
+      "note": "의료비 본인부담 경감, 1종은 입원 무료"
     }
   },
   {
@@ -385,14 +576,21 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "targetGroups": [
+        "senior",
+        "singleparent",
+        "disabled",
+        "farmer",
+        "lowIncome"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "type": "other",
+      "note": "건강보험료 10~50% 경감"
     }
   },
   {
@@ -402,14 +600,25 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "fixed",
+        "maxAmount": 4000,
+        "note": "단독 2,200만원, 홑벌이 3,200만원, 맞벌이 4,400만원 미만"
+      },
+      "targetGroups": [
+        "lowIncome",
+        "worker",
+        "selfemployed"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 3300000,
+      "type": "yearly",
+      "note": "단독 165만원, 홑벌이 285만원, 맞벌이 330만원"
     }
   },
   {
@@ -419,14 +628,27 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 65,
+        "note": "만 65세 이상"
+      },
+      "income": {
+        "type": "fixed",
+        "maxAmount": 247,
+        "note": "단독 247만원, 부부 395만원 이하"
+      },
+      "targetGroups": [
+        "senior"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 349360,
+      "type": "monthly",
+      "note": "월 최대 349,360원"
     }
   },
   {
@@ -436,6 +658,9 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
+      "income": {
+        "type": "none"
+      },
       "targetGroups": [],
       "region": null,
       "gender": null,
@@ -443,7 +668,8 @@
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "type": "other",
+      "note": "정보성 콘텐츠 - 복지 기준선 안내"
     }
   },
   {
@@ -453,14 +679,23 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "median",
+        "percent": 75
+      },
+      "targetGroups": [
+        "lowIncome"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 1990000,
+      "duration": 3,
+      "type": "monthly",
+      "note": "생계 1인 78만원~4인 199만원, 의료 최대 300만원"
     }
   },
   {
@@ -470,14 +705,29 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 15,
+        "max": 69
+      },
+      "income": {
+        "type": "median",
+        "percent": 120,
+        "note": "1유형 60~120%, 2유형 100% 이하"
+      },
+      "targetGroups": [
+        "jobseeker",
+        "youth"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 600000,
+      "duration": 6,
+      "type": "monthly",
+      "note": "1유형 월 60만원, 2유형 월 15~25만원"
     }
   },
   {
@@ -487,14 +737,23 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 60,
+        "note": "출생연도별 수령 나이 상이"
+      },
+      "targetGroups": [
+        "senior",
+        "worker"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 695958,
+      "type": "monthly",
+      "note": "평균 수급액 월 695,958원"
     }
   },
   {
@@ -504,14 +763,23 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "median",
+        "percent": 65
+      },
+      "targetGroups": [
+        "singleparent",
+        "child"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 230000,
+      "type": "monthly",
+      "note": "아동양육비 월 23만원, 추가 10만원, 학용품비 연 10만원"
     }
   },
   {
@@ -521,14 +789,21 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 18
+      },
+      "targetGroups": [
+        "disabled"
+      ],
       "region": null,
       "gender": null,
-      "disabilityRequired": false,
+      "disabilityRequired": true,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 439700,
+      "type": "monthly",
+      "note": "기초급여 349,700원 + 부가급여 최대 90,000원"
     }
   },
   {
@@ -538,14 +813,24 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "fixed",
+        "maxAmount": 7000,
+        "note": "부부합산 연 7,000만원 미만"
+      },
+      "targetGroups": [
+        "child",
+        "worker"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 1000000,
+      "type": "yearly",
+      "note": "자녀 1명당 최대 100만원"
     }
   },
   {
@@ -555,6 +840,9 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
+      "income": {
+        "type": "none"
+      },
       "targetGroups": [],
       "region": null,
       "gender": null,
@@ -562,7 +850,9 @@
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 6800000,
+      "type": "onetime",
+      "note": "국고 최대 580만원 + 전환지원금 100만원 + 지자체 보조금"
     }
   },
   {
@@ -572,6 +862,10 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
+      "income": {
+        "type": "none",
+        "note": "지자체별 상이"
+      },
       "targetGroups": [],
       "region": null,
       "gender": null,
@@ -579,7 +873,9 @@
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 600000,
+      "type": "onetime",
+      "note": "지역별 상이 (최대 60만원)"
     }
   },
   {
@@ -589,14 +885,27 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "median",
+        "percent": 48
+      },
+      "targetGroups": [
+        "lowIncome",
+        "renter"
+      ],
+      "housing": [
+        "rent",
+        "jeonse",
+        "own"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "type": "monthly",
+      "note": "임차급여 지역별 기준임대료, 수선유지급여 최대 1,241만원"
     }
   },
   {
@@ -606,14 +915,23 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [
+        "renter"
+      ],
+      "housing": [
+        "homeless"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "type": "other",
+      "note": "금리 최대 3.1%, 소득공제 연 300만원"
     }
   },
   {
@@ -623,14 +941,22 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [
+        "youth",
+        "senior"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 62000,
+      "type": "monthly",
+      "note": "기준금액(월 6.2만원) 초과분 전액 환급"
     }
   },
   {
@@ -640,14 +966,24 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [
+        "jobseeker",
+        "worker",
+        "selfemployed"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 5000000,
+      "duration": 60,
+      "type": "other",
+      "note": "5년간 최대 500만원, 자비부담 15~55%"
     }
   },
   {
@@ -657,14 +993,22 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "median",
+        "percent": 32
+      },
+      "targetGroups": [
+        "lowIncome"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 820556,
+      "type": "monthly",
+      "note": "1인 가구 최대 82만원, 4인 가구 207만원"
     }
   },
   {
@@ -674,14 +1018,20 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "targetGroups": [
+        "jobseeker",
+        "worker"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 2040000,
+      "duration": 9,
+      "type": "monthly",
+      "note": "월 최대 204만원, 최대 270일"
     }
   },
   {
@@ -691,14 +1041,23 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "income": {
+        "type": "fixed",
+        "maxAmount": 10400,
+        "note": "연 매출 1억 400만원 미만"
+      },
+      "targetGroups": [
+        "selfemployed"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 250000,
+      "type": "onetime",
+      "note": "사업체당 최대 25만원"
     }
   },
   {
@@ -708,14 +1067,17 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "targetGroups": [
+        "worker"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "type": "other",
+      "note": "정보성 콘텐츠 - 연말정산 가이드"
     }
   },
   {
@@ -725,14 +1087,26 @@
     "date": "2026-01-27",
     "category": "subsidy",
     "eligibility": {
-      "targetGroups": [],
+      "age": {
+        "min": 0,
+        "max": 8,
+        "note": "만 8세 이하 자녀를 둔 근로자"
+      },
+      "targetGroups": [
+        "worker",
+        "infant",
+        "child"
+      ],
       "region": null,
       "gender": null,
       "disabilityRequired": false,
       "specialConditions": []
     },
     "benefit": {
-      "type": "other"
+      "amount": 2500000,
+      "duration": 18,
+      "type": "monthly",
+      "note": "월 최대 250만원, 최대 1년 6개월"
     }
   }
 ]
