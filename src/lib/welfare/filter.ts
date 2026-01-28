@@ -119,7 +119,8 @@ function checkEligibility(
   // 8. 가구 유형 매칭
   if (
     conditions.householdTypes.length > 0 &&
-    eligibility.householdType?.length > 0
+    eligibility.householdType &&
+    eligibility.householdType.length > 0
   ) {
     const matchedHouseholds = conditions.householdTypes.filter((h) =>
       eligibility.householdType!.includes(h)
