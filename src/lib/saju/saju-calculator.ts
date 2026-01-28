@@ -130,7 +130,7 @@ export function calculateSaju(input: SajuInput): SajuResult {
   const birthYear = solarDate.getFullYear();
   const currentYear = new Date().getFullYear();
   const currentAge = currentYear - birthYear + 1; // 한국 나이
-  const daeun = calculateDaeun(yearPillar, monthPillar, gender, currentAge);
+  const daeun = calculateDaeun(yearPillar, monthPillar, gender, currentAge, solarDate);
 
   // 세운 계산
   const saeun = calculateSaeun(currentYear);
