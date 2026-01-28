@@ -43,8 +43,8 @@ export default async function HomePage({ params }: PageProps) {
           <h2 className="text-2xl font-bold">
             {locale === "ko" ? "💰 지원금/정책 정보" : "💰 Subsidies & Policies"}
           </h2>
-          <Link href={`/${locale}/subsidy`} className="text-blue-600 hover:underline">
-            {locale === "ko" ? "전체 보기 →" : "View All →"}
+          <Link href={`/${locale}/subsidy`} className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition">
+            {locale === "ko" ? "전체 보기" : "View All"}
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -64,8 +64,8 @@ export default async function HomePage({ params }: PageProps) {
           <h2 className="text-2xl font-bold">
             {locale === "ko" ? "⭐ 제품 리뷰" : "⭐ Product Reviews"}
           </h2>
-          <Link href={`/${locale}/review`} className="text-blue-600 hover:underline">
-            {locale === "ko" ? "전체 보기 →" : "View All →"}
+          <Link href={`/${locale}/review`} className="px-4 py-2 bg-orange-500 text-white text-sm rounded-lg hover:bg-orange-600 transition">
+            {locale === "ko" ? "전체 보기" : "View All"}
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
@@ -85,8 +85,8 @@ export default async function HomePage({ params }: PageProps) {
           <h2 className="text-2xl font-bold">
             {locale === "ko" ? "🔥 트렌딩 이슈" : "🔥 Trending Issues"}
           </h2>
-          <Link href={`/${locale}/trending`} className="text-blue-600 hover:underline">
-            {locale === "ko" ? "전체 보기 →" : "View All →"}
+          <Link href={`/${locale}/trending`} className="px-4 py-2 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600 transition">
+            {locale === "ko" ? "전체 보기" : "View All"}
           </Link>
         </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
