@@ -92,6 +92,9 @@ export default async function RootLayout({
         <link rel="alternate" hrefLang="en" href={`${siteUrl}/en`} />
         <link rel="alternate" hrefLang="x-default" href={`${siteUrl}/ko`} />
 
+        {/* RSS Feed */}
+        <link rel="alternate" type="application/rss+xml" title="InfoTalker RSS" href={`${siteUrl}/rss.xml`} />
+
         {/* JSON-LD Structured Data */}
         <OrganizationJsonLd
           name={siteName}
