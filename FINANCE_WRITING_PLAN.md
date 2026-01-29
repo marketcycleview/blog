@@ -9,9 +9,9 @@
 
 ## 📊 현황 요약
 
-- **작성 완료**: 10개
-- **작성 예정**: 335개 (계산기 활용 콘텐츠 45개 포함)
-- **총 목표**: 345개
+- **작성 완료**: 25개
+- **작성 예정**: 381개 (계산기 활용 콘텐츠 45개 포함)
+- **총 목표**: 406개
 
 ---
 
@@ -425,30 +425,128 @@
 | # | 주제 | 파일명 | 키워드 | 상태 |
 |---|------|--------|--------|------|
 | 321 | 50/30/20 예산 법칙 완벽 가이드 | `50-30-20-budget-rule.mdx` | 50 30 20 법칙 | ✅ |
-| 322 | 월급 관리 황금 비율 (기초생활비/여유비/저축) | `monthly-budget-ratio.mdx` | 월급 관리 비율 | ⬜ |
+| 322 | 월급 관리 황금 비율 (기초생활비/여유비/저축) | `monthly-budget-ratio.mdx` | 월급 관리 비율 | ✅ |
 | 323 | 저축률 20% 만드는 현실적인 방법 | `saving-rate-20-percent.mdx` | 저축률 높이는 법 | ✅ |
 | 324 | 저축률 30% 달성한 사람들의 공통점 | `saving-rate-30-percent.mdx` | 저축률 30% | ✅ |
 | 325 | 월급 200만원 예산 짜는 법 | `budget-200man.mdx` | 월급 200 예산 | ✅ |
 | 326 | 월급 300만원 예산 짜는 법 | `budget-300man.mdx` | 월급 300 예산 | ✅ |
 | 327 | 월급 400만원 예산 짜는 법 | `budget-400man.mdx` | 월급 400 예산 | ✅ |
-| 328 | 월급 500만원 예산 짜는 법 | `budget-500man.mdx` | 월급 500 예산 | ⬜ |
+| 328 | 월급 500만원 예산 짜는 법 | `budget-500man.mdx` | 월급 500 예산 | ✅ |
 | 329 | 1인 가구 적정 생활비 얼마가 좋을까 | `single-living-cost.mdx` | 1인 가구 생활비 | ✅ |
 | 330 | 신혼부부 적정 생활비 가이드 | `newlywed-living-cost.mdx` | 신혼부부 생활비 | ✅ |
 | 331 | 기초생활비 줄이는 10가지 방법 | `reduce-essential-cost.mdx` | 고정비 줄이기 | ✅ |
-| 332 | 여유비 vs 사치비 어디까지가 낭비일까 | `flexible-vs-luxury.mdx` | 낭비 기준 | ⬜ |
-| 333 | 외식비 줄이는 현실적인 방법 | `reduce-eating-out.mdx` | 외식비 절약 | ⬜ |
-| 334 | 구독 서비스 정리하고 월 10만원 아끼기 | `cancel-subscriptions.mdx` | 구독 정리 | ⬜ |
-| 335 | 통신비 3만원대로 낮추는 방법 | `reduce-phone-bill.mdx` | 통신비 절약 | ⬜ |
-| 336 | 교통비 줄이는 꿀팁 (대중교통/자차) | `reduce-transport-cost.mdx` | 교통비 절약 | ⬜ |
-| 337 | 보험료 점검하고 월 5만원 아끼기 | `reduce-insurance-cost.mdx` | 보험료 절약 | ⬜ |
-| 338 | 적자 가계부 흑자로 바꾸는 방법 | `deficit-to-surplus.mdx` | 적자 가계부 | ⬜ |
+| 332 | 여유비 vs 사치비 어디까지가 낭비일까 | `flexible-vs-luxury.mdx` | 낭비 기준 | ✅ |
+| 333 | 외식비 줄이는 현실적인 방법 | `reduce-eating-out.mdx` | 외식비 절약 | ✅ |
+| 334 | 구독 서비스 정리하고 월 10만원 아끼기 | `cancel-subscriptions.mdx` | 구독 정리 | ✅ |
+| 335 | 통신비 3만원대로 낮추는 방법 | `reduce-phone-bill.mdx` | 통신비 절약 | ✅ |
+| 336 | 교통비 줄이는 꿀팁 (대중교통/자차) | `reduce-transport-cost.mdx` | 교통비 절약 | ✅ |
+| 337 | 보험료 점검하고 월 5만원 아끼기 | `reduce-insurance-cost.mdx` | 보험료 절약 | ✅ |
+| 338 | 적자 가계부 흑자로 바꾸는 방법 | `deficit-to-surplus.mdx` | 적자 가계부 | ✅ |
 | 339 | 사회초년생 첫 월급 관리법 | `first-salary-management.mdx` | 첫 월급 관리 | ✅ |
-| 340 | 연봉별 적정 월세 기준 | `salary-rent-ratio.mdx` | 연봉 월세 비율 | ⬜ |
-| 341 | 카페 지출 월 얼마가 적당할까 | `cafe-spending-limit.mdx` | 카페 지출 | ⬜ |
-| 342 | 취미 생활비 적정선은 얼마 | `hobby-spending-limit.mdx` | 취미 지출 | ⬜ |
-| 343 | 경조사비 부담 줄이는 방법 | `reduce-celebration-cost.mdx` | 경조사비 절약 | ⬜ |
-| 344 | 무지출 챌린지 현실적으로 하는 법 | `no-spend-challenge.mdx` | 무지출 챌린지 | ⬜ |
-| 345 | 짠테크 vs 돈테크 나에게 맞는 방법은 | `jjantech-vs-moneytech.mdx` | 짠테크 | ⬜ |
+| 340 | 연봉별 적정 월세 기준 | `salary-rent-ratio.mdx` | 연봉 월세 비율 | ✅ |
+| 341 | 카페 지출 월 얼마가 적당할까 | `cafe-spending-limit.mdx` | 카페 지출 | ✅ |
+| 342 | 취미 생활비 적정선은 얼마 | `hobby-spending-limit.mdx` | 취미 지출 | ✅ |
+| 343 | 경조사비 부담 줄이는 방법 | `reduce-celebration-cost.mdx` | 경조사비 절약 | ✅ |
+| 344 | 무지출 챌린지 현실적으로 하는 법 | `no-spend-challenge.mdx` | 무지출 챌린지 | ✅ |
+| 345 | 짠테크 vs 돈테크 나에게 맞는 방법은 | `jjantech-vs-moneytech.mdx` | 짠테크 | ✅ |
+
+---
+
+### 🪙 우선순위 14: 가상자산/코인 투자 (15개)
+
+> 2026년 가상자산 과세 시행으로 검색량 폭증 예상
+
+| # | 주제 | 파일명 | 상태 |
+|---|------|--------|------|
+| 346 | 비트코인 투자 방법 초보 가이드 | `bitcoin-tuja-chobo.mdx` | ⬜ |
+| 347 | 이더리움 투자 방법과 전망 | `ethereum-tuja.mdx` | ⬜ |
+| 348 | 코인 거래소 비교 (업비트 vs 빗썸 vs 코인원) | `coin-georaeso-bigyo.mdx` | ⬜ |
+| 349 | 코인 지갑 종류와 선택 가이드 | `coin-jigap-guide.mdx` | ⬜ |
+| 350 | 스테이킹이란? 코인 이자 받는 법 | `staking-guide.mdx` | ⬜ |
+| 351 | 김치프리미엄 뜻과 확인 방법 | `kimchi-premium.mdx` | ⬜ |
+| 352 | 알트코인이란? 종류와 투자 주의점 | `altcoin-guide.mdx` | ⬜ |
+| 353 | 코인 선물거래 위험성 총정리 | `coin-futures-risk.mdx` | ⬜ |
+| 354 | 디파이(DeFi)란? 초보자 가이드 | `defi-guide.mdx` | ⬜ |
+| 355 | CBDC 디지털화폐란? 달라지는 점 | `cbdc-guide.mdx` | ⬜ |
+| 356 | 코인 시가총액 보는 법과 활용 | `coin-sigachonggaek.mdx` | ⬜ |
+| 357 | 가상자산 투자 사기 구별법 | `coin-sagi-gubeyol.mdx` | ⬜ |
+| 358 | 코인 자동매매 봇 종류와 주의점 | `coin-jadonmaemai.mdx` | ⬜ |
+| 359 | 업비트 가입 방법과 사용법 | `upbit-gaip-guide.mdx` | ⬜ |
+| 360 | 코인 수익 세금 신고 방법 2026 | `coin-segeum-singo.mdx` | ⬜ |
+
+### 🚗 우선순위 15: 자동차 금융 (12개)
+
+> 리스/할부/렌트 비교는 자동차 구매 시즌마다 검색량 급등
+
+| # | 주제 | 파일명 | 상태 |
+|---|------|--------|------|
+| 361 | 자동차 리스 vs 할부 vs 장기렌트 비교 | `car-lease-vs-halbu-vs-rent.mdx` | ⬜ |
+| 362 | 자동차 리스 총비용 계산법 | `car-lease-chongbiyong.mdx` | ⬜ |
+| 363 | 신차 할부 금리 비교 2026 | `sincha-halbu-geumli.mdx` | ⬜ |
+| 364 | 장기렌트 장단점 현실 후기 | `janggi-rent-jangdanjeom.mdx` | ⬜ |
+| 365 | 자동차 리스 잔존가치란? | `car-lease-janjonggachi.mdx` | ⬜ |
+| 366 | 중고차 할부 금리와 주의점 | `junggocha-halbu.mdx` | ⬜ |
+| 367 | 중고차 매매 시 꼭 확인할 것 | `junggocha-maemae-check.mdx` | ⬜ |
+| 368 | 전기차 리스 vs 구매 뭐가 유리할까 | `jeongicha-lease-vs-gumae.mdx` | ⬜ |
+| 369 | 자동차 감가상각 계산법 | `car-gamgasanggak.mdx` | ⬜ |
+| 370 | 자동차 할부 조기상환 방법 | `car-halbu-jogi-sanghwan.mdx` | ⬜ |
+| 371 | 법인차 리스 절세 방법 | `beopincha-lease-jeolse.mdx` | ⬜ |
+| 372 | 자동차 보험료 아끼는 법 7가지 | `car-boheom-akkineun-beop.mdx` | ⬜ |
+
+### 🛡️ 우선순위 16: 대환대출/금융사기 예방 (10개)
+
+> 보이스피싱/금융사기 매년 검색량 증가 추세
+
+| # | 주제 | 파일명 | 상태 |
+|---|------|--------|------|
+| 373 | 대환대출 방법 총정리 (갈아타기 플랫폼) | `daehwan-daechul-chongjeongli.mdx` | ⬜ |
+| 374 | 대환대출 이자 줄이는 현실적 방법 | `daehwan-ija-juligi.mdx` | ⬜ |
+| 375 | 보이스피싱 예방법과 피해 시 대처 | `voice-phishing-yebang.mdx` | ⬜ |
+| 376 | 스미싱 문자 구별법과 신고 방법 | `smishing-gubeyol.mdx` | ⬜ |
+| 377 | 금융사기 유형 5가지와 예방법 | `geumyung-sagi-yuhyeong.mdx` | ⬜ |
+| 378 | 불법사금융 피해 신고 방법 | `bulbeop-sageumyung.mdx` | ⬜ |
+| 379 | 개인정보 유출 확인 및 대처법 | `gaein-jungbo-yuchul.mdx` | ⬜ |
+| 380 | 명의도용 확인 방법과 차단 | `myeongui-doyong-hwain.mdx` | ⬜ |
+| 381 | 대포통장 피해 예방과 신고 | `daepo-tongjang.mdx` | ⬜ |
+| 382 | 투자사기 구별하는 법 (폰지사기 등) | `tuja-sagi-gubeyol.mdx` | ⬜ |
+
+### 📱 우선순위 17: MZ 금융 트렌드 (12개)
+
+> 조각투자, 소수점주식, 공모주 등 MZ세대 검색 키워드
+
+| # | 주제 | 파일명 | 상태 |
+|---|------|--------|------|
+| 383 | 조각투자란? (부동산/미술품/음악) | `jogak-tuja-guide.mdx` | ⬜ |
+| 384 | BNPL(선구매후결제) 서비스 비교 | `bnpl-service-bigyo.mdx` | ⬜ |
+| 385 | 간편결제 비교 (네이버페이/카카오페이/토스) | `ganpyeon-gyeolje-bigyo.mdx` | ⬜ |
+| 386 | 소수점 주식 투자 방법과 장단점 | `sosujeom-jusik.mdx` | ⬜ |
+| 387 | 공모주 청약 방법 완벽 가이드 | `gongmoju-cheongnyak-guide.mdx` | ⬜ |
+| 388 | 공모주 수익률 현실과 전략 | `gongmoju-suyikryul.mdx` | ⬜ |
+| 389 | 크라우드펀딩 투자 방법과 주의점 | `crowdfunding-tuja.mdx` | ⬜ |
+| 390 | P2P 투자 현실 수익률과 리스크 | `p2p-tuja-hyeonsil.mdx` | ⬜ |
+| 391 | 핀테크 앱 추천 TOP 10 | `fintech-app-chucheon.mdx` | ⬜ |
+| 392 | 주식 모의투자 앱 추천 (초보용) | `jusik-moui-tuja-app.mdx` | ⬜ |
+| 393 | 자산관리 앱 비교 (뱅크샐러드/토스/핀트) | `jasan-gwanli-app-bigyo.mdx` | ⬜ |
+| 394 | 미국 주식 직접 투자 시작 가이드 | `miguk-jusik-sijak-guide.mdx` | ⬜ |
+
+### 🏠 우선순위 18: 생활 금융 이슈 (12개)
+
+> 결혼/이사/전세 등 인생 이벤트 관련 금융 (검색 전환율 높음)
+
+| # | 주제 | 파일명 | 상태 |
+|---|------|--------|------|
+| 395 | 결혼 비용 현실적 정리 (2026년 기준) | `gyeolhon-biyong-2026.mdx` | ⬜ |
+| 396 | 신혼집 마련 전략 (전세/매매/임대) | `sinhonjip-maryeon.mdx` | ⬜ |
+| 397 | 이사 비용 아끼는 현실적 방법 | `isa-biyong-akkigi.mdx` | ⬜ |
+| 398 | 전세 계약 체크리스트 (사기 방지) | `jeonse-gyeyak-checklist.mdx` | ⬜ |
+| 399 | 월세 계약서 꼭 확인해야 할 것 | `wolse-gyeyakseo-check.mdx` | ⬜ |
+| 400 | 부동산 중개수수료 계산법 | `budongsan-junggae-susuryo.mdx` | ⬜ |
+| 401 | 경매 입문 가이드 (초보자용) | `gyeongmae-ipmun.mdx` | ⬜ |
+| 402 | 공매 방법과 경매와 차이 | `gongmae-vs-gyeongmae.mdx` | ⬜ |
+| 403 | 재개발 재건축 투자 기초 | `jaegaebal-tuja-gicho.mdx` | ⬜ |
+| 404 | 주택연금 총정리 (가입조건/수령액) | `jutaek-yeongeum-chongjeongli.mdx` | ⬜ |
+| 405 | 상가 임대차보호법 핵심 정리 | `sangga-imdaecha-bohobeop.mdx` | ⬜ |
+| 406 | 전월세 신고제 방법과 과태료 | `jeonwolse-singoje.mdx` | ⬜ |
 
 ---
 
