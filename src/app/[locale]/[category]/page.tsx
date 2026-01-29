@@ -6,30 +6,34 @@ import { SearchBar } from "@/components/SearchBar";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 
-const validCategories = ["subsidy", "review", "trending"];
+const validCategories = ["subsidy", "finance", "tax", "trending"];
 
 const categoryNames = {
   ko: {
     subsidy: "지원금/정책 정보",
-    review: "제품 리뷰",
+    finance: "금융/대출 정보",
+    tax: "세금/연말정산",
     trending: "트렌딩 이슈",
   },
   en: {
     subsidy: "Subsidies & Policies",
-    review: "Product Reviews",
+    finance: "Finance & Loans",
+    tax: "Tax & Year-end Settlement",
     trending: "Trending Issues",
   },
 };
 
 const categoryDescriptions = {
   ko: {
-    subsidy: "정부/지자체 지원금, 복지 정책, 세금 관련 정보를 한눈에 확인하세요.",
-    review: "실사용자 리뷰를 모아 제품의 장단점을 객관적으로 분석합니다.",
+    subsidy: "정부/지자체 지원금, 복지 정책 관련 정보를 한눈에 확인하세요.",
+    finance: "대출, 저축, 투자, 금융상품 비교 등 금융 정보를 제공합니다.",
+    tax: "연말정산, 종합소득세, 양도세 등 세금 신고와 절세 정보를 알려드립니다.",
     trending: "실시간 화제가 되는 이슈와 뉴스를 빠르게 정리합니다.",
   },
   en: {
-    subsidy: "Find government subsidies, welfare policies, and tax information.",
-    review: "We collect real user reviews to objectively analyze product pros and cons.",
+    subsidy: "Find government subsidies and welfare policy information.",
+    finance: "Information on loans, savings, investments, and financial product comparisons.",
+    tax: "Tax filing and tax-saving information including year-end settlement and income tax.",
     trending: "Quick summary of trending issues and news.",
   },
 };
@@ -126,7 +130,7 @@ export default async function CategoryPage({ params }: PageProps) {
 
 export function generateStaticParams() {
   const locales = ["ko", "en"];
-  const categories = ["subsidy", "review", "trending"];
+  const categories = ["subsidy", "finance", "tax", "trending"];
 
   return locales.flatMap((locale) =>
     categories.map((category) => ({

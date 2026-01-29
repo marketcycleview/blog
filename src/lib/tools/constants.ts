@@ -72,6 +72,127 @@ export const TOOLS: Tool[] = [
     category: "welfare",
     isPopular: true,
   },
+  {
+    id: "median-income-calculator",
+    title: {
+      ko: "중위소득 계산기",
+      en: "Median Income Calculator",
+    },
+    description: {
+      ko: "가구별 기준 중위소득 확인 및 복지 자격 조회",
+      en: "Check median income and welfare eligibility",
+    },
+    icon: "📊",
+    href: "/tools/median-income-calculator",
+    category: "welfare",
+  },
+
+  // === 금융/대출 ===
+  {
+    id: "loan-calculator",
+    title: {
+      ko: "대출 이자 계산기",
+      en: "Loan Interest Calculator",
+    },
+    description: {
+      ko: "원리금균등, 원금균등, 만기일시 비교",
+      en: "Compare repayment methods and interest",
+    },
+    icon: "🏦",
+    href: "/tools/loan-calculator",
+    category: "finance",
+    isPopular: true,
+  },
+  {
+    id: "jeonwolse-calculator",
+    title: {
+      ko: "전월세 전환 계산기",
+      en: "Deposit-Rent Converter",
+    },
+    description: {
+      ko: "전세 ↔ 월세 전환, 보증금 조정 계산",
+      en: "Convert between Jeonse and monthly rent",
+    },
+    icon: "🏠",
+    href: "/tools/jeonwolse-calculator",
+    category: "finance",
+  },
+
+  // === 세금/연말정산 ===
+  {
+    id: "salary-calculator",
+    title: {
+      ko: "연봉 실수령액 계산기",
+      en: "Net Salary Calculator",
+    },
+    description: {
+      ko: "4대보험, 소득세 공제 후 실수령액 계산",
+      en: "Calculate net salary after tax and insurance",
+    },
+    icon: "💵",
+    href: "/tools/salary-calculator",
+    category: "tax",
+    isPopular: true,
+  },
+  {
+    id: "tax-refund-calculator",
+    title: {
+      ko: "연말정산 환급액 계산기",
+      en: "Tax Refund Calculator",
+    },
+    description: {
+      ko: "소득공제, 세액공제 반영 예상 환급액",
+      en: "Estimate your year-end tax refund",
+    },
+    icon: "💰",
+    href: "/tools/tax-refund-calculator",
+    category: "tax",
+    isNew: true,
+  },
+  {
+    id: "severance-calculator",
+    title: {
+      ko: "퇴직금 계산기",
+      en: "Severance Pay Calculator",
+    },
+    description: {
+      ko: "근속연수별 퇴직금 및 세금 계산",
+      en: "Calculate severance pay by work period",
+    },
+    icon: "🎁",
+    href: "/tools/severance-calculator",
+    category: "tax",
+  },
+  {
+    id: "unemployment-calculator",
+    title: {
+      ko: "실업급여 계산기",
+      en: "Unemployment Benefit Calculator",
+    },
+    description: {
+      ko: "예상 수령액, 지급일수 확인",
+      en: "Estimate unemployment benefit amount",
+    },
+    icon: "📋",
+    href: "/tools/unemployment-calculator",
+    category: "welfare",
+  },
+
+  // === 생활 계산기 ===
+  {
+    id: "budget-planner",
+    title: {
+      ko: "재무설계 계산기",
+      en: "Budget Planner",
+    },
+    description: {
+      ko: "월 지출을 3가지로 분류하고 저축 가능액 계산",
+      en: "Categorize expenses and calculate savings",
+    },
+    icon: "💸",
+    href: "/tools/budget-planner",
+    category: "calculator",
+  },
 ];
 
 // 보이는 도구만 필터링 (hidden 제외)

@@ -17,6 +17,8 @@ export default async function HomePage({ params }: PageProps) {
 
   // 카테고리별로 최신 글 가져오기
   const subsidyPosts = posts.filter((p) => p.category === "subsidy").slice(0, 3);
+  const financePosts = posts.filter((p) => p.category === "finance").slice(0, 3);
+  const taxPosts = posts.filter((p) => p.category === "tax").slice(0, 3);
   const trendingPosts = posts.filter((p) => p.category === "trending").slice(0, 3);
 
   return (
@@ -88,6 +90,48 @@ export default async function HomePage({ params }: PageProps) {
         </div>
       </section>
 
+      {/* 금융/대출 섹션 */}
+      <section className="mb-12">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold">
+            {locale === "ko" ? "🏦 금융/대출 정보" : "🏦 Finance & Loans"}
+          </h2>
+          <Link href={`/${locale}/finance`} className="px-4 py-2 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700 transition">
+            {locale === "ko" ? "전체 보기" : "View All"}
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {financePosts.length > 0 ? (
+            financePosts.map((post) => (
+              <VerticalPostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
+            ))
+          ) : (
+            <EmptyCard locale={locale} category="finance" />
+          )}
+        </div>
+      </section>
+
+      {/* 세금/연말정산 섹션 */}
+      <section className="mb-12">
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold">
+            {locale === "ko" ? "📋 세금/연말정산" : "📋 Tax & Settlement"}
+          </h2>
+          <Link href={`/${locale}/tax`} className="px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition">
+            {locale === "ko" ? "전체 보기" : "View All"}
+          </Link>
+        </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {taxPosts.length > 0 ? (
+            taxPosts.map((post) => (
+              <VerticalPostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
+            ))
+          ) : (
+            <EmptyCard locale={locale} category="tax" />
+          )}
+        </div>
+      </section>
+
       {/* 트렌딩 섹션 */}
       <section className="mb-12">
         <div className="flex justify-between items-center mb-6">
@@ -115,7 +159,7 @@ export default async function HomePage({ params }: PageProps) {
           <h2 className="text-2xl font-bold">
             {locale === "ko" ? "🛠️ 무료 도구" : "🛠️ Free Tools"}
           </h2>
-          <Link href={`/${locale}/tools`} className="px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition">
+          <Link href={`/${locale}/tools`} className="px-4 py-2 bg-indigo-600 text-white text-sm rounded-lg hover:bg-indigo-700 transition">
             {locale === "ko" ? "전체 보기" : "View All"}
           </Link>
         </div>
