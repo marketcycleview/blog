@@ -17,7 +17,13 @@ export default function BudgetChart({ summary }: BudgetChartProps) {
   const savingsPercentage = Math.max(0, summary.savingsRate);
 
   // 파이 차트 데이터 준비
-  const chartData = [
+  const chartData: {
+    id: string;
+    label: string;
+    percentage: number;
+    color: string;
+    amount: number;
+  }[] = [
     ...summary.categories.map((cat) => ({
       id: cat.category,
       label: EXPENSE_CATEGORIES[cat.category].label,
