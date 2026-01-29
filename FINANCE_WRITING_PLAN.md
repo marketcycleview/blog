@@ -9,8 +9,8 @@
 
 ## 📊 현황 요약
 
-- **작성 완료**: 5개
-- **작성 예정**: 340개 (계산기 활용 콘텐츠 45개 포함)
+- **작성 완료**: 10개
+- **작성 예정**: 335개 (계산기 활용 콘텐츠 45개 포함)
 - **총 목표**: 345개
 
 ---
@@ -378,28 +378,44 @@
 
 > **연계 계산기**: 대출 이자, 전월세 전환, 퇴직금, 실업급여 계산기
 
-| # | 주제 | 파일명 | 계산기 연계 | 상태 |
-|---|------|--------|-------------|------|
-| 301 | 원리금균등 vs 원금균등 뭐가 유리할까 | `wonligeum-vs-wongeum-bigyo.mdx` | loan-calculator | ⬜ |
-| 302 | 만기일시상환 장단점 완벽정리 | `mangi-ilsi-jangdanjeom.mdx` | loan-calculator | ⬜ |
-| 303 | 대출 상환방식 선택 가이드 | `daechul-sanghwan-guide.mdx` | loan-calculator | ⬜ |
-| 304 | 대출금리 1% 차이 이자 얼마 | `daechul-geumli-1-chaiyi.mdx` | loan-calculator | ⬜ |
-| 305 | 주담대 갈아타기 이자 얼마나 줄까 | `judamdae-galatagi-ija.mdx` | loan-calculator | ⬜ |
-| 306 | 전월세 전환율 계산법 완벽가이드 | `jeonwolse-jeonhwanyul-guide.mdx` | jeonwolse-calculator | ⬜ |
-| 307 | 전세 3억 월세 전환하면 얼마 | `jeonse-3eok-wolse-jeonhwan.mdx` | jeonwolse-calculator | ⬜ |
-| 308 | 보증금 올리면 월세 얼마나 줄까 | `bojeunggeum-olligi-wolse.mdx` | jeonwolse-calculator | ⬜ |
-| 309 | 전세 vs 월세 뭐가 유리할까 2026 | `jeonse-vs-wolse-2026.mdx` | jeonwolse-calculator | ⬜ |
-| 310 | 법정 전월세 전환율 상한 | `beopjeong-jeonwolse-sanghan.mdx` | jeonwolse-calculator | ⬜ |
-| 311 | 퇴직금 1년에 얼마 받을까 | `toejikgeum-1nyeon-eolma.mdx` | severance-calculator | ⬜ |
-| 312 | 퇴직금 5년 10년 예상액 | `toejikgeum-5nyeon-10nyeon.mdx` | severance-calculator | ⬜ |
-| 313 | 퇴직금 받으면 세금 얼마 | `toejikgeum-segeum-eolma.mdx` | severance-calculator | ⬜ |
-| 314 | 실업급여 얼마나 받을 수 있나 | `silup-geupyeo-eolma.mdx` | unemployment-calculator | ⬜ |
-| 315 | 실업급여 지급일수 기준표 | `silup-geupyeo-jigupilsu.mdx` | unemployment-calculator | ⬜ |
-| 316 | 실업급여 상한액 하한액 2026 | `silup-geupyeo-sanghan-2026.mdx` | unemployment-calculator | ⬜ |
-| 317 | 월급 300만원 실업급여 얼마 | `wolgeup-300-silup.mdx` | unemployment-calculator | ⬜ |
-| 318 | 월급 400만원 실업급여 얼마 | `wolgeup-400-silup.mdx` | unemployment-calculator | ⬜ |
-| 319 | 자발적 퇴사도 실업급여 받을 수 있나 | `jabaljeok-toesa-silup.mdx` | unemployment-calculator | ⬜ |
-| 320 | 실업급여 받으면서 알바해도 되나 | `silup-alba-doena.mdx` | unemployment-calculator | ⬜ |
+#### 📋 콘텐츠 유형별 분류
+
+| 유형 | 콘텐츠 | 핵심 구조 |
+|------|--------|-----------|
+| 비교형 | 원리금 vs 원금균등, 전세 vs 월세 | 비교표 → 상황별 추천 → 계산기 CTA |
+| 시뮬레이션형 | 전세 3억 월세 전환, 금리 1% 차이 | 결과 먼저 → 계산 상세 → 계산기 CTA |
+| 가이드형 | 대출 상환방식 선택, 전환율 계산법 | 단계별 설명 → 팁 → 계산기 CTA |
+| 기준표형 | 법정 전환율 상한, 실업급여 지급일수 | 표 → 적용 예시 → 계산기 CTA |
+| 상황FAQ형 | 자발적 퇴사 실업급여, 알바해도 되나 | 질문→결론→상세→계산기 CTA |
+
+| # | 주제 | 파일명 | 계산기 연계 | 유형 | 상태 |
+|---|------|--------|-------------|------|------|
+| 301 | 원리금균등 vs 원금균등 뭐가 유리할까 | `wonligeum-vs-wongeum-bigyo.mdx` | loan-calculator | 비교 | ⬜ |
+| 302 | 만기일시상환 장단점 완벽정리 | `mangi-ilsi-jangdanjeom.mdx` | loan-calculator | 가이드 | ⬜ |
+| 303 | 대출 상환방식 선택 가이드 | `daechul-sanghwan-guide.mdx` | loan-calculator | 가이드 | ⬜ |
+| 304 | 대출금리 1% 차이 이자 얼마 | `daechul-geumli-1-chaiyi.mdx` | loan-calculator | 시뮬레이션 | ⬜ |
+| 305 | 주담대 갈아타기 이자 얼마나 줄까 | `judamdae-galatagi-ija.mdx` | loan-calculator | 시뮬레이션 | ⬜ |
+| 306 | 전월세 전환율 계산법 완벽가이드 | `jeonwolse-jeonhwanyul-guide.mdx` | jeonwolse-calculator | 가이드 | ⬜ |
+| 307 | 전세 3억 월세 전환하면 얼마 | `jeonse-3eok-wolse-jeonhwan.mdx` | jeonwolse-calculator | 시뮬레이션 | ⬜ |
+| 308 | 보증금 올리면 월세 얼마나 줄까 | `bojeunggeum-olligi-wolse.mdx` | jeonwolse-calculator | 시뮬레이션 | ⬜ |
+| 309 | 전세 vs 월세 뭐가 유리할까 2026 | `jeonse-vs-wolse-2026.mdx` | jeonwolse-calculator | 비교 | ⬜ |
+| 310 | 법정 전월세 전환율 상한 | `beopjeong-jeonwolse-sanghan.mdx` | jeonwolse-calculator | 기준표 | ⬜ |
+| 311 | 퇴직금 1년에 얼마 받을까 | `toejikgeum-1nyeon-eolma.mdx` | severance-calculator | 시뮬레이션 | ⬜ |
+| 312 | 퇴직금 5년 10년 예상액 | `toejikgeum-5nyeon-10nyeon.mdx` | severance-calculator | 시뮬레이션 | ⬜ |
+| 313 | 퇴직금 받으면 세금 얼마 | `toejikgeum-segeum-eolma.mdx` | severance-calculator | 상황FAQ | ⬜ |
+| 314 | 실업급여 얼마나 받을 수 있나 | `silup-geupyeo-eolma.mdx` | unemployment-calculator | 시뮬레이션 | ⬜ |
+| 315 | 실업급여 지급일수 기준표 | `silup-geupyeo-jigupilsu.mdx` | unemployment-calculator | 기준표 | ⬜ |
+| 316 | 실업급여 상한액 하한액 2026 | `silup-geupyeo-sanghan-2026.mdx` | unemployment-calculator | 기준표 | ⬜ |
+| 317 | 월급 300만원 실업급여 얼마 | `wolgeup-300-silup.mdx` | unemployment-calculator | 시뮬레이션 | ⬜ |
+| 318 | 월급 400만원 실업급여 얼마 | `wolgeup-400-silup.mdx` | unemployment-calculator | 시뮬레이션 | ⬜ |
+| 319 | 자발적 퇴사도 실업급여 받을 수 있나 | `jabaljeok-toesa-silup.mdx` | unemployment-calculator | 상황FAQ | ⬜ |
+| 320 | 실업급여 받으면서 알바해도 되나 | `silup-alba-doena.mdx` | unemployment-calculator | 상황FAQ | ⬜ |
+
+---
+
+> 📖 **계산기 활용 콘텐츠 상세 작성 가이드**: `WRITING_GUIDE.md` 참조
+
+---
 
 ### 💸 우선순위 13: 재무설계 계산기 활용 콘텐츠 (25개) - NEW
 
@@ -411,14 +427,14 @@
 | 321 | 50/30/20 예산 법칙 완벽 가이드 | `50-30-20-budget-rule.mdx` | 50 30 20 법칙 | ✅ |
 | 322 | 월급 관리 황금 비율 (기초생활비/여유비/저축) | `monthly-budget-ratio.mdx` | 월급 관리 비율 | ⬜ |
 | 323 | 저축률 20% 만드는 현실적인 방법 | `saving-rate-20-percent.mdx` | 저축률 높이는 법 | ✅ |
-| 324 | 저축률 30% 달성한 사람들의 공통점 | `saving-rate-30-percent.mdx` | 저축률 30% | ⬜ |
-| 325 | 월급 200만원 예산 짜는 법 | `budget-200man.mdx` | 월급 200 예산 | ⬜ |
+| 324 | 저축률 30% 달성한 사람들의 공통점 | `saving-rate-30-percent.mdx` | 저축률 30% | ✅ |
+| 325 | 월급 200만원 예산 짜는 법 | `budget-200man.mdx` | 월급 200 예산 | ✅ |
 | 326 | 월급 300만원 예산 짜는 법 | `budget-300man.mdx` | 월급 300 예산 | ✅ |
-| 327 | 월급 400만원 예산 짜는 법 | `budget-400man.mdx` | 월급 400 예산 | ⬜ |
+| 327 | 월급 400만원 예산 짜는 법 | `budget-400man.mdx` | 월급 400 예산 | ✅ |
 | 328 | 월급 500만원 예산 짜는 법 | `budget-500man.mdx` | 월급 500 예산 | ⬜ |
 | 329 | 1인 가구 적정 생활비 얼마가 좋을까 | `single-living-cost.mdx` | 1인 가구 생활비 | ✅ |
-| 330 | 신혼부부 적정 생활비 가이드 | `newlywed-living-cost.mdx` | 신혼부부 생활비 | ⬜ |
-| 331 | 기초생활비 줄이는 10가지 방법 | `reduce-essential-cost.mdx` | 고정비 줄이기 | ⬜ |
+| 330 | 신혼부부 적정 생활비 가이드 | `newlywed-living-cost.mdx` | 신혼부부 생활비 | ✅ |
+| 331 | 기초생활비 줄이는 10가지 방법 | `reduce-essential-cost.mdx` | 고정비 줄이기 | ✅ |
 | 332 | 여유비 vs 사치비 어디까지가 낭비일까 | `flexible-vs-luxury.mdx` | 낭비 기준 | ⬜ |
 | 333 | 외식비 줄이는 현실적인 방법 | `reduce-eating-out.mdx` | 외식비 절약 | ⬜ |
 | 334 | 구독 서비스 정리하고 월 10만원 아끼기 | `cancel-subscriptions.mdx` | 구독 정리 | ⬜ |
@@ -462,139 +478,14 @@
 
 ---
 
-## 📝 글 작성 가이드 (금융)
+## 📝 글 작성 가이드
 
-### 금융/대출 정보 글 구조
-
-```
-1. 핵심 요약 (투자 주의 문구 포함)
-2. 개념 설명
-3. 장단점
-4. 가입/신청 방법
-5. 주의사항
-6. 대안 상품 비교
-7. FAQ
-```
-
-**필수 포함 요소**:
-- 투자 위험 고지 문구
-- 최신 금리/수익률 정보
-- 공식 출처 링크
-
-**SEO 키워드 패턴**: `[금융상품] 금리`, `[금융상품] 추천`, `[금융상품] 가입 방법`
-
-### 금리/상품 비교표 글 구조
-
-```
-1. 이번 달 금리 요약 (TOP 5 표)
-2. 은행별/상품별 상세 비교표
-3. 가입 조건 정리
-4. 추천 상품 (상황별)
-5. 가입 방법/링크
-```
-
-**필수 포함 요소**:
-- 업데이트 날짜 명시 (매우 중요!)
-- 출처 명시 (은행 공식, 금융감독원)
-- 우대금리 조건
-
-**SEO 키워드 패턴**: `[연도][월] [상품] 금리`, `[상품] 금리 비교`
-
-### 보험 정보 글 구조
-
-```
-1. 핵심 요약 (이 보험이 필요한 사람)
-2. 보험 종류별 비교
-3. 가입 시 체크포인트
-4. 보험료 예시
-5. 청구 방법
-6. 주의사항/면책 조항
-7. FAQ
-```
-
-**주의사항**:
-- 특정 상품 추천 시 광고 표시 필수
-- 보험료는 조건에 따라 다름 명시
-
-**SEO 키워드 패턴**: `[보험] 추천`, `[보험] 비교`, `[보험] 청구 방법`
-
-### 부동산/청약 정보 글 구조
-
-```
-1. 핵심 요약
-2. 자격 조건/청약 점수
-3. 신청 방법
-4. 필요 서류
-5. 일정/스케줄
-6. FAQ
-```
-
-**SEO 키워드 패턴**: `[지역] 청약 일정`, `청약 점수 계산`, `전세 vs 월세`
-
-### 💸 재무설계/예산관리 글 구조 (budget-planner 연계)
-
-> **연계 계산기**: `/tools/budget-planner`
-
-#### 타겟 독자
-
-| 페르소나 | 특징 | 검색 키워드 |
-|---------|------|------------|
-| 사회초년생 (24~28) | 첫 월급, 뭘 해야 할지 모름 | "첫 월급 관리", "사회초년생 저축" |
-| 저축 고민 직장인 (28~35) | 돈이 새는 것 같음 | "저축률 높이는 법", "돈 안 모이는 이유" |
-| 결혼/내집 준비 (30~38) | 목표 금액 있음 | "1억 모으기", "월급 관리 비율" |
-| 적자 가계부 (전 연령) | 월급보다 지출 많음 | "적자 탈출", "지출 줄이기" |
-
-#### 글 톤 & 스타일
-
-```
-❌ 피해야 할 톤:
-- "~에 대해 알아보겠습니다" (AI스러움)
-- "반드시 ~해야 합니다" (설교조)
-- "부자들은 이렇게 합니다" (현실과 동떨어짐)
-
-✅ 사용할 톤:
-- "월급 300인데 100도 못 모으겠다고요?" (공감)
-- "솔직히 말하면, 카페 지출 줄이는 건 별로 효과 없어요" (현실적)
-- "제가 실제로 해본 방법인데요" (경험 기반)
-- "계산해보면 바로 답이 나와요" (계산기 연결)
-```
-
-#### 글 구조 템플릿
-
-```markdown
-## 핵심 요약
-[결론 먼저 - 구체적 숫자로]
-> 월급 300만원이면 기초생활비 150만(50%), 여유비 60만(20%), 저축 90만(30%)
-
-## 왜 이 비율일까?
-[배경 설명 - 짧게]
-
-## 실제로 어떻게 나눌까
-[구체적 항목별 예시 - 표로]
-
-| 카테고리 | 항목 | 금액 |
-|---------|------|------|
-| 기초생활비 | 월세, 공과금, 식비... | 150만원 |
-
-## 내 상황에 맞게 조정하기
-[변수 설명]
-
-## 직접 계산해보기
-<LinkButton href="/ko/tools/budget-planner" label="재무설계 계산기로 내 비율 확인하기" />
-
-## 자주 묻는 질문
-[FAQ 3~5개]
-```
-
-#### 작성 우선순위 (1차)
-
-| 순서 | 파일명 | 주제 | 이유 |
-|------|--------|------|------|
-| 1 | `budget-300man.mdx` | 월급 300만원 예산 짜는 법 | 검색량 많음, 가장 흔한 연봉대 |
-| 2 | `50-30-20-budget-rule.mdx` | 50/30/20 예산 법칙 | 유명한 법칙, 계산기 컨셉과 일치 |
-| 3 | `saving-rate-20-percent.mdx` | 저축률 20% 만드는 방법 | 구체적 목표 |
-| 4 | `single-living-cost.mdx` | 1인 가구 적정 생활비 | 1인 가구 증가 트렌드 |
-| 5 | `first-salary-management.mdx` | 사회초년생 첫 월급 관리법 | 시즌성 |
+> **모든 작성 가이드는 `WRITING_GUIDE.md` 참조**
+> - 금융/대출 정보 글 구조
+> - 금리/상품 비교표 글 구조
+> - 보험 정보 글 구조
+> - 부동산/청약 정보 글 구조
+> - 재무설계/예산관리 글 작성 가이드
 
 ---
 
