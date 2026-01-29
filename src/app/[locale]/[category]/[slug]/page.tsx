@@ -6,9 +6,20 @@ import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { LinkButton } from "@/components/LinkButton";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { WelfareFinderButton } from "@/components/WelfareFinderButton";
+import { TableOfContents } from "@/components/TableOfContents";
 import type { Metadata } from "next";
 import Image from "next/image";
 import remarkGfm from "remark-gfm";
+
+// 텍스트를 URL-safe한 id로 변환
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9가-힣\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .trim();
+}
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://example.com";
 const siteName = "SEO 블로그";
@@ -66,16 +77,24 @@ const components = {
       </figure>
     );
   },
-  // 헤딩 컴포넌트
+  // 헤딩 컴포넌트 (목차 연동을 위한 id 자동 생성)
   h1: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1 className="text-3xl font-bold mt-8 mb-4" {...props} />
   ),
-  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h2 className="text-2xl font-bold mt-8 mb-4 pb-2 border-b" {...props} />
-  ),
-  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => (
-    <h3 className="text-xl font-semibold mt-6 mb-3" {...props} />
-  ),
+  h2: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const text = typeof props.children === "string" ? props.children : "";
+    const id = slugify(text);
+    return (
+      <h2 id={id} className="text-2xl font-bold mt-8 mb-4 pb-2 border-b scroll-mt-20" {...props} />
+    );
+  },
+  h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
+    const text = typeof props.children === "string" ? props.children : "";
+    const id = slugify(text);
+    return (
+      <h3 id={id} className="text-xl font-semibold mt-6 mb-3 scroll-mt-20" {...props} />
+    );
+  },
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
     <p className="mb-4 leading-relaxed text-gray-700" {...props} />
   ),
@@ -253,6 +272,9 @@ export default async function PostPage({ params }: PageProps) {
 
       {/* 광고 영역 - 상단 */}
       <AdPlaceholder slot="top" />
+
+      {/* 목차 */}
+      <TableOfContents content={post.content} locale={locale} />
 
       {/* 콘텐츠 */}
       <div className="prose prose-lg max-w-none">
