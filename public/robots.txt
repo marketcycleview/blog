@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /search?
+
+Sitemap: https://infotalker.com/sitemap.xml
+
+#DaumWebMasterTool:3f31a100ecb2cbc8914c9158c485174c4030e74105ffc54b379d55798280a361:UxmlswLIiPludcNqYWsdTQ==
