@@ -80,6 +80,9 @@ export default async function RootLayout({
         {/* Naver Search Advisor */}
         <meta name="naver-site-verification" content="f9d7ef5f3094536e0f69b04486afad2ead82dc95" />
 
+        {/* Bing Webmaster Tools */}
+        <meta name="msvalidate.01" content="B577A370ACD376036A05A05E0DF86F2D" />
+
         {/* Google AdSense */}
         <script
           async
