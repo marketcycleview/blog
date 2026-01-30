@@ -28,7 +28,7 @@ const CATEGORY_COLORS: Record<string, string> = {
 export default function CommercialDistrictMap({ initialData }: Props) {
   const [data, setData] = useState<CommercialData>(initialData);
   const [sido, setSido] = useState("11");
-  const [dongCode, setDongCode] = useState("");
+  const [regionCode, setRegionCode] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -38,17 +38,21 @@ export default function CommercialDistrictMap({ initialData }: Props) {
     [sido]
   );
 
-  // 선택된 지역 좌표 (기본: 서울 강남)
+  // 선택된 지역 좌표
+  const selectedRegion = useMemo(
+    () => COMMERCIAL_REGIONS.find((r) => r.code === regionCode),
+    [regionCode]
+  );
+
   const mapCenter = useMemo(() => {
+    if (selectedRegion) return { lat: selectedRegion.lat, lng: selectedRegion.lng };
     if (data.stores.length > 0) {
-      const avgLat =
-        data.stores.reduce((s, st) => s + st.lat, 0) / data.stores.length;
-      const avgLng =
-        data.stores.reduce((s, st) => s + st.lng, 0) / data.stores.length;
+      const avgLat = data.stores.reduce((s, st) => s + st.lat, 0) / data.stores.length;
+      const avgLng = data.stores.reduce((s, st) => s + st.lng, 0) / data.stores.length;
       return { lat: avgLat, lng: avgLng };
     }
     return { lat: 37.497, lng: 127.027 };
-  }, [data.stores]);
+  }, [data.stores, selectedRegion]);
 
   // 마커
   const markers: MapMarker[] = useMemo(
@@ -74,13 +78,16 @@ export default function CommercialDistrictMap({ initialData }: Props) {
     return map;
   }, [data.stores]);
 
-  // 데이터 가져오기
+  // 데이터 가져오기 (반경 검색)
   const fetchData = useCallback(
-    async (dong: string, cat: string) => {
-      if (!dong) return;
+    async (region: typeof COMMERCIAL_REGIONS[number], cat: string) => {
       setLoading(true);
       try {
-        const params = new URLSearchParams({ dong });
+        const params = new URLSearchParams({
+          cx: String(region.lng),
+          cy: String(region.lat),
+          radius: "1000",
+        });
         if (cat) params.set("category", cat);
         const res = await fetch(`/api/commercial-district?${params}`);
         if (res.ok) {
@@ -98,18 +105,19 @@ export default function CommercialDistrictMap({ initialData }: Props) {
 
   const handleSidoChange = (code: string) => {
     setSido(code);
-    setDongCode("");
+    setRegionCode("");
   };
 
-  const handleDongChange = (code: string) => {
-    setDongCode(code);
-    if (code) fetchData(code, categoryFilter);
+  const handleRegionChange = (code: string) => {
+    setRegionCode(code);
+    const region = COMMERCIAL_REGIONS.find((r) => r.code === code);
+    if (region) fetchData(region, categoryFilter);
   };
 
   const handleCategoryChange = (code: string) => {
     const next = categoryFilter === code ? "" : code;
     setCategoryFilter(next);
-    if (dongCode) fetchData(dongCode, next);
+    if (selectedRegion) fetchData(selectedRegion, next);
   };
 
   // 필터링된 목록 (클라이언트 카테고리 필터)
@@ -154,8 +162,8 @@ export default function CommercialDistrictMap({ initialData }: Props) {
               구/군
             </label>
             <select
-              value={dongCode}
-              onChange={(e) => handleDongChange(e.target.value)}
+              value={regionCode}
+              onChange={(e) => handleRegionChange(e.target.value)}
               className="w-full px-4 py-2.5 border rounded-lg text-sm bg-white focus:ring-2 focus:ring-blue-500"
             >
               <option value="">구/군을 선택하세요</option>
@@ -173,7 +181,7 @@ export default function CommercialDistrictMap({ initialData }: Props) {
       <div className="bg-white border rounded-xl overflow-hidden">
         <KakaoMap
           center={mapCenter}
-          level={dongCode ? 5 : 9}
+          level={regionCode ? 5 : 9}
           height="450px"
           markers={markers}
         />
@@ -343,7 +351,7 @@ export default function CommercialDistrictMap({ initialData }: Props) {
         </>
       )}
 
-      {!loading && !dongCode && (
+      {!loading && !regionCode && (
         <div className="bg-gray-50 rounded-xl p-8 text-center text-gray-500">
           시/도와 구/군을 선택하면 해당 지역의 상권 현황을 확인할 수 있습니다.
         </div>

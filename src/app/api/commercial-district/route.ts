@@ -8,26 +8,42 @@ function safeText(val: unknown): string {
   return String(val).trim();
 }
 
+function parseStore(item: any): Store {
+  return {
+    id: safeText(item.bizesId),
+    name: safeText(item.bizesNm),
+    category: safeText(item.indsLclsNm),
+    subCategory: safeText(item.indsSclsNm) || safeText(item.indsMclsNm),
+    address: safeText(item.lnoAdr) || safeText(item.rdnmAdr) || "",
+    lat: parseFloat(item.lat) || 0,
+    lng: parseFloat(item.lon) || 0,
+    phone: safeText(item.telNo) || undefined,
+  };
+}
+
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
-  const dongCode = searchParams.get("dong") || "";
+  const cx = searchParams.get("cx") || "";
+  const cy = searchParams.get("cy") || "";
+  const radius = searchParams.get("radius") || "1000";
   const categoryCode = searchParams.get("category") || "";
   const page = searchParams.get("page") || "1";
 
   const apiKey = process.env.COMMERCIAL_DISTRICT_API_KEY;
-  if (!apiKey || !dongCode) {
+  if (!apiKey || !cx || !cy) {
     const empty: CommercialData = { stores: [], totalCount: 0, updatedAt: new Date().toISOString(), isLive: false };
     return NextResponse.json(empty);
   }
 
   try {
-    // 행정동 단위 상가업소 조회
-    const url = new URL(`${ENDPOINT}/storeListInDong`);
+    // 반경내 상가업소 조회
+    const url = new URL(`${ENDPOINT}/storeListInRadius`);
     url.searchParams.set("serviceKey", apiKey);
-    url.searchParams.set("divId", "adongCd");
-    url.searchParams.set("key", dongCode);
+    url.searchParams.set("radius", radius);
+    url.searchParams.set("cx", cx);
+    url.searchParams.set("cy", cy);
     url.searchParams.set("pageNo", page);
-    url.searchParams.set("numOfRows", "100");
+    url.searchParams.set("numOfRows", "200");
     url.searchParams.set("type", "json");
 
     if (categoryCode) {
@@ -38,27 +54,17 @@ export async function GET(request: NextRequest) {
     if (!res.ok) throw new Error(`API ${res.status}`);
 
     const json = await res.json();
-    const body = json?.body;
-    const items = body?.items || [];
-    const totalCount = body?.totalCount || 0;
+    const items = json?.body?.items || [];
+    const totalCount = json?.body?.totalCount || 0;
 
-    const stores: Store[] = items.map((item: any) => ({
-      id: safeText(item.bizesId),
-      name: safeText(item.bizesNm),
-      category: safeText(item.indsLclsNm),
-      subCategory: safeText(item.indsSclsNm) || safeText(item.indsMclsNm),
-      address: safeText(item.lnoAdr) || safeText(item.rdnmAdr) || "",
-      lat: parseFloat(item.lat) || 0,
-      lng: parseFloat(item.lon) || 0,
-      phone: safeText(item.telNo) || undefined,
-    }));
+    const stores: Store[] = items.map(parseStore).filter((s: Store) => s.lat > 0 && s.lng > 0);
 
     const data: CommercialData = {
-      stores: stores.filter((s) => s.lat > 0 && s.lng > 0),
+      stores,
       totalCount,
       updatedAt: new Date().toISOString(),
       isLive: true,
-      regionName: stores[0]?.address?.split(" ").slice(0, 2).join(" ") || "",
+      regionName: stores[0]?.address?.split(" ").slice(0, 3).join(" ") || "",
     };
 
     return NextResponse.json(data, {

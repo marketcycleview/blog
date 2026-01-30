@@ -45,20 +45,26 @@ export async function GET() {
   }
 
   try {
-    const url = new URL(ENDPOINT);
-    url.searchParams.set("serviceKey", apiKey);
-    url.searchParams.set("callTp", "L");
-    url.searchParams.set("pageNo", "1");
-    url.searchParams.set("numOfRows", "500");
+    // 페이지네이션으로 전체 데이터 수집 (최대 4페이지 = 400건)
+    const allItems: string[] = [];
+    for (let page = 1; page <= 4; page++) {
+      const url = new URL(ENDPOINT);
+      url.searchParams.set("serviceKey", apiKey);
+      url.searchParams.set("callTp", "L");
+      url.searchParams.set("pageNo", String(page));
+      url.searchParams.set("numOfRows", "100");
+      url.searchParams.set("srchKeyCode", "003");
 
-    const res = await fetch(url.toString(), { next: { revalidate: 86400 } });
-    if (!res.ok) throw new Error(`API ${res.status}`);
+      const res = await fetch(url.toString(), { next: { revalidate: 86400 } });
+      if (!res.ok) break;
 
-    const xml = await res.text();
+      const xml = await res.text();
+      const items = xml.match(/<servList>[\s\S]*?<\/servList>/g) || [];
+      if (items.length === 0) break;
+      allItems.push(...items);
+    }
 
-    // <servList> 아이템 파싱
-    const items = xml.match(/<servList>[\s\S]*?<\/servList>/g) || [];
-    const services: WelfareService[] = items.map((item) => {
+    const services: WelfareService[] = allItems.map((item) => {
       const id = xmlTag(item, "servId") || xmlTag(item, "SERV_ID") || "";
       const name = xmlTag(item, "servNm") || xmlTag(item, "SERV_NM") || "";
       const summary = xmlTag(item, "servDgst") || xmlTag(item, "SERV_DGST") || xmlTag(item, "servDg") || "";
