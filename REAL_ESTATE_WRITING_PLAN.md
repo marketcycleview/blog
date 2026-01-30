@@ -493,6 +493,11 @@
 | 320 | 전세 vs 매매 뭐가 유리할까 (5년 기준) | `jeonse-vs-maemae-5years.mdx` | housing-cost-comparison | ⬜ |
 | 321 | 부동산 용어 모르면 손해보는 필수 30개 | `budongsan-yongeo-pilsu-30.mdx` | real-estate-dictionary | ⬜ |
 | 322 | 초보자를 위한 부동산 약어 사전 (LTV/DSR/DTI) | `budongsan-yakyeo-sajeon.mdx` | real-estate-dictionary | ⬜ |
+| 323 | 2026년 서울 전세 시세 구별 비교 총정리 | `2026-seoul-jeonse-sise-gubyeol.mdx` | rent-price-heatmap | ✅ |
+| 324 | 서울에서 전세 저렴한 구 TOP 5 (실거래 기준) | `seoul-jeonse-jeoryeom-top5.mdx` | rent-price-heatmap | ✅ |
+| 325 | 전세 vs 월세 지역별 비용 비교 (서울 기준) | `jeonse-vs-wolse-jiyeokbyeol.mdx` | rent-price-heatmap | ✅ |
+| 326 | 전월세 실거래가 조회 방법 3가지 (초보용) | `jeonwolse-silgeorae-johoe-bangbeop.mdx` | rent-price-heatmap | ✅ |
+| 327 | 경기도 전세 시세 시군별 비교 (2026년) | `2026-gyeonggi-jeonse-sise.mdx` | rent-price-heatmap | ✅ |
 
 ---
 
