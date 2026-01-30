@@ -101,6 +101,9 @@ export default function RegionalWelfareMap({ initialData }: Props) {
               </option>
             ))}
           </select>
+          <p className="text-xs text-gray-400 mt-2">
+            중앙부처 전국 공통 복지서비스입니다. 지역을 선택하면 가까운 복지 상담기관이 지도에 표시됩니다.
+          </p>
         </div>
         <KakaoMap
           center={{ lat: regionInfo.lat, lng: regionInfo.lng }}
