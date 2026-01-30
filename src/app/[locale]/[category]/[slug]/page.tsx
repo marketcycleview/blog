@@ -6,6 +6,7 @@ import { AdPlaceholder } from "@/components/AdPlaceholder";
 import { LinkButton } from "@/components/LinkButton";
 import { ArticleJsonLd, BreadcrumbJsonLd } from "@/components/JsonLd";
 import { WelfareFinderButton } from "@/components/WelfareFinderButton";
+import { KakaoShareButton } from "@/components/KakaoShareButton";
 import { TableOfContents } from "@/components/TableOfContents";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -298,8 +299,20 @@ export default async function PostPage({ params }: PageProps) {
       {/* 광고 영역 - 하단 */}
       <AdPlaceholder slot="bottom" />
 
+      {/* 공유 */}
+      <div className="mt-10 pt-6 border-t">
+        <p className="text-sm text-gray-500 mb-3">
+          {locale === "ko" ? "이 글이 도움이 됐다면 공유해 주세요" : "Share this article"}
+        </p>
+        <KakaoShareButton
+          title={post.title}
+          description={post.description}
+          pageUrl={`${siteUrl}/${locale}/${category}/${post.slug}`}
+        />
+      </div>
+
       {/* 푸터 */}
-      <footer className="mt-12 pt-8 border-t">
+      <footer className="mt-8 pt-6 border-t">
         <div className="flex justify-between items-center">
           <a
             href={`/${locale}/${category}`}
