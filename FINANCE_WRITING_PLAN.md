@@ -820,53 +820,53 @@ src/app/[locale]/tools/
 
 | # | 주제 | 파일명 | 연계 도구 | 상태 |
 |---|------|--------|----------|------|
-| 422 | 2026년 정기예금 금리 비교 TOP 10 | `2026-deposit-rate-top10.mdx` | interest-rate-dashboard | ⬜ |
-| 423 | 2026년 적금 금리 비교 TOP 10 | `2026-savings-rate-top10.mdx` | interest-rate-dashboard | ⬜ |
-| 424 | 인터넷은행 vs 시중은행 금리 차이 | `internet-vs-major-bank-rate.mdx` | interest-rate-dashboard | ⬜ |
-| 425 | 예금 vs 적금 뭐가 유리할까 | `deposit-vs-savings-bigyo.mdx` | interest-rate-dashboard | ⬜ |
-| 426 | 예금 금리 높은 은행 찾는 법 | `high-rate-deposit-find.mdx` | interest-rate-dashboard | ⬜ |
-| 427 | 적금 우대금리 조건 총정리 | `savings-premium-rate-conditions.mdx` | interest-rate-dashboard | ⬜ |
-| 428 | 6개월 단기 예금 금리 비교 2026 | `6month-deposit-rate-2026.mdx` | interest-rate-dashboard | ⬜ |
-| 429 | 파킹통장 vs 정기예금 비교 | `parking-vs-deposit.mdx` | interest-rate-dashboard | ⬜ |
+| 422 | 2026년 정기예금 금리 비교 TOP 10 | `2026-deposit-rate-top10.mdx` | interest-rate-dashboard | ✅ |
+| 423 | 2026년 적금 금리 비교 TOP 10 | `2026-savings-rate-top10.mdx` | interest-rate-dashboard | ✅ |
+| 424 | 인터넷은행 vs 시중은행 금리 차이 | `internet-vs-major-bank-rate.mdx` | interest-rate-dashboard | ✅ |
+| 425 | 예금 vs 적금 뭐가 유리할까 | `deposit-vs-savings-bigyo.mdx` | interest-rate-dashboard | ✅ |
+| 426 | 예금 금리 높은 은행 찾는 법 | `high-rate-deposit-find.mdx` | interest-rate-dashboard | ✅ |
+| 427 | 적금 우대금리 조건 총정리 | `savings-premium-rate-conditions.mdx` | interest-rate-dashboard | ✅ |
+| 428 | 6개월 단기 예금 금리 비교 2026 | `6month-deposit-rate-2026.mdx` | interest-rate-dashboard | ✅ |
+| 429 | 파킹통장 vs 정기예금 비교 | `parking-vs-deposit.mdx` | interest-rate-dashboard | ✅ |
 
 #### 주택담보대출 도구 연계 (8개)
 
 | # | 주제 | 파일명 | 연계 도구 | 상태 |
 |---|------|--------|----------|------|
-| 430 | 2026년 주택담보대출 금리 비교 | `2026-mortgage-rate-bigyo.mdx` | mortgage-rate-comparison | ⬜ |
-| 431 | 주담대 고정금리 vs 변동금리 비교 | `mortgage-fixed-vs-variable.mdx` | mortgage-rate-comparison | ⬜ |
-| 432 | 아파트 담보대출 금리 낮은 은행 TOP 5 | `apartment-mortgage-low-rate.mdx` | mortgage-rate-comparison | ⬜ |
-| 433 | 주담대 중도상환수수료 비교 | `mortgage-prepay-fee-bigyo.mdx` | mortgage-rate-comparison | ⬜ |
-| 434 | 주담대 갈아타기 전 확인사항 5가지 | `mortgage-refinance-checklist.mdx` | mortgage-rate-comparison | ⬜ |
-| 435 | 주택담보대출 부대비용 총정리 | `mortgage-extra-cost.mdx` | mortgage-rate-comparison | ⬜ |
-| 436 | 인터넷은행 주담대 금리 비교 2026 | `internet-bank-mortgage-2026.mdx` | mortgage-rate-comparison | ⬜ |
-| 437 | 혼합금리 주담대란? 장단점 정리 | `mortgage-hybrid-rate.mdx` | mortgage-rate-comparison | ⬜ |
+| 430 | 2026년 주택담보대출 금리 비교 | `2026-mortgage-rate-bigyo.mdx` | mortgage-rate-comparison | ✅ |
+| 431 | 주담대 고정금리 vs 변동금리 비교 | `mortgage-fixed-vs-variable.mdx` | mortgage-rate-comparison | ✅ |
+| 432 | 아파트 담보대출 금리 낮은 은행 TOP 5 | `apartment-mortgage-low-rate.mdx` | mortgage-rate-comparison | ✅ |
+| 433 | 주담대 중도상환수수료 비교 | `mortgage-prepay-fee-bigyo.mdx` | mortgage-rate-comparison | ✅ |
+| 434 | 주담대 갈아타기 전 확인사항 5가지 | `mortgage-refinance-checklist.mdx` | mortgage-rate-comparison | ✅ |
+| 435 | 주택담보대출 부대비용 총정리 | `mortgage-extra-cost.mdx` | mortgage-rate-comparison | ✅ |
+| 436 | 인터넷은행 주담대 금리 비교 2026 | `internet-bank-mortgage-2026.mdx` | mortgage-rate-comparison | ✅ |
+| 437 | 혼합금리 주담대란? 장단점 정리 | `mortgage-hybrid-rate.mdx` | mortgage-rate-comparison | ✅ |
 
 #### 전세자금대출 도구 연계 (8개)
 
 | # | 주제 | 파일명 | 연계 도구 | 상태 |
 |---|------|--------|----------|------|
-| 438 | 2026년 전세대출 금리 비교 | `2026-jeonse-loan-rate-bigyo.mdx` | jeonse-loan-rates | ⬜ |
-| 439 | 전세대출 금리 낮은 은행 TOP 5 | `jeonse-loan-low-rate-top5.mdx` | jeonse-loan-rates | ⬜ |
-| 440 | 전세대출 고정 vs 변동 금리 비교 | `jeonse-fixed-vs-variable.mdx` | jeonse-loan-rates | ⬜ |
-| 441 | 버팀목대출 vs 시중은행 전세대출 | `butimmok-vs-bank-jeonse.mdx` | jeonse-loan-rates | ⬜ |
-| 442 | 카카오 vs 토스 전세대출 비교 | `kakao-vs-toss-jeonse.mdx` | jeonse-loan-rates | ⬜ |
-| 443 | 전세대출 한도 은행별 비교 2026 | `jeonse-loan-limit-bigyo.mdx` | jeonse-loan-rates | ⬜ |
-| 444 | 전세대출 중도상환수수료 비교 | `jeonse-prepay-fee.mdx` | jeonse-loan-rates | ⬜ |
-| 445 | 전세대출 갈아타기 절감액 계산 | `jeonse-refinance-guide.mdx` | jeonse-loan-rates | ⬜ |
+| 438 | 2026년 전세대출 금리 비교 | `2026-jeonse-loan-rate-bigyo.mdx` | jeonse-loan-rates | ✅ |
+| 439 | 전세대출 금리 낮은 은행 TOP 5 | `jeonse-loan-low-rate-top5.mdx` | jeonse-loan-rates | ✅ |
+| 440 | 전세대출 고정 vs 변동 금리 비교 | `jeonse-fixed-vs-variable.mdx` | jeonse-loan-rates | ✅ |
+| 441 | 버팀목대출 vs 시중은행 전세대출 | `butimmok-vs-bank-jeonse.mdx` | jeonse-loan-rates | ✅ |
+| 442 | 카카오 vs 토스 전세대출 비교 | `kakao-vs-toss-jeonse.mdx` | jeonse-loan-rates | ✅ |
+| 443 | 전세대출 한도 은행별 비교 2026 | `jeonse-loan-limit-bigyo.mdx` | jeonse-loan-rates | ✅ |
+| 444 | 전세대출 중도상환수수료 비교 | `jeonse-prepay-fee.mdx` | jeonse-loan-rates | ✅ |
+| 445 | 전세대출 갈아타기 절감액 계산 | `jeonse-refinance-guide.mdx` | jeonse-loan-rates | ✅ |
 
 #### 신용대출 도구 연계 (8개)
 
 | # | 주제 | 파일명 | 연계 도구 | 상태 |
 |---|------|--------|----------|------|
-| 446 | 2026년 신용대출 금리 비교 | `2026-credit-loan-rate-bigyo.mdx` | credit-loan-rates | ⬜ |
-| 447 | 신용등급별 대출 금리 차이 얼마나 | `credit-grade-rate-gap.mdx` | credit-loan-rates | ⬜ |
-| 448 | 1금융권 vs 2금융권 신용대출 비교 | `1st-vs-2nd-tier-credit.mdx` | credit-loan-rates | ⬜ |
-| 449 | 신용대출 금리 낮은 은행 TOP 5 | `credit-loan-low-rate-top5.mdx` | credit-loan-rates | ⬜ |
-| 450 | 카카오 vs 토스 신용대출 비교 | `kakao-vs-toss-credit.mdx` | credit-loan-rates | ⬜ |
-| 451 | 직장인 신용대출 금리 비교 2026 | `worker-credit-loan-2026.mdx` | credit-loan-rates | ⬜ |
-| 452 | 신용등급 올리면 대출금리 얼마나 줄까 | `credit-up-rate-down.mdx` | credit-loan-rates | ⬜ |
-| 453 | 마이너스통장 금리 비교 (은행별) | `minus-account-rate-bigyo.mdx` | credit-loan-rates | ⬜ |
+| 446 | 2026년 신용대출 금리 비교 | `2026-credit-loan-rate-bigyo.mdx` | credit-loan-rates | ✅ |
+| 447 | 신용등급별 대출 금리 차이 얼마나 | `credit-grade-rate-gap.mdx` | credit-loan-rates | ✅ |
+| 448 | 1금융권 vs 2금융권 신용대출 비교 | `1st-vs-2nd-tier-credit.mdx` | credit-loan-rates | ✅ |
+| 449 | 신용대출 금리 낮은 은행 TOP 5 | `credit-loan-low-rate-top5.mdx` | credit-loan-rates | ✅ |
+| 450 | 카카오 vs 토스 신용대출 비교 | `kakao-vs-toss-credit.mdx` | credit-loan-rates | ✅ |
+| 451 | 직장인 신용대출 금리 비교 2026 | `worker-credit-loan-2026.mdx` | credit-loan-rates | ✅ |
+| 452 | 신용등급 올리면 대출금리 얼마나 줄까 | `credit-up-rate-down.mdx` | credit-loan-rates | ✅ |
+| 453 | 마이너스통장 금리 비교 (은행별) | `minus-account-rate-bigyo.mdx` | credit-loan-rates | ✅ |
 
 ---
 
