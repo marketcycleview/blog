@@ -79,12 +79,12 @@ export function TableOfContents({ content, locale = "ko" }: TableOfContentsProps
   };
 
   return (
-    <nav className="bg-gray-50 rounded-lg p-4 mb-8 border border-gray-200">
-      <h2 className="text-sm font-semibold text-gray-900 mb-3 flex items-center gap-2">
+    <nav className="bg-blue-50/60 rounded-lg p-5 mb-10 border border-blue-100">
+      <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
         <span>📑</span>
         {locale === "ko" ? "목차" : "Table of Contents"}
       </h2>
-      <ul className="space-y-1.5">
+      <ul className="space-y-1">
         {headings.map((heading, index) => (
           <li
             key={`${heading.id}-${index}`}
@@ -93,10 +93,10 @@ export function TableOfContents({ content, locale = "ko" }: TableOfContentsProps
             <button
               onClick={() => handleClick(heading.id)}
               className={`
-                text-left text-sm w-full py-1 px-2 rounded transition-colors
-                hover:bg-gray-200
+                text-left text-sm w-full py-1.5 px-3 rounded transition-colors
+                hover:bg-blue-100/70
                 ${activeId === heading.id
-                  ? "text-blue-600 font-medium bg-blue-50"
+                  ? "text-blue-700 font-semibold bg-blue-100"
                   : "text-gray-600"
                 }
               `}

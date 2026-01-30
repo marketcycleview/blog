@@ -9,14 +9,14 @@ export function LinkButton({ href, label }: LinkButtonProps) {
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="block w-full my-4 px-6 py-4 bg-gradient-to-r from-blue-600 to-blue-700
-                 !text-white !no-underline text-center font-semibold rounded-lg
-                 hover:from-blue-700 hover:to-blue-800 hover:!text-white
-                 transform hover:scale-[1.02] transition-all duration-200
-                 shadow-md hover:shadow-lg"
+      className="group flex items-center justify-between w-full my-4 px-5 py-4
+                 bg-white !text-gray-800 !no-underline
+                 border border-blue-200 rounded-lg
+                 hover:bg-blue-50 hover:border-blue-400 hover:!text-blue-700
+                 transition-all duration-200 shadow-sm hover:shadow-md"
     >
-      {label}
-      <span className="ml-2">→</span>
+      <span className="font-medium text-[0.9375rem]">{label}</span>
+      <span className="ml-3 text-blue-500 group-hover:translate-x-1 transition-transform duration-200">→</span>
     </a>
   );
 }

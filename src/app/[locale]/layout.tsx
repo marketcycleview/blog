@@ -1,7 +1,15 @@
 import type { Metadata } from "next";
+import { Noto_Sans_KR } from "next/font/google";
 import "../globals.css";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import { AdClickProtection } from "@/components/ads/AdClickProtection";
+
+const notoSansKR = Noto_Sans_KR({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+  variable: "--font-noto-sans-kr",
+});
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 const siteName = "InfoTalker";
@@ -75,7 +83,7 @@ export default async function RootLayout({
   const { locale } = await params;
 
   return (
-    <html lang={locale}>
+    <html lang={locale} className={notoSansKR.variable}>
       <head>
         {/* Naver Search Advisor */}
         <meta name="naver-site-verification" content="f9d7ef5f3094536e0f69b04486afad2ead82dc95" />
@@ -110,7 +118,7 @@ export default async function RootLayout({
           description={siteDescription}
         />
       </head>
-      <body className="min-h-screen bg-white">
+      <body className="min-h-screen bg-white font-sans">
         {/* 광고 무효 클릭 방지 */}
         <AdClickProtection />
 

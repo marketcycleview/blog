@@ -85,27 +85,27 @@ const components = {
     const text = typeof props.children === "string" ? props.children : "";
     const id = slugify(text);
     return (
-      <h2 id={id} className="text-2xl font-bold mt-8 mb-4 pb-2 border-b scroll-mt-20" {...props} />
+      <h2 id={id} className="text-[1.625rem] font-bold mt-14 mb-5 pb-3 border-b-2 border-blue-600 text-gray-900 scroll-mt-20" {...props} />
     );
   },
   h3: (props: React.HTMLAttributes<HTMLHeadingElement>) => {
     const text = typeof props.children === "string" ? props.children : "";
     const id = slugify(text);
     return (
-      <h3 id={id} className="text-xl font-semibold mt-6 mb-3 scroll-mt-20" {...props} />
+      <h3 id={id} className="text-lg font-semibold mt-8 mb-3 text-gray-900 pl-3 border-l-[3px] border-blue-400 scroll-mt-20" {...props} />
     );
   },
   p: (props: React.HTMLAttributes<HTMLParagraphElement>) => (
-    <p className="mb-4 leading-relaxed text-gray-700" {...props} />
+    <p className="mb-5 text-[1.0625rem] leading-[1.85] text-gray-800 tracking-[-0.01em] break-keep" {...props} />
   ),
   ul: (props: React.HTMLAttributes<HTMLUListElement>) => (
-    <ul className="mb-4 pl-6 list-disc space-y-1" {...props} />
+    <ul className="mb-5 pl-6 list-disc space-y-2.5" {...props} />
   ),
   ol: (props: React.OlHTMLAttributes<HTMLOListElement>) => (
-    <ol className="mb-4 pl-6 list-decimal space-y-1" {...props} />
+    <ol className="mb-5 pl-6 list-decimal space-y-2.5" {...props} />
   ),
   li: (props: React.LiHTMLAttributes<HTMLLIElement>) => (
-    <li className="text-gray-700" {...props} />
+    <li className="text-gray-800 text-[1.0625rem] leading-[1.85] break-keep" {...props} />
   ),
   a: (props: React.AnchorHTMLAttributes<HTMLAnchorElement>) => (
     <a
@@ -117,7 +117,7 @@ const components = {
   ),
   blockquote: (props: React.BlockquoteHTMLAttributes<HTMLQuoteElement>) => (
     <blockquote
-      className="border-l-4 border-blue-500 pl-4 py-2 my-6 bg-blue-50 rounded-r-lg italic text-gray-700"
+      className="border-l-4 border-blue-500 pl-4 py-4 my-8 bg-blue-50 rounded-r-lg text-gray-700"
       {...props}
     />
   ),
@@ -128,7 +128,7 @@ const components = {
     </div>
   ),
   thead: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
-    <thead className="bg-gray-50" {...props} />
+    <thead className="bg-blue-50" {...props} />
   ),
   tbody: (props: React.HTMLAttributes<HTMLTableSectionElement>) => (
     <tbody className="bg-white divide-y divide-gray-200" {...props} />
@@ -138,22 +138,28 @@ const components = {
   ),
   th: (props: React.ThHTMLAttributes<HTMLTableCellElement>) => (
     <th
-      className="px-4 py-3 text-left text-sm font-semibold text-gray-900 whitespace-nowrap"
+      className="px-4 py-3.5 text-left text-sm font-bold text-blue-900 whitespace-nowrap"
       {...props}
     />
   ),
   td: (props: React.TdHTMLAttributes<HTMLTableCellElement>) => (
-    <td className="px-4 py-3 text-sm text-gray-700" {...props} />
+    <td className="px-4 py-3.5 text-sm text-gray-700 break-keep" {...props} />
   ),
   // 코드 블록
   pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
     <pre className="my-4 p-4 bg-gray-900 text-gray-100 rounded-lg overflow-x-auto text-sm" {...props} />
   ),
-  code: (props: React.HTMLAttributes<HTMLElement>) => (
-    <code className="bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-sm font-mono" {...props} />
-  ),
+  code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
+    // code block 내부(pre > code)인 경우 별도 스타일 적용하지 않음
+    if (className?.startsWith('language-')) {
+      return <code className={className} {...props} />;
+    }
+    return (
+      <code className="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-semibold" {...props} />
+    );
+  },
   // 수평선
-  hr: () => <hr className="my-8 border-t-2 border-gray-200" />,
+  hr: () => <hr className="my-12 border-t border-gray-200" />,
 };
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -255,13 +261,13 @@ export default async function PostPage({ params }: PageProps) {
             {category}
           </a>
         </div>
-        <h1 className="text-3xl md:text-4xl font-bold mb-4">{post.title}</h1>
+        <h1 className="text-3xl md:text-4xl font-extrabold mb-4 break-keep">{post.title}</h1>
         <div className="flex flex-wrap items-center gap-4 text-gray-500">
           <time dateTime={post.date}>{post.date}</time>
           {post.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag) => (
-                <span key={tag} className="text-xs bg-gray-100 px-2 py-1 rounded">
+                <span key={tag} className="text-xs bg-blue-50 text-blue-700 px-2 py-1 rounded">
                   #{tag}
                 </span>
               ))}

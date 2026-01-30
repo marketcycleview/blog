@@ -11,68 +11,8 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-}
-
-/* MDX 콘텐츠 스타일 */
-.prose {
-  @apply max-w-none;
-}
-
-.prose h1 {
-  @apply text-3xl font-bold mt-8 mb-4;
-}
-
-.prose h2 {
-  @apply text-2xl font-bold mt-6 mb-3;
-}
-
-.prose h3 {
-  @apply text-xl font-semibold mt-4 mb-2;
-}
-
-.prose p {
-  @apply mb-4 leading-relaxed;
-}
-
-.prose ul, .prose ol {
-  @apply mb-4 pl-6;
-}
-
-.prose li {
-  @apply mb-2;
-}
-
-.prose a {
-  @apply text-blue-600 hover:text-blue-800 underline;
-}
-
-.prose blockquote {
-  @apply border-l-4 border-gray-300 pl-4 italic my-4 text-gray-700;
-}
-
-.prose table {
-  @apply w-full border-collapse mb-4;
-}
-
-.prose th, .prose td {
-  @apply border border-gray-300 px-4 py-2 text-left;
-}
-
-.prose th {
-  @apply bg-gray-100 font-semibold;
-}
-
-.prose code {
-  @apply bg-gray-100 px-1 py-0.5 rounded text-sm;
-}
-
-.prose pre {
-  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto mb-4;
-}
-
-.prose pre code {
-  @apply bg-transparent p-0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* 리뷰 섹션 스타일 */
