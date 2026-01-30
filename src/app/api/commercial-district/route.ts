@@ -27,7 +27,6 @@ export async function GET(request: NextRequest) {
   const cy = searchParams.get("cy") || "";
   const radius = searchParams.get("radius") || "1000";
   const categoryCode = searchParams.get("category") || "";
-  const page = searchParams.get("page") || "1";
 
   const apiKey = process.env.COMMERCIAL_DISTRICT_API_KEY;
   if (!apiKey || !cx || !cy) {
@@ -36,35 +35,45 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // 반경내 상가업소 조회
-    const url = new URL(`${ENDPOINT}/storeListInRadius`);
-    url.searchParams.set("serviceKey", apiKey);
-    url.searchParams.set("radius", radius);
-    url.searchParams.set("cx", cx);
-    url.searchParams.set("cy", cy);
-    url.searchParams.set("pageNo", page);
-    url.searchParams.set("numOfRows", "200");
-    url.searchParams.set("type", "json");
+    // 반경내 상가업소 조회 (페이지네이션으로 전체 수집)
+    const allStores: Store[] = [];
+    let totalCount = 0;
+    const maxPages = 5; // 최대 5페이지 = 5000건
 
-    if (categoryCode) {
-      url.searchParams.set("indsLclsCd", categoryCode);
+    for (let p = 1; p <= maxPages; p++) {
+      const url = new URL(`${ENDPOINT}/storeListInRadius`);
+      url.searchParams.set("serviceKey", apiKey);
+      url.searchParams.set("radius", radius);
+      url.searchParams.set("cx", cx);
+      url.searchParams.set("cy", cy);
+      url.searchParams.set("pageNo", String(p));
+      url.searchParams.set("numOfRows", "1000");
+      url.searchParams.set("type", "json");
+
+      if (categoryCode) {
+        url.searchParams.set("indsLclsCd", categoryCode);
+      }
+
+      const res = await fetch(url.toString(), { next: { revalidate: 86400 } });
+      if (!res.ok) break;
+
+      const json = await res.json();
+      const items = json?.body?.items || [];
+      totalCount = json?.body?.totalCount || totalCount;
+
+      const stores = items.map(parseStore).filter((s: Store) => s.lat > 0 && s.lng > 0);
+      allStores.push(...stores);
+
+      // 다 가져왔으면 중단
+      if (allStores.length >= totalCount || items.length === 0) break;
     }
 
-    const res = await fetch(url.toString(), { next: { revalidate: 86400 } });
-    if (!res.ok) throw new Error(`API ${res.status}`);
-
-    const json = await res.json();
-    const items = json?.body?.items || [];
-    const totalCount = json?.body?.totalCount || 0;
-
-    const stores: Store[] = items.map(parseStore).filter((s: Store) => s.lat > 0 && s.lng > 0);
-
     const data: CommercialData = {
-      stores,
+      stores: allStores,
       totalCount,
       updatedAt: new Date().toISOString(),
       isLive: true,
-      regionName: stores[0]?.address?.split(" ").slice(0, 3).join(" ") || "",
+      regionName: allStores[0]?.address?.split(" ").slice(0, 3).join(" ") || "",
     };
 
     return NextResponse.json(data, {

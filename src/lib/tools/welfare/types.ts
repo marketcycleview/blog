@@ -38,13 +38,13 @@ export const WELFARE_CATEGORIES: { code: WelfareCategory; label: string; icon: s
 
 export const TARGET_GROUPS = [
   { code: "all", label: "전체" },
-  { code: "youth", label: "청년" },
-  { code: "senior", label: "노인" },
-  { code: "disabled", label: "장애인" },
-  { code: "singleparent", label: "한부모" },
-  { code: "lowIncome", label: "저소득" },
-  { code: "pregnant", label: "임산부" },
-  { code: "child", label: "아동" },
-  { code: "worker", label: "직장인" },
-  { code: "veteran", label: "국가유공자" },
+  { code: "청년", label: "청년" },
+  { code: "노인", label: "노인" },
+  { code: "장애인", label: "장애인" },
+  { code: "한부모", label: "한부모" },
+  { code: "저소득", label: "저소득" },
+  { code: "임산부", label: "임산부" },
+  { code: "아동", label: "아동" },
+  { code: "직장인", label: "직장인" },
+  { code: "국가유공자", label: "국가유공자" },
 ];

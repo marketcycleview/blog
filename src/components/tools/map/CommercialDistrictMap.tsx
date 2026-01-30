@@ -31,6 +31,7 @@ export default function CommercialDistrictMap({ initialData }: Props) {
   const [regionCode, setRegionCode] = useState("");
   const [categoryFilter, setCategoryFilter] = useState("");
   const [loading, setLoading] = useState(false);
+  const [showAll, setShowAll] = useState(false);
 
   // 현재 시도에 해당하는 구/군 목록
   const regions = useMemo(
@@ -59,7 +60,7 @@ export default function CommercialDistrictMap({ initialData }: Props) {
     () =>
       data.stores
         .filter((s) => s.lat > 0 && s.lng > 0)
-        .slice(0, 200) // 성능 위해 200개 제한
+        .slice(0, 500) // 지도 성능 위해 500개 제한
         .map((s) => ({
           lat: s.lat,
           lng: s.lng,
@@ -110,6 +111,7 @@ export default function CommercialDistrictMap({ initialData }: Props) {
 
   const handleRegionChange = (code: string) => {
     setRegionCode(code);
+    setShowAll(false);
     const region = COMMERCIAL_REGIONS.find((r) => r.code === code);
     if (region) fetchData(region, categoryFilter);
   };
@@ -293,7 +295,7 @@ export default function CommercialDistrictMap({ initialData }: Props) {
                   </tr>
                 </thead>
                 <tbody>
-                  {filteredStores.slice(0, 50).map((s, i) => (
+                  {(showAll ? filteredStores : filteredStores.slice(0, 50)).map((s, i) => (
                     <tr
                       key={s.id || i}
                       className="border-b last:border-b-0 hover:bg-blue-50/50"
@@ -322,7 +324,7 @@ export default function CommercialDistrictMap({ initialData }: Props) {
             </div>
             {/* 모바일 카드 */}
             <div className="sm:hidden divide-y">
-              {filteredStores.slice(0, 30).map((s, i) => (
+              {(showAll ? filteredStores : filteredStores.slice(0, 30)).map((s, i) => (
                 <div key={s.id || i} className="p-4">
                   <div className="flex items-center justify-between mb-1">
                     <span className="font-semibold text-gray-900 text-sm">
@@ -342,9 +344,24 @@ export default function CommercialDistrictMap({ initialData }: Props) {
                 </div>
               ))}
             </div>
-            {filteredStores.length > 50 && (
-              <div className="p-4 text-center text-sm text-gray-500 border-t">
-                상위 50개만 표시됩니다
+            {!showAll && filteredStores.length > 50 && (
+              <div className="p-4 text-center border-t">
+                <button
+                  onClick={() => setShowAll(true)}
+                  className="px-6 py-2 bg-blue-600 text-white rounded-lg text-sm font-medium hover:bg-blue-700 transition-colors"
+                >
+                  전체 보기 ({filteredStores.length}개)
+                </button>
+              </div>
+            )}
+            {showAll && filteredStores.length > 50 && (
+              <div className="p-4 text-center border-t">
+                <button
+                  onClick={() => setShowAll(false)}
+                  className="px-6 py-2 bg-gray-200 text-gray-700 rounded-lg text-sm font-medium hover:bg-gray-300 transition-colors"
+                >
+                  접기
+                </button>
               </div>
             )}
           </div>

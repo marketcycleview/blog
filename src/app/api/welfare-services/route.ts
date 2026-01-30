@@ -45,15 +45,14 @@ export async function GET() {
   }
 
   try {
-    // 페이지네이션으로 전체 데이터 수집 (최대 4페이지 = 400건)
+    // 페이지네이션으로 전체 데이터 수집 (최대 10페이지 = 1000건)
     const allItems: string[] = [];
-    for (let page = 1; page <= 4; page++) {
+    for (let page = 1; page <= 10; page++) {
       const url = new URL(ENDPOINT);
       url.searchParams.set("serviceKey", apiKey);
       url.searchParams.set("callTp", "L");
       url.searchParams.set("pageNo", String(page));
       url.searchParams.set("numOfRows", "100");
-      url.searchParams.set("srchKeyCode", "003");
 
       const res = await fetch(url.toString(), { next: { revalidate: 86400 } });
       if (!res.ok) break;

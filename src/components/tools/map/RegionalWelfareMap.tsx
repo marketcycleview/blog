@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect } from "react";
 import KakaoMap, { type MapMarker } from "./KakaoMap";
 import type { WelfareData, WelfareCategory } from "@/lib/tools/welfare/types";
 import { WELFARE_CATEGORIES, TARGET_GROUPS } from "@/lib/tools/welfare/types";
@@ -11,10 +11,25 @@ interface Props {
 }
 
 export default function RegionalWelfareMap({ initialData }: Props) {
+  const [data, setData] = useState<WelfareData>(initialData);
   const [region, setRegion] = useState("all");
   const [category, setCategory] = useState<WelfareCategory | "all">("all");
   const [target, setTarget] = useState("all");
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [loading, setLoading] = useState(false);
+
+  // 서버에서 빈 데이터가 왔으면 클라이언트에서 재시도
+  useEffect(() => {
+    if (data.services.length > 0) return;
+    setLoading(true);
+    fetch("/api/welfare-services")
+      .then((res) => res.json())
+      .then((json: WelfareData) => {
+        if (json.services.length > 0) setData(json);
+      })
+      .catch(() => {})
+      .finally(() => setLoading(false));
+  }, [data.services.length]);
 
   // 지역 정보
   const regionInfo = useMemo(
@@ -42,27 +57,31 @@ export default function RegionalWelfareMap({ initialData }: Props) {
 
   // 필터링된 서비스 목록
   const filtered = useMemo(() => {
-    return initialData.services.filter((s) => {
+    return data.services.filter((s) => {
       if (category !== "all" && s.category !== category) return false;
       if (target !== "all" && s.targetGroup !== target && s.targetGroup !== "전체") return false;
       return true;
     });
-  }, [initialData.services, category, target]);
+  }, [data.services, category, target]);
 
   // 카테고리별 통계
   const categoryStats = useMemo(() => {
     const map: Record<string, number> = {};
-    initialData.services.forEach((s) => {
+    data.services.forEach((s) => {
       map[s.category] = (map[s.category] || 0) + 1;
     });
     return map;
-  }, [initialData.services]);
+  }, [data.services]);
 
   return (
     <div className="space-y-6">
       {/* 데이터 상태 */}
       <div className="text-sm text-gray-500">
-        <span>총 {initialData.totalCount}개 복지서비스</span>
+        {loading ? (
+          <span>복지서비스 데이터 불러오는 중...</span>
+        ) : (
+          <span>총 {data.totalCount}개 복지서비스</span>
+        )}
       </div>
 
       {/* 지역 선택 + 지도 */}
