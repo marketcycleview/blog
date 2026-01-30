@@ -147,7 +147,7 @@ const components = {
   ),
   // 코드 블록
   pre: (props: React.HTMLAttributes<HTMLPreElement>) => (
-    <pre className="my-4 p-4 bg-gray-900 text-gray-100 rounded-lg overflow-x-auto text-sm" {...props} />
+    <pre className="my-6 p-4 bg-gray-50 border border-gray-200 rounded-lg overflow-x-auto text-sm text-gray-800" {...props} />
   ),
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => {
     // code block 내부(pre > code)인 경우 별도 스타일 적용하지 않음
@@ -155,7 +155,7 @@ const components = {
       return <code className={className} {...props} />;
     }
     return (
-      <code className="bg-gray-100 text-gray-800 px-1.5 py-0.5 rounded text-sm font-semibold" {...props} />
+      <code className="text-blue-700 font-semibold" {...props} />
     );
   },
   // 수평선
