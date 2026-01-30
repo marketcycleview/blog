@@ -10,7 +10,7 @@ function formatPrice(manwon: number): string {
   if (manwon >= 10000) {
     const uk = Math.floor(manwon / 10000);
     const rest = manwon % 10000;
-    return rest > 0 ? `${uk}억 ${rest.toLocaleString("ko-KR")}` : `${uk}억`;
+    return rest > 0 ? `${uk}억 ${rest.toLocaleString("ko-KR")}만` : `${uk}억`;
   }
   return `${manwon.toLocaleString("ko-KR")}만`;
 }
