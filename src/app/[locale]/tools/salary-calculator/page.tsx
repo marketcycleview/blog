@@ -81,8 +81,8 @@ export default async function SalaryCalculatorPage({ params }: PageProps) {
             </tr>
             <tr>
               <td>건강보험</td>
-              <td>7.09%</td>
-              <td>2026년 기준</td>
+              <td>3.545%</td>
+              <td>근로자 부담분 (전체 7.09%)</td>
             </tr>
             <tr>
               <td>장기요양보험</td>

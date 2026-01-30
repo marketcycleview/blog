@@ -1,9 +1,9 @@
 // 2026년 기준 4대보험 요율 및 세율
 export const INSURANCE_RATES_2026 = {
-  nationalPension: 0.045, // 국민연금 4.5%
-  healthInsurance: 0.0709, // 건강보험 7.09% (2026년)
+  nationalPension: 0.045, // 국민연금 4.5% (근로자 부담분)
+  healthInsurance: 0.03545, // 건강보험 3.545% (근로자 부담분, 전체 7.09%)
   longTermCare: 0.1295, // 장기요양보험 (건강보험의 12.95%)
-  employmentInsurance: 0.009, // 고용보험 0.9%
+  employmentInsurance: 0.009, // 고용보험 0.9% (근로자 부담분, 전체 1.8%)
 };
 
 // 국민연금 상한/하한
@@ -13,7 +13,7 @@ export const PENSION_LIMITS = {
 };
 
 // 건강보험 상한
-export const HEALTH_INSURANCE_MAX = 8477820; // 월 상한액 (2026년 예상)
+export const HEALTH_INSURANCE_MAX = 4238910; // 월 상한액 근로자 부담분 (2026년 예상, 전체 8,477,820의 절반)
 
 // 간이세액표 기반 소득세 계산 (2026년)
 // 실제로는 더 복잡하지만 간략화

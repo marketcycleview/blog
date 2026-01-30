@@ -154,7 +154,7 @@ export default function SalaryCalculator() {
                   <span className="font-medium">{formatNumber(result.nationalPension)}원</span>
                 </div>
                 <div className="flex justify-between py-2 border-b">
-                  <span className="text-gray-600">건강보험 (7.09%)</span>
+                  <span className="text-gray-600">건강보험 (3.545%)</span>
                   <span className="font-medium">{formatNumber(result.healthInsurance)}원</span>
                 </div>
                 <div className="flex justify-between py-2 border-b">

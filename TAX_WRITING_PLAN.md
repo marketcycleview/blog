@@ -9,9 +9,9 @@
 
 ## 📊 현황 요약
 
-- **작성 완료**: 0개
-- **작성 예정**: 215개 (계산기 활용 콘텐츠 15개 추가)
-- **총 목표**: 215개
+- **작성 완료**: 15개
+- **작성 예정**: 240개 (계산기 활용 콘텐츠 15개 추가)
+- **총 목표**: 255개
 
 ---
 
@@ -263,23 +263,107 @@
 
 > **연계 계산기**: 연봉 실수령액, 연말정산 환급액, 퇴직금 계산기
 
-| # | 주제 | 파일명 | 계산기 연계 | 상태 |
-|---|------|--------|-------------|------|
-| 201 | 2026년 연봉별 실수령액표 | `2026-yeonbong-silsuryeongaek-pyo.mdx` | salary-calculator | ⬜ |
-| 202 | 연봉 3000만원 실수령액 | `yeonbong-3000-silsuryeong.mdx` | salary-calculator | ⬜ |
-| 203 | 연봉 4000만원 실수령액 | `yeonbong-4000-silsuryeong.mdx` | salary-calculator | ⬜ |
-| 204 | 연봉 5000만원 실수령액 | `yeonbong-5000-silsuryeong.mdx` | salary-calculator | ⬜ |
-| 205 | 연봉 6000만원 실수령액 | `yeonbong-6000-silsuryeong.mdx` | salary-calculator | ⬜ |
-| 206 | 연봉 7000만원 실수령액 | `yeonbong-7000-silsuryeong.mdx` | salary-calculator | ⬜ |
-| 207 | 연봉 1억 실수령액 | `yeonbong-1eok-silsuryeong.mdx` | salary-calculator | ⬜ |
-| 208 | 2026년 4대보험요율 정리 | `2026-4dae-boheom-yoyul.mdx` | salary-calculator | ⬜ |
-| 209 | 2026년 소득세율표 | `2026-sodeukse-yulpyo.mdx` | salary-calculator | ⬜ |
-| 210 | 퇴직금 계산법 완벽가이드 | `toejikgeum-gyesan-guide.mdx` | severance-calculator | ⬜ |
-| 211 | 퇴직금 세금 계산법 | `toejikgeum-segeum-gyesan.mdx` | severance-calculator | ⬜ |
-| 212 | 퇴직금 중간정산 조건 | `toejikgeum-junggan-jeongsan.mdx` | severance-calculator | ⬜ |
-| 213 | 연말정산 환급 많이 받는법 | `yeonmal-hwangeum-manhi.mdx` | tax-refund-calculator | ⬜ |
-| 214 | 연금저축 세액공제 최대화 | `yeongeum-jeochuk-choedaehwa.mdx` | tax-refund-calculator | ⬜ |
-| 215 | 신용카드 vs 체크카드 공제 비교 | `sinyong-vs-check-gongje.mdx` | tax-refund-calculator | ⬜ |
+#### 📋 콘텐츠 유형별 분류
+
+| 유형 | 콘텐츠 | 핵심 구조 |
+|------|--------|-----------|
+| 시뮬레이션형 | 연봉 3000~1억 실수령액 | 결과표 → 공제 상세 → 계산기 CTA |
+| 기준표형 | 4대보험요율, 소득세율표 | 표 → 적용 예시 → 계산기 CTA |
+| 가이드형 | 퇴직금 계산법 완벽가이드, 환급 많이 받는법 | 단계별 설명 → 팁 → 계산기 CTA |
+| 비교형 | 신용카드 vs 체크카드 공제 | 비교표 → 상황별 추천 → 계산기 CTA |
+| 상황별 FAQ형 | 퇴직금 세금, 중간정산 조건 | 질문→결론→상세→계산기 CTA |
+
+| # | 주제 | 파일명 | 계산기 연계 | 유형 | 상태 |
+|---|------|--------|-------------|------|------|
+| 201 | ~~2026년 연봉별 실수령액표~~ | `2026-yeonbong-silsuryeongaek-pyo.mdx` | salary-calculator | 기준표 | ✅ 완료 |
+| 202 | ~~연봉 3000만원 실수령액~~ | `yeonbong-3000-silsuryeong.mdx` | salary-calculator | 시뮬레이션 | ✅ 완료 |
+| 203 | ~~연봉 4000만원 실수령액~~ | `yeonbong-4000-silsuryeong.mdx` | salary-calculator | 시뮬레이션 | ✅ 완료 |
+| 204 | ~~연봉 5000만원 실수령액~~ | `yeonbong-5000-silsuryeong.mdx` | salary-calculator | 시뮬레이션 | ✅ 완료 |
+| 205 | ~~연봉 6000만원 실수령액~~ | `yeonbong-6000-silsuryeong.mdx` | salary-calculator | 시뮬레이션 | ✅ 완료 |
+| 206 | ~~연봉 7000만원 실수령액~~ | `yeonbong-7000-silsuryeong.mdx` | salary-calculator | 시뮬레이션 | ✅ 완료 |
+| 207 | ~~연봉 1억 실수령액~~ | `yeonbong-1eok-silsuryeong.mdx` | salary-calculator | 시뮬레이션 | ✅ 완료 |
+| 208 | ~~2026년 4대보험요율 정리~~ | `2026-4dae-boheom-yoyul.mdx` | salary-calculator | 기준표 | ✅ 완료 |
+| 209 | ~~2026년 소득세율표~~ | `2026-sodeukse-yulpyo.mdx` | salary-calculator | 기준표 | ✅ 완료 |
+| 210 | ~~퇴직금 계산법 완벽가이드~~ | `toejikgeum-gyesan-guide.mdx` | severance-calculator | 가이드 | ✅ 완료 |
+| 211 | ~~퇴직금 세금 계산법~~ | `toejikgeum-segeum-gyesan.mdx` | severance-calculator | 상황FAQ | ✅ 완료 |
+| 212 | ~~퇴직금 중간정산 조건~~ | `toejikgeum-junggan-jeongsan.mdx` | severance-calculator | 상황FAQ | ✅ 완료 |
+| 213 | ~~연말정산 환급 많이 받는법~~ | `yeonmal-hwangeum-manhi.mdx` | tax-refund-calculator | 가이드 | ✅ 완료 |
+| 214 | ~~연금저축 세액공제 최대화~~ | `yeongeum-jeochuk-choedaehwa.mdx` | tax-refund-calculator | 가이드 | ✅ 완료 |
+| 215 | ~~신용카드 vs 체크카드 공제 비교~~ | `sinyong-vs-check-gongje.mdx` | tax-refund-calculator | 비교 | ✅ 완료 |
+
+---
+
+> 📖 **계산기 활용 콘텐츠 상세 작성 가이드**: `WRITING_GUIDE.md` 참조
+
+---
+
+### 🪙 우선순위 10: 가상자산 과세 (10개)
+
+> 2026년 가상자산 과세 시행! 코인 세금 검색량 폭발 예상. 최우선 작성 권장.
+
+| # | 주제 | 파일명 | 상태 |
+|---|------|--------|------|
+| 216 | 가상자산 과세 총정리 2026 | `gasang-jasan-gwase-2026.mdx` | ⬜ |
+| 217 | 코인 세금 계산 방법 (수익 250만원 비과세) | `coin-segeum-gyesan.mdx` | ⬜ |
+| 218 | 코인 수익 홈택스 신고 방법 | `coin-hometax-singo.mdx` | ⬜ |
+| 219 | 해외 거래소 코인 세금 신고 | `haeoe-georaeso-coin-segeum.mdx` | ⬜ |
+| 220 | 스테이킹/에어드랍 수익 세금 | `staking-airdrop-segeum.mdx` | ⬜ |
+| 221 | NFT 거래 세금 부과 기준 | `nft-georae-segeum.mdx` | ⬜ |
+| 222 | 코인 손실 공제 가능한가? | `coin-sonsil-gongje.mdx` | ⬜ |
+| 223 | 가상자산 세금 절세 방법 | `gasang-jasan-jeolse.mdx` | ⬜ |
+| 224 | 코인 증여세 (자녀에게 코인 보내면?) | `coin-jeungyeose.mdx` | ⬜ |
+| 225 | 가상자산 세금 FAQ 10가지 | `gasang-jasan-segeum-faq.mdx` | ⬜ |
+
+### 📱 우선순위 11: 부업/플랫폼 소득 세금 (12개)
+
+> 스마트스토어/유튜브/쿠팡파트너스 등 부업 세금 = 20~40대 필수 검색
+
+| # | 주제 | 파일명 | 상태 |
+|---|------|--------|------|
+| 226 | 스마트스토어 세금 총정리 | `smart-store-segeum.mdx` | ⬜ |
+| 227 | 쿠팡파트너스 수익 세금 신고 | `coupang-partners-segeum.mdx` | ⬜ |
+| 228 | 유튜브 수익 세금 신고 방법 | `youtube-sueik-segeum.mdx` | ⬜ |
+| 229 | 인스타그램 광고/협찬 수익 세금 | `instagram-gwanggo-segeum.mdx` | ⬜ |
+| 230 | 당근마켓/중고거래 세금 기준 | `danggeun-junggo-segeum.mdx` | ⬜ |
+| 231 | 에어비앤비 수익 세금 | `airbnb-sueik-segeum.mdx` | ⬜ |
+| 232 | 쿠팡플렉스/배달 라이더 세금 | `coupang-flex-segeum.mdx` | ⬜ |
+| 233 | 블로그 애드센스 수익 세금 | `adsense-sueik-segeum.mdx` | ⬜ |
+| 234 | 전자책/PDF 판매 세금 | `ebook-panmae-segeum.mdx` | ⬜ |
+| 235 | 크몽/프리랜서 플랫폼 세금 | `kmong-freelancer-segeum.mdx` | ⬜ |
+| 236 | 부업 연 300만원 이하 세금 내야 하나? | `buup-300-segeum.mdx` | ⬜ |
+| 237 | 투잡 직장인 세금 신고 총정리 | `tujab-jikjangin-segeum.mdx` | ⬜ |
+
+### 💡 우선순위 12: 생활 속 세금 이슈 (10개)
+
+> "부모님께 돈 보내면 증여세?" 등 일상 궁금증 = 높은 클릭률
+
+| # | 주제 | 파일명 | 상태 |
+|---|------|--------|------|
+| 238 | 부모님께 돈 보내면 증여세 내야 하나? | `bumonim-don-jeungyeose.mdx` | ⬜ |
+| 239 | 자녀 용돈/세뱃돈 증여세 기준 | `janyeo-yongdon-jeungyeose.mdx` | ⬜ |
+| 240 | 부부간 통장 이체 증여세 기준 | `bubu-tongjang-iche-jeungyeose.mdx` | ⬜ |
+| 241 | 경품 당첨 세금 (이벤트/경품/복권) | `gyeongpum-dangcheom-segeum.mdx` | ⬜ |
+| 242 | 복권 당첨금 세금 얼마나 떼나 | `bokgwon-dangcheomgeum-segeum.mdx` | ⬜ |
+| 243 | 이혼 시 재산분할 세금 | `ihon-jaesanbunhal-segeum.mdx` | ⬜ |
+| 244 | 부동산 명의 이전 시 세금 | `budongsan-myeongui-ijeon-segeum.mdx` | ⬜ |
+| 245 | 해외 직구 관세/부가세 기준 | `haeoe-jikgu-gwanse.mdx` | ⬜ |
+| 246 | 중고차 취득세 계산 방법 | `junggocha-chwidukse.mdx` | ⬜ |
+| 247 | 퇴직금 받으면 세금 얼마나 내나 | `toejikgeum-segeum-eolma.mdx` | ⬜ |
+
+### 🌏 우선순위 13: 해외 소득/거주 세금 (8개)
+
+> 해외 취업/이주/투자 증가로 해외 세금 관련 검색 급증
+
+| # | 주제 | 파일명 | 상태 |
+|---|------|--------|------|
+| 248 | 해외 근무자 국내 세금 신고 의무 | `haeoe-geunmuja-segeum.mdx` | ⬜ |
+| 249 | 해외 거주자 국내 부동산 세금 | `haeoe-geojuja-budongsan-segeum.mdx` | ⬜ |
+| 250 | 해외 이자/배당 소득 세금 | `haeoe-ija-baedang-segeum.mdx` | ⬜ |
+| 251 | 이중과세방지협정이란? | `ijung-gwase-bangji.mdx` | ⬜ |
+| 252 | 해외 금융계좌 신고 의무 (5억 이상) | `haeoe-gyejwa-singo.mdx` | ⬜ |
+| 253 | 해외 송금 세금과 신고 기준 | `haeoe-songgeum-segeum.mdx` | ⬜ |
+| 254 | 해외 상속/증여 세금 | `haeoe-sangsok-jeungye-segeum.mdx` | ⬜ |
+| 255 | 해외 부동산 양도세 | `haeoe-budongsan-yangdose.mdx` | ⬜ |
 
 ---
 
@@ -312,6 +396,18 @@
 ### Phase 4: 재산세/종부세 (6~9월)
 - 재산세 납부 시즌
 - 종부세 대비
+
+### Phase 5: 가상자산 과세 (상시 - 2026 신규!)
+- 코인 세금 신고, 절세, FAQ
+- NFT/스테이킹 세금
+
+### Phase 6: 부업/플랫폼 소득 세금 (상시)
+- 스마트스토어, 유튜브, 애드센스 세금
+- 투잡 직장인 세금 신고
+
+### Phase 7: 생활 속 세금/해외 세금 (상시)
+- 증여세 일상 이슈 (부모님 돈, 부부 이체)
+- 해외 소득/거주 세금
 
 ---
 

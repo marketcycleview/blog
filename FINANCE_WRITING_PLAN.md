@@ -9,8 +9,8 @@
 
 ## 📊 현황 요약
 
-- **작성 완료**: 25개
-- **작성 예정**: 381개 (계산기 활용 콘텐츠 45개 포함)
+- **작성 완료**: 45개 (기존 25 + 계산기 활용 콘텐츠 20)
+- **작성 예정**: 361개 (계산기 활용 콘텐츠 25개 포함)
 - **총 목표**: 406개
 
 ---
@@ -390,26 +390,26 @@
 
 | # | 주제 | 파일명 | 계산기 연계 | 유형 | 상태 |
 |---|------|--------|-------------|------|------|
-| 301 | 원리금균등 vs 원금균등 뭐가 유리할까 | `wonligeum-vs-wongeum-bigyo.mdx` | loan-calculator | 비교 | ⬜ |
-| 302 | 만기일시상환 장단점 완벽정리 | `mangi-ilsi-jangdanjeom.mdx` | loan-calculator | 가이드 | ⬜ |
-| 303 | 대출 상환방식 선택 가이드 | `daechul-sanghwan-guide.mdx` | loan-calculator | 가이드 | ⬜ |
-| 304 | 대출금리 1% 차이 이자 얼마 | `daechul-geumli-1-chaiyi.mdx` | loan-calculator | 시뮬레이션 | ⬜ |
-| 305 | 주담대 갈아타기 이자 얼마나 줄까 | `judamdae-galatagi-ija.mdx` | loan-calculator | 시뮬레이션 | ⬜ |
-| 306 | 전월세 전환율 계산법 완벽가이드 | `jeonwolse-jeonhwanyul-guide.mdx` | jeonwolse-calculator | 가이드 | ⬜ |
-| 307 | 전세 3억 월세 전환하면 얼마 | `jeonse-3eok-wolse-jeonhwan.mdx` | jeonwolse-calculator | 시뮬레이션 | ⬜ |
-| 308 | 보증금 올리면 월세 얼마나 줄까 | `bojeunggeum-olligi-wolse.mdx` | jeonwolse-calculator | 시뮬레이션 | ⬜ |
-| 309 | 전세 vs 월세 뭐가 유리할까 2026 | `jeonse-vs-wolse-2026.mdx` | jeonwolse-calculator | 비교 | ⬜ |
-| 310 | 법정 전월세 전환율 상한 | `beopjeong-jeonwolse-sanghan.mdx` | jeonwolse-calculator | 기준표 | ⬜ |
-| 311 | 퇴직금 1년에 얼마 받을까 | `toejikgeum-1nyeon-eolma.mdx` | severance-calculator | 시뮬레이션 | ⬜ |
-| 312 | 퇴직금 5년 10년 예상액 | `toejikgeum-5nyeon-10nyeon.mdx` | severance-calculator | 시뮬레이션 | ⬜ |
-| 313 | 퇴직금 받으면 세금 얼마 | `toejikgeum-segeum-eolma.mdx` | severance-calculator | 상황FAQ | ⬜ |
-| 314 | 실업급여 얼마나 받을 수 있나 | `silup-geupyeo-eolma.mdx` | unemployment-calculator | 시뮬레이션 | ⬜ |
-| 315 | 실업급여 지급일수 기준표 | `silup-geupyeo-jigupilsu.mdx` | unemployment-calculator | 기준표 | ⬜ |
-| 316 | 실업급여 상한액 하한액 2026 | `silup-geupyeo-sanghan-2026.mdx` | unemployment-calculator | 기준표 | ⬜ |
-| 317 | 월급 300만원 실업급여 얼마 | `wolgeup-300-silup.mdx` | unemployment-calculator | 시뮬레이션 | ⬜ |
-| 318 | 월급 400만원 실업급여 얼마 | `wolgeup-400-silup.mdx` | unemployment-calculator | 시뮬레이션 | ⬜ |
-| 319 | 자발적 퇴사도 실업급여 받을 수 있나 | `jabaljeok-toesa-silup.mdx` | unemployment-calculator | 상황FAQ | ⬜ |
-| 320 | 실업급여 받으면서 알바해도 되나 | `silup-alba-doena.mdx` | unemployment-calculator | 상황FAQ | ⬜ |
+| 301 | 원리금균등 vs 원금균등 뭐가 유리할까 | `wonligeum-vs-wongeum-bigyo.mdx` | loan-calculator | 비교 | ✅ |
+| 302 | 만기일시상환 장단점 완벽정리 | `mangi-ilsi-jangdanjeom.mdx` | loan-calculator | 가이드 | ✅ |
+| 303 | 대출 상환방식 선택 가이드 | `daechul-sanghwan-guide.mdx` | loan-calculator | 가이드 | ✅ |
+| 304 | 대출금리 1% 차이 이자 얼마 | `daechul-geumli-1-chaiyi.mdx` | loan-calculator | 시뮬레이션 | ✅ |
+| 305 | 주담대 갈아타기 이자 얼마나 줄까 | `judamdae-galatagi-ija.mdx` | loan-calculator | 시뮬레이션 | ✅ |
+| 306 | 전월세 전환율 계산법 완벽가이드 | `jeonwolse-jeonhwanyul-guide.mdx` | jeonwolse-calculator | 가이드 | ✅ |
+| 307 | 전세 3억 월세 전환하면 얼마 | `jeonse-3eok-wolse-jeonhwan.mdx` | jeonwolse-calculator | 시뮬레이션 | ✅ |
+| 308 | 보증금 올리면 월세 얼마나 줄까 | `bojeunggeum-olligi-wolse.mdx` | jeonwolse-calculator | 시뮬레이션 | ✅ |
+| 309 | 전세 vs 월세 뭐가 유리할까 2026 | `jeonse-vs-wolse-2026.mdx` | jeonwolse-calculator | 비교 | ✅ |
+| 310 | 법정 전월세 전환율 상한 | `beopjeong-jeonwolse-sanghan.mdx` | jeonwolse-calculator | 기준표 | ✅ |
+| 311 | 퇴직금 1년에 얼마 받을까 | `toejikgeum-1nyeon-eolma.mdx` | severance-calculator | 시뮬레이션 | ✅ |
+| 312 | 퇴직금 5년 10년 예상액 | `toejikgeum-5nyeon-10nyeon.mdx` | severance-calculator | 시뮬레이션 | ✅ |
+| 313 | 퇴직금 받으면 세금 얼마 | `toejikgeum-segeum-eolma.mdx` | severance-calculator | 상황FAQ | ✅ |
+| 314 | 실업급여 얼마나 받을 수 있나 | `silup-geupyeo-eolma.mdx` | unemployment-calculator | 시뮬레이션 | ✅ |
+| 315 | 실업급여 지급일수 기준표 | `silup-geupyeo-jigupilsu.mdx` | unemployment-calculator | 기준표 | ✅ |
+| 316 | 실업급여 상한액 하한액 2026 | `silup-geupyeo-sanghan-2026.mdx` | unemployment-calculator | 기준표 | ✅ |
+| 317 | 월급 300만원 실업급여 얼마 | `wolgeup-300-silup.mdx` | unemployment-calculator | 시뮬레이션 | ✅ |
+| 318 | 월급 400만원 실업급여 얼마 | `wolgeup-400-silup.mdx` | unemployment-calculator | 시뮬레이션 | ✅ |
+| 319 | 자발적 퇴사도 실업급여 받을 수 있나 | `jabaljeok-toesa-silup.mdx` | unemployment-calculator | 상황FAQ | ✅ |
+| 320 | 실업급여 받으면서 알바해도 되나 | `silup-alba-doena.mdx` | unemployment-calculator | 상황FAQ | ✅ |
 
 ---
 
