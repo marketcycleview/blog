@@ -484,6 +484,17 @@ export const TOOLS: Tool[] = [
     isNew: true,
   },
 
+  // === 전월세 시세 ===
+  {
+    id: "rent-price-heatmap",
+    title: { ko: "전월세 시세 히트맵", en: "Rent Price Heatmap" },
+    description: { ko: "지역별 아파트 전세·월세 실거래가 비교", en: "Compare apartment rent prices by district" },
+    icon: "🗺️",
+    href: "/tools/rent-price-heatmap",
+    category: "realestate",
+    isNew: true,
+  },
+
   // === 생활 계산기 ===
   {
     id: "budget-planner",
