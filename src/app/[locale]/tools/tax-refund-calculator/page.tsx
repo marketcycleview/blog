@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { TaxRefundCalculator } from "@/components/calculators";
 
@@ -171,6 +172,8 @@ export default async function TaxRefundCalculatorPage({ params }: PageProps) {
           이하가 기본 조건입니다.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="tax-refund-calculator" />
     </div>
   );
 }

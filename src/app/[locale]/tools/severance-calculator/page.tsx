@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { SeveranceCalculator } from "@/components/calculators";
 
@@ -154,6 +155,8 @@ export default async function SeveranceCalculatorPage({ params }: PageProps) {
           동일하게 받습니다.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="severance-calculator" />
     </div>
   );
 }

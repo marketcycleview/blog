@@ -498,21 +498,21 @@
 | 325 | 전세 vs 월세 지역별 비용 비교 (서울 기준) | `jeonse-vs-wolse-jiyeokbyeol.mdx` | rent-price-heatmap | ✅ |
 | 326 | 전월세 실거래가 조회 방법 3가지 (초보용) | `jeonwolse-silgeorae-johoe-bangbeop.mdx` | rent-price-heatmap | ✅ |
 | 327 | 경기도 전세 시세 시군별 비교 (2026년) | `2026-gyeonggi-jeonse-sise.mdx` | rent-price-heatmap | ✅ |
-| 328 | 부산 전세 시세 구별 비교 (2026년 실거래) | `2026-busan-jeonse-sise.mdx` | rent-price-heatmap | ⬜ |
-| 329 | 인천 전세 시세 구별 비교 (2026년 실거래) | `2026-incheon-jeonse-sise.mdx` | rent-price-heatmap | ⬜ |
-| 330 | 대구·대전·광주 전세 시세 비교 (2026년) | `2026-gwangyeoksi-jeonse-bigyo.mdx` | rent-price-heatmap | ⬜ |
-| 331 | 서울 월세 싼 구 TOP 5 (실거래 기준) | `seoul-wolse-jeoryeom-top5.mdx` | rent-price-heatmap | ⬜ |
-| 332 | 서울 1인가구 전월세 가이드 (직장인·대학생) | `seoul-1in-jeonwolse-guide.mdx` | rent-price-heatmap | ⬜ |
-| 333 | 신혼부부 전세 추천 지역 (서울·경기) | `sinhobubu-jeonse-chucheon.mdx` | rent-price-heatmap | ⬜ |
-| 334 | 전세 보증금 협상하는 법 (실거래가 활용) | `jeonse-bojeunggeum-hyeopsang.mdx` | rent-price-heatmap | ⬜ |
-| 335 | 깡통전세 피하는 법 (전세가율 확인) | `ggangttong-jeonse-pihaneun-beop.mdx` | rent-price-heatmap | ⬜ |
-| 336 | 전세 vs 매매 뭐가 유리? (2026년 금리 기준) | `jeonse-vs-maemae-2026.mdx` | rent-price-heatmap | ⬜ |
-| 337 | 서울 전세 3억 이하 가능한 곳 총정리 | `seoul-jeonse-3eok-iha.mdx` | rent-price-heatmap | ⬜ |
-| 338 | 서울 전세 5억대 살 수 있는 구 비교 | `seoul-jeonse-5eok-bigyo.mdx` | rent-price-heatmap | ⬜ |
-| 339 | 전월세 계약 전 필수 체크리스트 7가지 | `jeonwolse-gyeyak-checklist.mdx` | rent-price-heatmap | ⬜ |
-| 340 | 전세자금대출 받고 전세 구하는 전체 과정 | `jeonse-daechul-jeonche-gwajung.mdx` | rent-price-heatmap | ⬜ |
-| 341 | 전세 만기 후 보증금 안 돌려줄 때 대처법 | `jeonse-bojeunggeum-an-dollyeojul-ttae.mdx` | rent-price-heatmap | ⬜ |
-| 342 | 2026년 전세 시장 전망 (금리·입주물량) | `2026-jeonse-sijang-jeonmang.mdx` | rent-price-heatmap | ⬜ |
+| 328 | 부산 전세 시세 구별 비교 (2026년 실거래) | `2026-busan-jeonse-sise.mdx` | rent-price-heatmap | ✅ |
+| 329 | 인천 전세 시세 구별 비교 (2026년 실거래) | `2026-incheon-jeonse-sise.mdx` | rent-price-heatmap | ✅ |
+| 330 | 대구·대전·광주 전세 시세 비교 (2026년) | `2026-gwangyeoksi-jeonse-bigyo.mdx` | rent-price-heatmap | ✅ |
+| 331 | 서울 월세 싼 구 TOP 5 (실거래 기준) | `seoul-wolse-jeoryeom-top5.mdx` | rent-price-heatmap | ✅ |
+| 332 | 서울 1인가구 전월세 가이드 (직장인·대학생) | `seoul-1in-jeonwolse-guide.mdx` | rent-price-heatmap | ✅ |
+| 333 | 신혼부부 전세 추천 지역 (서울·경기) | `sinhobubu-jeonse-chucheon.mdx` | rent-price-heatmap | ✅ |
+| 334 | 전세 보증금 협상하는 법 (실거래가 활용) | `jeonse-bojeunggeum-hyeopsang.mdx` | rent-price-heatmap | ✅ |
+| 335 | 깡통전세 피하는 법 (전세가율 확인) | `ggangttong-jeonse-pihaneun-beop.mdx` | rent-price-heatmap | ✅ |
+| 336 | 전세 vs 매매 뭐가 유리? (2026년 금리 기준) | `jeonse-vs-maemae-2026.mdx` | rent-price-heatmap | ✅ |
+| 337 | 서울 전세 3억 이하 가능한 곳 총정리 | `seoul-jeonse-3eok-iha.mdx` | rent-price-heatmap | ✅ |
+| 338 | 서울 전세 5억대 살 수 있는 구 비교 | `seoul-jeonse-5eok-bigyo.mdx` | rent-price-heatmap | ✅ |
+| 339 | 전월세 계약 전 필수 체크리스트 7가지 | `jeonwolse-gyeyak-checklist.mdx` | rent-price-heatmap | ✅ |
+| 340 | 전세자금대출 받고 전세 구하는 전체 과정 | `jeonse-daechul-jeonche-gwajung.mdx` | rent-price-heatmap | ✅ |
+| 341 | 전세 만기 후 보증금 안 돌려줄 때 대처법 | `jeonse-bojeunggeum-an-dollyeojul-ttae.mdx` | rent-price-heatmap | ✅ |
+| 342 | 2026년 전세 시장 전망 (금리·입주물량) | `2026-jeonse-sijang-jeonmang.mdx` | rent-price-heatmap | ✅ |
 
 ---
 

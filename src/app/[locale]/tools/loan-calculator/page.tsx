@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { LoanCalculator } from "@/components/calculators";
 
@@ -126,6 +127,8 @@ export default async function LoanCalculatorPage({ params }: PageProps) {
           원리금 상환액 비율입니다. 현재 40~70% 규제가 적용됩니다.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="loan-calculator" />
     </div>
   );
 }

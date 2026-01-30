@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { JeonwolseCalculator } from "@/components/calculators";
 
@@ -144,6 +145,8 @@ export default async function JeonwolseCalculatorPage({ params }: PageProps) {
           형태입니다. 이 계산기로 원하는 보증금 수준에서의 월세를 계산해보세요.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="jeonwolse-calculator" />
     </div>
   );
 }

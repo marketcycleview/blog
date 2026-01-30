@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { SalaryCalculator } from "@/components/calculators";
 
@@ -124,6 +125,8 @@ export default async function SalaryCalculatorPage({ params }: PageProps) {
           5,000만원의 공제율은 약 15%이지만, 1억원은 약 22%까지 올라갑니다.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="salary-calculator" />
     </div>
   );
 }

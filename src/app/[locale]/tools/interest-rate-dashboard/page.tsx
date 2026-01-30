@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { fetchAllRates } from "@/lib/tools/rates/fetcher";
 import InterestRateDashboard from "@/components/tools/rates/InterestRateDashboard";
@@ -145,6 +146,8 @@ export default async function InterestRateDashboardPage({
           대부분의 은행 예금·적금은 단리 기준입니다.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="interest-rate-dashboard" />
     </div>
   );
 }

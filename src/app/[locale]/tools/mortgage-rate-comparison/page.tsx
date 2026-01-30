@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { fetchMortgageRates } from "@/lib/tools/rates/loan-fetcher";
 import MortgageRateComparison from "@/components/tools/rates/MortgageRateComparison";
@@ -99,6 +100,8 @@ export default async function MortgageRateComparisonPage({ params }: PageProps) 
           다만 대면 상담이 어렵고, 아파트 위주로 취급 가능한 점은 확인하세요.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="mortgage-rate-comparison" />
     </div>
   );
 }

@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { BudgetPlanner } from "@/components/budget";
 
@@ -123,6 +124,8 @@ export default async function BudgetPlannerPage({ params }: PageProps) {
           소비 패턴을 파악하고 의식적으로 관리하는 것입니다.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="budget-planner" />
     </div>
   );
 }

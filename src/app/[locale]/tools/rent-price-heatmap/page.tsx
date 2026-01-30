@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { fetchRentHeatmap } from "@/lib/tools/rates/rent-fetcher";
 import RentPriceHeatmap from "@/components/tools/rates/RentPriceHeatmap";
+import RelatedArticles from "@/components/tools/RelatedArticles";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 
@@ -150,6 +151,8 @@ export default async function RentPriceHeatmapPage({ params }: PageProps) {
           등기부등본 확인, 전세보증보험 가입도 반드시 병행하시고요.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="rent-price-heatmap" />
     </div>
   );
 }

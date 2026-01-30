@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { fetchCreditLoanRates } from "@/lib/tools/rates/loan-fetcher";
 import CreditLoanRates from "@/components/tools/rates/CreditLoanRates";
@@ -103,6 +104,8 @@ export default async function CreditLoanRatesPage({ params }: PageProps) {
           다만 대출 한도가 시중은행보다 낮을 수 있으니 한도도 함께 확인하세요.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="credit-loan-rates" />
     </div>
   );
 }

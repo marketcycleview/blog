@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { UnemploymentCalculator } from "@/components/calculators";
 
@@ -155,6 +156,8 @@ export default async function UnemploymentCalculatorPage({ params }: PageProps) 
           자격이 소멸합니다.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="unemployment-calculator" />
     </div>
   );
 }

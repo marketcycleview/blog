@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { MedianIncomeCalculator } from "@/components/calculators";
 
@@ -168,6 +169,8 @@ export default async function MedianIncomeCalculatorPage({ params }: PageProps) 
           고소득층이 평균을 끌어올리기 때문에 평균소득이 중위소득보다 높습니다.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="median-income-calculator" />
     </div>
   );
 }

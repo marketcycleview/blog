@@ -1,3 +1,4 @@
+import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { Metadata } from "next";
 import { fetchJeonseLoanRates } from "@/lib/tools/rates/loan-fetcher";
 import JeonseLoanRates from "@/components/tools/rates/JeonseLoanRates";
@@ -96,6 +97,8 @@ export default async function JeonseLoanRatesPage({ params }: PageProps) {
           전세대출 시 보증기관 가입이 필수인 경우가 많아요.
         </p>
       </div>
+
+      <RelatedArticles toolSlug="jeonse-loan-rates" />
     </div>
   );
 }

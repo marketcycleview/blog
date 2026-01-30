@@ -6,6 +6,45 @@
 
 ---
 
+## ⚠️ 도구 개발 시 필수 규칙
+
+### 관련 글 목록 연결 (필수!)
+
+도구를 만들거나 관련 콘텐츠를 작성하면, **도구 페이지 하단에 관련 글 링크 목록**을 반드시 추가해야 합니다.
+도구 → 글, 글 → 도구 양방향 링크가 있어야 SEO + 체류시간이 올라갑니다.
+
+**작업 방법:**
+
+1. `src/lib/tools/related-articles.ts`에 해당 도구 슬러그 키로 관련 글 데이터 추가
+2. 도구 페이지(`src/app/[locale]/tools/[slug]/page.tsx`)에 아래 코드 추가:
+   ```tsx
+   import RelatedArticles from "@/components/tools/RelatedArticles";
+   // ... 페이지 끝부분, 마지막 </div> 직전에:
+   <RelatedArticles toolSlug="도구-슬러그" />
+   ```
+3. 콘텐츠 MDX에서는 `<LinkButton href="/ko/tools/도구-슬러그" label="..." />`로 도구 페이지 연결
+
+**관련 글 데이터 구조** (`related-articles.ts`):
+```ts
+"도구-슬러그": [
+  {
+    title: "그룹 제목",
+    icon: "📊",
+    articles: [
+      { href: "/ko/카테고리/slug", label: "글 제목" },
+    ],
+  },
+],
+```
+
+### 콘텐츠 양방향 링크 체크리스트
+
+- [ ] 도구 페이지 → 관련 글 목록 (`RelatedArticles` 컴포넌트)
+- [ ] 글 → 도구 페이지 (`LinkButton` 컴포넌트)
+- [ ] `related-articles.ts`에 데이터 등록
+
+---
+
 ## 📊 현황 요약
 
 | 항목 | 수치 |
