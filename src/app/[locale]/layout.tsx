@@ -3,6 +3,8 @@ import { Noto_Sans_KR } from "next/font/google";
 import "../globals.css";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import { AdClickProtection } from "@/components/ads/AdClickProtection";
+import { Header } from "@/components/Header";
+import { CATEGORIES } from "@/lib/categories";
 
 const notoSansKR = Noto_Sans_KR({
   subsets: ["latin"],
@@ -122,50 +124,57 @@ export default async function RootLayout({
         {/* 광고 무효 클릭 방지 */}
         <AdClickProtection />
 
-        <header className="border-b bg-white sticky top-0 z-50">
-          <nav className="max-w-6xl mx-auto px-4 py-4">
-            <div className="flex items-center justify-between">
-              <a href={`/${locale}`} className="text-xl font-bold text-gray-900">
-                InfoTalker 인포토커
-              </a>
-              <div className="flex items-center gap-6">
-                <a href={`/${locale}/subsidy`} className="text-gray-600 hover:text-gray-900">
-                  {locale === "ko" ? "지원금" : "Subsidy"}
-                </a>
-                <a href={`/${locale}/tools`} className="text-gray-600 hover:text-gray-900">
-                  {locale === "ko" ? "도구" : "Tools"}
-                </a>
-                {/* 언어 전환 */}
-                <div className="flex gap-2 text-sm">
-                  <a href="/ko" className={locale === "ko" ? "font-bold" : "text-gray-500"}>
-                    KO
-                  </a>
-                  <span className="text-gray-300">|</span>
-                  <a href="/en" className={locale === "en" ? "font-bold" : "text-gray-500"}>
-                    EN
-                  </a>
-                </div>
-              </div>
-            </div>
-          </nav>
-        </header>
+        <Header locale={locale} />
 
         <main className="max-w-6xl mx-auto px-4 py-8">
           {children}
         </main>
 
         <footer className="border-t bg-gray-50 mt-16">
-          <div className="max-w-6xl mx-auto px-4 py-8">
-            <div className="text-center text-gray-600 text-sm">
-              <p>© 2026 {siteName}. All rights reserved.</p>
-              <div className="mt-2 flex justify-center gap-4">
-                <a href={`/${locale}/privacy`} className="hover:text-gray-900">
-                  개인정보처리방침
-                </a>
-                <a href={`/${locale}/contact`} className="hover:text-gray-900">
-                  연락처
-                </a>
+          <div className="max-w-6xl mx-auto px-4 py-10">
+            {/* 사이트맵 그리드 */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6 mb-8">
+              {/* 카테고리 */}
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-3 text-sm">
+                  {locale === "ko" ? "카테고리" : "Categories"}
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  {CATEGORIES.map((cat) => (
+                    <li key={cat.id}>
+                      <a href={`/${locale}${cat.href}`} className="hover:text-gray-900">
+                        {cat.icon} {locale === "ko" ? cat.label.ko : cat.label.en}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </div>
+              {/* 도구 */}
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-3 text-sm">
+                  {locale === "ko" ? "인기 도구" : "Popular Tools"}
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li><a href={`/${locale}/tools/welfare-finder`} className="hover:text-gray-900">{locale === "ko" ? "복지 정책 찾기" : "Welfare Finder"}</a></li>
+                  <li><a href={`/${locale}/tools/salary-calculator`} className="hover:text-gray-900">{locale === "ko" ? "연봉 계산기" : "Salary Calculator"}</a></li>
+                  <li><a href={`/${locale}/tools/loan-calculator`} className="hover:text-gray-900">{locale === "ko" ? "대출 계산기" : "Loan Calculator"}</a></li>
+                  <li><a href={`/${locale}/tools`} className="hover:text-gray-900 font-medium">{locale === "ko" ? "전체 도구 →" : "All Tools →"}</a></li>
+                </ul>
+              </div>
+              {/* 서비스 */}
+              <div>
+                <h4 className="font-semibold text-gray-900 mb-3 text-sm">
+                  {locale === "ko" ? "서비스" : "Service"}
+                </h4>
+                <ul className="space-y-2 text-sm text-gray-600">
+                  <li><a href={`/${locale}/privacy`} className="hover:text-gray-900">{locale === "ko" ? "개인정보처리방침" : "Privacy Policy"}</a></li>
+                  <li><a href={`/${locale}/contact`} className="hover:text-gray-900">{locale === "ko" ? "연락처" : "Contact"}</a></li>
+                </ul>
+              </div>
+            </div>
+            {/* 저작권 */}
+            <div className="border-t pt-6 text-center text-gray-500 text-sm">
+              <p>&copy; 2026 {siteName}. All rights reserved.</p>
             </div>
           </div>
         </footer>

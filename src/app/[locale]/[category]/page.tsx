@@ -3,38 +3,19 @@ import Image from "next/image";
 import { getPostsByCategory } from "@/lib/posts";
 import { notFound } from "next/navigation";
 import { SearchBar } from "@/components/SearchBar";
+import { ALL_CATEGORY_IDS, CATEGORY_MAP } from "@/lib/categories";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 
-const validCategories = ["subsidy", "finance", "tax", "trending"];
+// 7개 카테고리 + trending (하위호환)
+const validCategories = [...ALL_CATEGORY_IDS, "trending"];
 
-const categoryNames = {
-  ko: {
-    subsidy: "지원금/정책 정보",
-    finance: "금융/대출 정보",
-    tax: "세금/연말정산",
-    trending: "트렌딩 이슈",
-  },
-  en: {
-    subsidy: "Subsidies & Policies",
-    finance: "Finance & Loans",
-    tax: "Tax & Year-end Settlement",
-    trending: "Trending Issues",
-  },
-};
-
-const categoryDescriptions = {
-  ko: {
-    subsidy: "정부/지자체 지원금, 복지 정책 관련 정보를 한눈에 확인하세요.",
-    finance: "대출, 저축, 투자, 금융상품 비교 등 금융 정보를 제공합니다.",
-    tax: "연말정산, 종합소득세, 양도세 등 세금 신고와 절세 정보를 알려드립니다.",
-    trending: "실시간 화제가 되는 이슈와 뉴스를 빠르게 정리합니다.",
-  },
-  en: {
-    subsidy: "Find government subsidies and welfare policy information.",
-    finance: "Information on loans, savings, investments, and financial product comparisons.",
-    tax: "Tax filing and tax-saving information including year-end settlement and income tax.",
-    trending: "Quick summary of trending issues and news.",
+// trending 전용 이름/설명 (CATEGORY_MAP에 없으므로)
+const trendingMeta = {
+  label: { ko: "트렌딩 이슈", en: "Trending Issues" },
+  description: {
+    ko: "실시간 화제가 되는 이슈와 뉴스를 빠르게 정리합니다.",
+    en: "Quick summary of trending issues and news.",
   },
 };
 
@@ -51,14 +32,36 @@ export default async function CategoryPage({ params }: PageProps) {
 
   const posts = await getPostsByCategory(locale, category);
   const lang = locale as "ko" | "en";
-  const categoryName = categoryNames[lang]?.[category as keyof typeof categoryNames.ko] || category;
-  const categoryDesc = categoryDescriptions[lang]?.[category as keyof typeof categoryDescriptions.ko] || "";
+
+  // 카테고리 이름 및 설명 조회
+  const cat = CATEGORY_MAP[category];
+  const categoryName = cat
+    ? lang === "ko"
+      ? cat.label.ko
+      : cat.label.en
+    : category === "trending"
+      ? lang === "ko"
+        ? trendingMeta.label.ko
+        : trendingMeta.label.en
+      : category;
+  const categoryDesc = cat
+    ? lang === "ko"
+      ? cat.description.ko
+      : cat.description.en
+    : category === "trending"
+      ? lang === "ko"
+        ? trendingMeta.description.ko
+        : trendingMeta.description.en
+      : "";
 
   return (
     <div>
       {/* 카테고리 헤더 */}
       <div className="mb-8">
-        <h1 className="text-3xl font-bold mb-2">{categoryName}</h1>
+        <h1 className="text-3xl font-bold mb-2">
+          {cat ? `${cat.icon} ` : ""}
+          {categoryName}
+        </h1>
         <p className="text-gray-600 mb-4">{categoryDesc}</p>
         <SearchBar locale={locale} />
       </div>
@@ -130,7 +133,7 @@ export default async function CategoryPage({ params }: PageProps) {
 
 export function generateStaticParams() {
   const locales = ["ko", "en"];
-  const categories = ["subsidy", "finance", "tax", "trending"];
+  const categories = [...ALL_CATEGORY_IDS, "trending"];
 
   return locales.flatMap((locale) =>
     categories.map((category) => ({

@@ -27,3 +27,17 @@ body {
 .review-neutral {
   @apply border-l-4 border-gray-400 bg-gray-50 p-4 mb-3;
 }
+
+/* 스크롤바 숨김 유틸리티 */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* 부드러운 스크롤 */
+html {
+  scroll-behavior: smooth;
+}

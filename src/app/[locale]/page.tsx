@@ -1,282 +1,144 @@
 import Link from "next/link";
-import Image from "next/image";
 import { getAllPosts } from "@/lib/posts";
 import { SearchBar } from "@/components/SearchBar";
-import { ToolCard } from "@/components/ToolCard";
-import { getFeaturedTools } from "@/lib/tools/constants";
-
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
+import { ToolsStrip } from "@/components/ToolsStrip";
+import { CategoryTabBar } from "@/components/CategoryTabBar";
+import { VerticalPostCard } from "@/components/PostCards";
+import { CATEGORIES } from "@/lib/categories";
 
 interface PageProps {
   params: Promise<{ locale: string }>;
 }
 
+// 카테고리별 "더보기" 버튼 색상
+const buttonColors: Record<string, string> = {
+  blue: "bg-blue-600 hover:bg-blue-700",
+  green: "bg-green-600 hover:bg-green-700",
+  purple: "bg-purple-600 hover:bg-purple-700",
+  orange: "bg-orange-500 hover:bg-orange-600",
+  indigo: "bg-indigo-600 hover:bg-indigo-700",
+  red: "bg-red-600 hover:bg-red-700",
+  amber: "bg-amber-500 hover:bg-amber-600",
+};
+
 export default async function HomePage({ params }: PageProps) {
   const { locale } = await params;
   const posts = await getAllPosts(locale);
 
-  // 카테고리별로 최신 글 가져오기
-  const subsidyPosts = posts.filter((p) => p.category === "subsidy").slice(0, 3);
-  const financePosts = posts.filter((p) => p.category === "finance").slice(0, 3);
-  const taxPosts = posts.filter((p) => p.category === "tax").slice(0, 3);
-  const trendingPosts = posts.filter((p) => p.category === "trending").slice(0, 3);
+  // 카테고리별 글 분류
+  const postsByCategory: Record<string, typeof posts> = {};
+  for (const cat of CATEGORIES) {
+    postsByCategory[cat.id] = posts
+      .filter((p) => p.category === cat.id)
+      .slice(0, 3);
+  }
+
+  // 글이 있는 카테고리만 필터링
+  const activeCategories = CATEGORIES.filter(
+    (cat) => postsByCategory[cat.id].length > 0
+  );
+  const activeSectionIds = activeCategories.map((cat) => `section-${cat.id}`);
+
+  // 트렌딩: 전체 카테고리 최신 6개
+  const trendingPosts = posts.slice(0, 6);
 
   return (
     <div>
+      {/* Sticky 카테고리 탭 바 */}
+      <CategoryTabBar
+        locale={locale}
+        categories={activeCategories}
+        sectionIds={[...activeSectionIds, "section-tools"]}
+      />
+
       {/* 히어로 섹션 */}
-      <section className="text-center py-12 mb-12 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl px-4">
-        <h1 className="text-4xl font-bold text-gray-900 mb-4">
+      <section className="text-center py-10 mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl px-4">
+        <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-3">
           {locale === "ko"
             ? "내 돈 챙기기, 여기서 시작"
             : "Manage Your Money Here"}
         </h1>
-        <p className="text-xl text-gray-600 mb-6">
+        <p className="text-base sm:text-lg text-gray-600 mb-6">
           {locale === "ko"
-            ? "복지 지원금, 금융 정보, 세금 가이드"
-            : "Welfare Benefits, Finance Info, Tax Guide"}
+            ? "복지 · 금융 · 세금 · 부동산 · 커리어 · 법률 · 창업"
+            : "Welfare · Finance · Tax · Real Estate · Career · Legal · Business"}
         </p>
-
-        {/* 검색창 */}
         <SearchBar locale={locale} />
       </section>
 
-      {/* 지원금/정책 섹션 */}
-      <section className="mb-12">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">
-            {locale === "ko" ? "💰 지원금/정책 정보" : "💰 Subsidies & Policies"}
+      {/* 인기 도구 스트립 */}
+      <section id="section-tools" className="mb-10 scroll-mt-[120px]">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-xl font-bold">
+            {locale === "ko" ? "🛠️ 인기 도구" : "🛠️ Popular Tools"}
           </h2>
-          <Link href={`/${locale}/subsidy`} className="px-4 py-2 bg-blue-600 text-white text-sm rounded-lg hover:bg-blue-700 transition">
-            {locale === "ko" ? "전체 보기" : "View All"}
+          <Link
+            href={`/${locale}/tools`}
+            className="text-sm text-gray-500 hover:text-gray-900 transition-colors"
+          >
+            {locale === "ko" ? "전체 보기 →" : "View All →"}
           </Link>
         </div>
+        <ToolsStrip locale={locale} limit={8} />
+      </section>
 
-        {/* 복지 정책 찾기 CTA 배너 */}
-        <Link
-          href={`/${locale}/tools/welfare-finder`}
-          className="block mb-6 p-4 sm:p-6 bg-gradient-to-r from-emerald-500 to-teal-600 rounded-xl text-white hover:from-emerald-600 hover:to-teal-700 transition-all shadow-lg hover:shadow-xl group"
-        >
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="flex items-center gap-2 mb-2">
-                <span className="text-2xl">🔍</span>
-                <h3 className="text-lg sm:text-xl font-bold">
-                  {locale === "ko" ? "나에게 맞는 지원금 찾기" : "Find Benefits for You"}
-                </h3>
-              </div>
-              <p className="text-emerald-100 text-sm sm:text-base">
-                {locale === "ko"
-                  ? "나이, 소득, 상황에 맞는 지원금을 1분 만에 확인하세요"
-                  : "Find eligible benefits based on your age, income, and situation in 1 minute"}
-              </p>
-            </div>
-            <div className="hidden sm:flex items-center gap-2 px-4 py-2 bg-white/20 rounded-lg group-hover:bg-white/30 transition">
-              <span className="font-medium">
-                {locale === "ko" ? "지금 찾아보기" : "Find Now"}
-              </span>
-              <span className="group-hover:translate-x-1 transition-transform">→</span>
-            </div>
+      {/* 지금 많이 보는 글 (크로스 카테고리) */}
+      {trendingPosts.length > 0 && (
+        <section className="mb-12">
+          <h2 className="text-xl font-bold mb-4">
+            {locale === "ko"
+              ? "🔥 지금 많이 보는 글"
+              : "🔥 Trending Now"}
+          </h2>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {trendingPosts.map((post) => (
+              <VerticalPostCard
+                key={post.slug}
+                post={post}
+                locale={locale}
+              />
+            ))}
           </div>
-        </Link>
+        </section>
+      )}
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {subsidyPosts.length > 0 ? (
-            subsidyPosts.map((post) => (
-              <VerticalPostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
-            ))
-          ) : (
-            <EmptyCard locale={locale} category="subsidy" />
-          )}
-        </div>
-      </section>
+      {/* 카테고리별 섹션 */}
+      {CATEGORIES.map((cat) => {
+        const catPosts = postsByCategory[cat.id];
+        if (catPosts.length === 0) return null;
 
-      {/* 금융/대출 섹션 */}
-      <section className="mb-12">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">
-            {locale === "ko" ? "🏦 금융/대출 정보" : "🏦 Finance & Loans"}
-          </h2>
-          <Link href={`/${locale}/finance`} className="px-4 py-2 bg-green-600 text-white text-sm rounded-lg hover:bg-green-700 transition">
-            {locale === "ko" ? "전체 보기" : "View All"}
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {financePosts.length > 0 ? (
-            financePosts.map((post) => (
-              <VerticalPostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
-            ))
-          ) : (
-            <EmptyCard locale={locale} category="finance" />
-          )}
-        </div>
-      </section>
+        const btnColor = buttonColors[cat.color] || buttonColors.blue;
 
-      {/* 세금/연말정산 섹션 */}
-      <section className="mb-12">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">
-            {locale === "ko" ? "📋 세금/연말정산" : "📋 Tax & Settlement"}
-          </h2>
-          <Link href={`/${locale}/tax`} className="px-4 py-2 bg-purple-600 text-white text-sm rounded-lg hover:bg-purple-700 transition">
-            {locale === "ko" ? "전체 보기" : "View All"}
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {taxPosts.length > 0 ? (
-            taxPosts.map((post) => (
-              <VerticalPostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
-            ))
-          ) : (
-            <EmptyCard locale={locale} category="tax" />
-          )}
-        </div>
-      </section>
-
-      {/* 트렌딩 섹션 */}
-      <section className="mb-12">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">
-            {locale === "ko" ? "🔥 트렌딩 이슈" : "🔥 Trending Issues"}
-          </h2>
-          <Link href={`/${locale}/trending`} className="px-4 py-2 bg-red-500 text-white text-sm rounded-lg hover:bg-red-600 transition">
-            {locale === "ko" ? "전체 보기" : "View All"}
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {trendingPosts.length > 0 ? (
-            trendingPosts.map((post) => (
-              <VerticalPostCard key={post.slug} post={post} locale={locale} siteUrl={siteUrl} />
-            ))
-          ) : (
-            <EmptyCard locale={locale} category="trending" />
-          )}
-        </div>
-      </section>
-
-      {/* 무료 도구 섹션 */}
-      <section className="mb-12">
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-2xl font-bold">
-            {locale === "ko" ? "🛠️ 무료 도구" : "🛠️ Free Tools"}
-          </h2>
-          <Link href={`/${locale}/tools`} className="px-4 py-2 bg-indigo-600 text-white text-sm rounded-lg hover:bg-indigo-700 transition">
-            {locale === "ko" ? "전체 보기" : "View All"}
-          </Link>
-        </div>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-          {getFeaturedTools(4).map((tool) => (
-            <ToolCard key={tool.id} tool={tool} locale={locale} />
-          ))}
-        </div>
-      </section>
-    </div>
-  );
-}
-
-interface Post {
-  slug: string;
-  title: string;
-  description: string;
-  date: string;
-  category: string;
-}
-
-const categoryLabels: Record<string, { ko: string; en: string; icon: string }> = {
-  subsidy: { ko: "지원금", en: "Subsidy", icon: "💰" },
-  trending: { ko: "트렌딩", en: "Trending", icon: "🔥" },
-  finance: { ko: "금융", en: "Finance", icon: "🏦" },
-  tax: { ko: "세금", en: "Tax", icon: "📋" },
-};
-
-// 세로형 카드 (메인페이지용 - 3열 그리드)
-function VerticalPostCard({ post, locale, siteUrl }: { post: Post; locale: string; siteUrl: string }) {
-  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}&v=4`;
-
-  return (
-    <Link
-      href={`/${locale}/${post.category}/${post.slug}`}
-      className="flex flex-col bg-white border rounded-lg overflow-hidden hover:shadow-lg transition group"
-    >
-      {/* 썸네일 이미지 - 세로형은 이미지가 크게 */}
-      <div className="relative w-full aspect-[1200/630] bg-gray-100">
-        <Image
-          src={ogImageUrl}
-          alt={post.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-        />
-      </div>
-
-      {/* 텍스트 영역 */}
-      <div className="p-4">
-        <div className="text-xs text-gray-500 mb-2">{post.date}</div>
-        <h3 className="text-base font-semibold line-clamp-2 group-hover:text-blue-600 transition-colors">
-          {post.title}
-        </h3>
-      </div>
-    </Link>
-  );
-}
-
-// 가로형 카드 (카테고리 페이지용 - 유지)
-function PostCard({ post, locale, siteUrl }: { post: Post; locale: string; siteUrl: string }) {
-  // OG 이미지 URL 생성
-  const ogImageUrl = `${siteUrl}/api/og?title=${encodeURIComponent(post.title)}&category=${encodeURIComponent(post.category)}&v=4`;
-  const label = categoryLabels[post.category] || { ko: "정보", en: "Info", icon: "📄" };
-
-  return (
-    <Link
-      href={`/${locale}/${post.category}/${post.slug}`}
-      className="flex flex-col sm:flex-row gap-4 p-4 bg-white border rounded-lg hover:shadow-lg transition group"
-    >
-      {/* 썸네일 이미지 */}
-      <div className="relative w-full sm:w-48 h-32 sm:h-28 flex-shrink-0 rounded-lg overflow-hidden bg-gray-100">
-        <Image
-          src={ogImageUrl}
-          alt={post.title}
-          fill
-          className="object-cover group-hover:scale-105 transition-transform duration-300"
-          sizes="(max-width: 640px) 100vw, 192px"
-        />
-      </div>
-
-      {/* 텍스트 영역 */}
-      <div className="flex-1 min-w-0">
-        <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 bg-gray-100 rounded-full">
-            {label.icon} {locale === "ko" ? label.ko : label.en}
-          </span>
-          <span>{post.date}</span>
-        </div>
-        <h3 className="text-lg font-semibold mb-1 line-clamp-2 group-hover:text-blue-600 transition-colors">
-          {post.title}
-        </h3>
-        <p className="text-gray-600 text-sm line-clamp-2">{post.description}</p>
-      </div>
-    </Link>
-  );
-}
-
-function EmptyCard({ locale, category }: { locale: string; category: string }) {
-  const messages = {
-    ko: {
-      subsidy: "아직 지원금 정보가 없습니다.",
-      trending: "아직 트렌딩 이슈가 없습니다.",
-      finance: "아직 금융 정보가 없습니다.",
-      tax: "아직 세금 정보가 없습니다.",
-    },
-    en: {
-      subsidy: "No subsidy info yet.",
-      trending: "No trending issues yet.",
-      finance: "No finance info yet.",
-      tax: "No tax info yet.",
-    },
-  };
-
-  return (
-    <div className="p-6 bg-gray-50 border border-dashed rounded-lg text-center text-gray-500">
-      {messages[locale as keyof typeof messages]?.[category as keyof typeof messages.ko] || "Coming soon..."}
+        return (
+          <section
+            key={cat.id}
+            id={`section-${cat.id}`}
+            className="mb-12 scroll-mt-[120px]"
+          >
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold">
+                {cat.icon}{" "}
+                {locale === "ko" ? cat.label.ko : cat.label.en}
+              </h2>
+              <Link
+                href={`/${locale}${cat.href}`}
+                className={`px-4 py-1.5 ${btnColor} text-white text-sm rounded-lg transition`}
+              >
+                {locale === "ko" ? "더보기" : "View All"}
+              </Link>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {catPosts.map((post) => (
+                <VerticalPostCard
+                  key={post.slug}
+                  post={post}
+                  locale={locale}
+                />
+              ))}
+            </div>
+          </section>
+        );
+      })}
     </div>
   );
 }
