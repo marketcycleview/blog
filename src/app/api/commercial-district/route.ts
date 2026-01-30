@@ -1,6 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
 import type { CommercialData, Store } from "@/lib/tools/commercial/types";
-import { getSampleCommercialData } from "@/lib/tools/commercial/sample";
 
 const ENDPOINT = "https://apis.data.go.kr/B553077/api/open/sdsc2";
 
@@ -17,11 +16,8 @@ export async function GET(request: NextRequest) {
 
   const apiKey = process.env.COMMERCIAL_DISTRICT_API_KEY;
   if (!apiKey || !dongCode) {
-    return NextResponse.json(getSampleCommercialData(), {
-      headers: {
-        "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=3600",
-      },
-    });
+    const empty: CommercialData = { stores: [], totalCount: 0, updatedAt: new Date().toISOString(), isLive: false };
+    return NextResponse.json(empty);
   }
 
   try {
@@ -71,10 +67,7 @@ export async function GET(request: NextRequest) {
       },
     });
   } catch {
-    return NextResponse.json(getSampleCommercialData(), {
-      headers: {
-        "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=600",
-      },
-    });
+    const empty: CommercialData = { stores: [], totalCount: 0, updatedAt: new Date().toISOString(), isLive: false };
+    return NextResponse.json(empty);
   }
 }

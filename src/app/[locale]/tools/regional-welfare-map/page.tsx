@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import RegionalWelfareMap from "@/components/tools/map/RegionalWelfareMap";
 import RelatedArticles from "@/components/tools/RelatedArticles";
 import type { WelfareData } from "@/lib/tools/welfare/types";
-import { getSampleWelfareData } from "@/lib/tools/welfare/sample";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 
@@ -42,9 +41,6 @@ interface PageProps {
 
 async function fetchWelfareData(): Promise<WelfareData> {
   try {
-    const apiKey = process.env.WELFARE_API_KEY;
-    if (!apiKey) return getSampleWelfareData();
-
     const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
     const res = await fetch(`${baseUrl}/api/welfare-services`, {
       next: { revalidate: 86400 },
@@ -52,7 +48,7 @@ async function fetchWelfareData(): Promise<WelfareData> {
     if (!res.ok) throw new Error(`fetch ${res.status}`);
     return res.json();
   } catch {
-    return getSampleWelfareData();
+    return { services: [], totalCount: 0, updatedAt: new Date().toISOString(), isLive: false };
   }
 }
 

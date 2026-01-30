@@ -124,15 +124,10 @@ export default function CommercialDistrictMap({ initialData }: Props) {
   return (
     <div className="space-y-6">
       {/* 데이터 상태 */}
-      <div className="flex items-center justify-between text-sm text-gray-500">
+      <div className="text-sm text-gray-500">
         <span>
-          {data.regionName || "지역을 선택하세요"} · {data.totalCount}개 업소
+          {data.regionName || "지역을 선택하세요"}{data.totalCount > 0 ? ` · ${data.totalCount}개 업소` : ""}
         </span>
-        {!data.isLive && (
-          <span className="px-2 py-0.5 bg-yellow-100 text-yellow-700 rounded text-xs font-medium">
-            샘플 데이터
-          </span>
-        )}
       </div>
 
       {/* 지역 선택 */}

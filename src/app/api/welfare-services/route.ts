@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import type { WelfareData, WelfareService, WelfareCategory } from "@/lib/tools/welfare/types";
-import { getSampleWelfareData } from "@/lib/tools/welfare/sample";
 
 const ENDPOINT =
   "https://apis.data.go.kr/B554287/NationalWelfareInformationsV001/NationalWelfarelistV001";
@@ -41,11 +40,8 @@ function guessTarget(name: string, summary: string): string {
 export async function GET() {
   const apiKey = process.env.WELFARE_API_KEY;
   if (!apiKey) {
-    return NextResponse.json(getSampleWelfareData(), {
-      headers: {
-        "Cache-Control": "public, s-maxage=86400, stale-while-revalidate=3600",
-      },
-    });
+    const empty: WelfareData = { services: [], totalCount: 0, updatedAt: new Date().toISOString(), isLive: false };
+    return NextResponse.json(empty);
   }
 
   try {
@@ -82,7 +78,7 @@ export async function GET() {
     });
 
     const data: WelfareData = {
-      services: services.length > 0 ? services : getSampleWelfareData().services,
+      services,
       totalCount: services.length,
       updatedAt: new Date().toISOString(),
       isLive: services.length > 0,
@@ -94,10 +90,7 @@ export async function GET() {
       },
     });
   } catch {
-    return NextResponse.json(getSampleWelfareData(), {
-      headers: {
-        "Cache-Control": "public, s-maxage=3600, stale-while-revalidate=600",
-      },
-    });
+    const empty: WelfareData = { services: [], totalCount: 0, updatedAt: new Date().toISOString(), isLive: false };
+    return NextResponse.json(empty);
   }
 }

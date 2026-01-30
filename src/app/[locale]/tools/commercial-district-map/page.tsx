@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import CommercialDistrictMap from "@/components/tools/map/CommercialDistrictMap";
 import RelatedArticles from "@/components/tools/RelatedArticles";
-import { getSampleCommercialData } from "@/lib/tools/commercial/sample";
+import type { CommercialData } from "@/lib/tools/commercial/types";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 
@@ -44,7 +44,7 @@ export default async function CommercialDistrictMapPage({
   params,
 }: PageProps) {
   const { locale } = await params;
-  const initialData = getSampleCommercialData();
+  const initialData: CommercialData = { stores: [], totalCount: 0, updatedAt: new Date().toISOString(), isLive: true };
 
   return (
     <div className="max-w-5xl mx-auto">
