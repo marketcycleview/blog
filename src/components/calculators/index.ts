@@ -5,3 +5,7 @@ export { default as MedianIncomeCalculator } from "./MedianIncomeCalculator";
 export { default as UnemploymentCalculator } from "./UnemploymentCalculator";
 export { default as SeveranceCalculator } from "./SeveranceCalculator";
 export { default as TaxRefundCalculator } from "./TaxRefundCalculator";
+export { default as YearEndTaxSimulator } from "./YearEndTaxSimulator";
+export { default as RetirementFundSimulator } from "./RetirementFundSimulator";
+export { default as InflationCalculator } from "./InflationCalculator";
+export { default as EducationCostPlanner } from "./EducationCostPlanner";
