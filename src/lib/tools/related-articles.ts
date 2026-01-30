@@ -308,6 +308,55 @@ const data: Record<string, RelatedArticleGroup[]> = {
     },
   ],
 
+  "commercial-district-map": [
+    {
+      title: "창업 가이드",
+      icon: "🚀",
+      articles: [
+        { href: "/ko/business/changup-jeolcha-chongjeongli", label: "창업 절차 총정리 (업종별)" },
+        { href: "/ko/business/changup-biyo-eolma", label: "창업 비용 얼마나 들까? (업종별)" },
+        { href: "/ko/business/sangga-imdaeryo-jeollyak", label: "상가 임대 계약 시 주의사항" },
+      ],
+    },
+    {
+      title: "소상공인 지원",
+      icon: "💰",
+      articles: [
+        { href: "/ko/business/sosangongin-jiwon-2026", label: "2026년 소상공인 지원금 총정리" },
+        { href: "/ko/business/changup-jihwon-gukbi", label: "창업 국비 지원 프로그램 모음" },
+      ],
+    },
+  ],
+
+  "regional-welfare-map": [
+    {
+      title: "복지 혜택 총정리",
+      icon: "💰",
+      articles: [
+        { href: "/ko/subsidy/2026-bokji-chongjeongli", label: "2026년 복지 혜택 총정리" },
+        { href: "/ko/subsidy/jeosodeuk-bokji-chongjeongli", label: "저소득층 받을 수 있는 복지 총정리" },
+        { href: "/ko/subsidy/cheongnyeon-hyetaek-2026", label: "2026년 청년 혜택 총정리" },
+      ],
+    },
+    {
+      title: "대상별 복지 가이드",
+      icon: "👥",
+      articles: [
+        { href: "/ko/subsidy/1in-gagu-jungwi-bokji", label: "1인가구 중위소득 복지 총정리" },
+        { href: "/ko/subsidy/2026-jungwi-50-bokji", label: "중위소득 50% 이하 받을 수 있는 복지" },
+        { href: "/ko/subsidy/2026-jungwi-80-bokji", label: "중위소득 80% 이하 받을 수 있는 복지" },
+      ],
+    },
+    {
+      title: "신청 방법 가이드",
+      icon: "📋",
+      articles: [
+        { href: "/ko/subsidy/jungwi-sodeuk-hwain-beop", label: "중위소득 몇 프로인지 확인하는 법" },
+        { href: "/ko/subsidy/sodeuk-injeongaek-gyesan", label: "소득인정액 계산법 완벽가이드" },
+      ],
+    },
+  ],
+
   "rent-price-heatmap": [
     {
       title: "지역별 전세 시세",

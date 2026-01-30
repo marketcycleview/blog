@@ -484,6 +484,26 @@ export const TOOLS: Tool[] = [
     isNew: true,
   },
 
+  // === 지도 기반 도구 ===
+  {
+    id: "regional-welfare-map",
+    title: { ko: "지역별 복지 혜택 지도", en: "Regional Welfare Map" },
+    description: { ko: "지도에서 지역 선택 → 받을 수 있는 복지 혜택 확인", en: "Select region on map and find available welfare benefits" },
+    icon: "🗺️",
+    href: "/tools/regional-welfare-map",
+    category: "welfare",
+    isNew: true,
+  },
+  {
+    id: "commercial-district-map",
+    title: { ko: "창업 상권 분석 지도", en: "Commercial District Map" },
+    description: { ko: "업종·지역별 상가업소 분포와 상권 현황 분석", en: "Analyze commercial districts by business type and region" },
+    icon: "📍",
+    href: "/tools/commercial-district-map",
+    category: "business",
+    isNew: true,
+  },
+
   // === 전월세 시세 ===
   {
     id: "rent-price-heatmap",
