@@ -324,14 +324,6 @@ export default async function PostPage({ params }: PageProps) {
       </footer>
     </article>
 
-    {/* 플로팅 공유 버튼 */}
-    <KakaoShareButton
-      title={post.title}
-      description={post.description}
-      pageUrl={`${siteUrl}/${locale}/${category}/${post.slug}`}
-      variant="floating"
-    />
-
     {/* subsidy 카테고리에만 플로팅 버튼 표시 */}
     {category === "subsidy" && <WelfareFinderButton locale={locale} />}
     </>

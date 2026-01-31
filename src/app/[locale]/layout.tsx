@@ -4,6 +4,7 @@ import "../globals.css";
 import { OrganizationJsonLd, WebSiteJsonLd } from "@/components/JsonLd";
 import { AdClickProtection } from "@/components/ads/AdClickProtection";
 import { Header } from "@/components/Header";
+import { GlobalFloatingShare } from "@/components/GlobalFloatingShare";
 import { CATEGORIES } from "@/lib/categories";
 
 const notoSansKR = Noto_Sans_KR({
@@ -138,6 +139,8 @@ export default async function RootLayout({
         <main className="max-w-6xl mx-auto px-4 py-8">
           {children}
         </main>
+
+        <GlobalFloatingShare />
 
         <footer className="border-t bg-gray-50 mt-16">
           <div className="max-w-6xl mx-auto px-4 py-10">
