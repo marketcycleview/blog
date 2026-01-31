@@ -52,10 +52,10 @@ export const metadata: Metadata = {
     description: siteDescription,
     images: [
       {
-        url: `${siteUrl}/api/og?title=${encodeURIComponent("복지 · 금융 · 세금 내 돈 챙기기")}`,
+        url: `${siteUrl}/api/og?type=home`,
         width: 1200,
         height: 630,
-        alt: "InfoTalker - 복지, 금융, 세금 정보",
+        alt: "InfoTalker 인포토커 - 복지, 금융, 세금 정보",
       },
     ],
   },
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: siteName,
     description: siteDescription,
-    images: [`${siteUrl}/api/og?title=${encodeURIComponent("복지 · 금융 · 세금 내 돈 챙기기")}`],
+    images: [`${siteUrl}/api/og?type=home`],
   },
   robots: {
     index: true,

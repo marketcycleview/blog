@@ -86,6 +86,86 @@ export async function GET(request: NextRequest) {
 
   const title = searchParams.get("title") || "InfoTalker";
   const category = searchParams.get("category") || "default";
+  const type = searchParams.get("type");
+
+  // 사이트 대표 이미지 (type=home)
+  if (type === "home") {
+    return new ImageResponse(
+      (
+        <div
+          style={{
+            width: "100%",
+            height: "100%",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            background: "linear-gradient(135deg, #1e3a5f 0%, #2563eb 50%, #3b82f6 100%)",
+            fontFamily: "sans-serif",
+          }}
+        >
+          {/* 사이트명 */}
+          <div
+            style={{
+              display: "flex",
+              alignItems: "baseline",
+              gap: "16px",
+              marginBottom: "24px",
+            }}
+          >
+            <div
+              style={{
+                fontSize: 72,
+                fontWeight: 800,
+                color: "white",
+                textShadow: "0 4px 20px rgba(0,0,0,0.3)",
+              }}
+            >
+              InfoTalker
+            </div>
+            <div
+              style={{
+                fontSize: 36,
+                fontWeight: 600,
+                color: "rgba(255, 255, 255, 0.7)",
+              }}
+            >
+              인포토커
+            </div>
+          </div>
+
+          {/* 태그라인 */}
+          <div
+            style={{
+              fontSize: 44,
+              fontWeight: 700,
+              color: "white",
+              marginBottom: "20px",
+              textShadow: "0 2px 10px rgba(0,0,0,0.2)",
+            }}
+          >
+            내 돈 챙기기, 여기서 시작
+          </div>
+
+          {/* 카테고리 */}
+          <div
+            style={{
+              fontSize: 24,
+              fontWeight: 500,
+              color: "rgba(255, 255, 255, 0.6)",
+              letterSpacing: "2px",
+            }}
+          >
+            복지 · 금융 · 세금 · 부동산 · 커리어 · 법률 · 창업
+          </div>
+        </div>
+      ),
+      {
+        width: 1200,
+        height: 630,
+      }
+    );
+  }
 
   const config = categoryConfig[category] || categoryConfig.default;
 
