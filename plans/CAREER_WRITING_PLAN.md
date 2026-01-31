@@ -45,11 +45,11 @@
 
 | # | 주제 | 파일명 | 상태 |
 |---|------|--------|------|
-| 1 | 연봉 협상 방법 (신입/경력 별) | `yeonbong-hyeopsang-bangbeop.mdx` | ⬜ |
-| 2 | 연봉 인상률 평균 2026 | `yeonbong-insangryul-2026.mdx` | ⬜ |
-| 3 | 직급별 평균 연봉 (대리/과장/차장/부장) | `jikgeupbyeol-pyeonggyun-yeonbong.mdx` | ⬜ |
-| 4 | 대기업 vs 중소기업 연봉 차이 현실 | `daegieop-vs-jungso-yeonbong.mdx` | ⬜ |
-| 5 | 공무원 급여 체계 총정리 (호봉표) | `gongmuwon-geupyeo-chegye.mdx` | ⬜ |
+| 1 | 연봉 협상 방법 (신입/경력 별) | `yeonbong-hyeopsang-bangbeop.mdx` | ✅ 완료 |
+| 2 | 연봉 인상률 평균 2026 | `yeonbong-insangryul-2026.mdx` | ✅ 완료 |
+| 3 | 직급별 평균 연봉 (대리/과장/차장/부장) | `jikgeupbyeol-pyeonggyun-yeonbong.mdx` | ✅ 완료 |
+| 4 | 대기업 vs 중소기업 연봉 차이 현실 | `daegieop-vs-jungso-yeonbong.mdx` | ✅ 완료 |
+| 5 | 공무원 급여 체계 총정리 (호봉표) | `gongmuwon-geupyeo-chegye.mdx` | ✅ 완료 |
 | 6 | 연봉 3000 vs 4000 실수령 차이 | `yeonbong-3000-vs-4000.mdx` | ⬜ |
 | 7 | 연봉에 포함되는 것/안 되는 것 | `yeonbong-pohamdoeneun-geot.mdx` | ⬜ |
 | 8 | 통상임금이란? 계산법과 영향 | `tongsang-imgeum.mdx` | ⬜ |

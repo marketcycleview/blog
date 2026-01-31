@@ -915,10 +915,10 @@
 
 ## 참고 파일
 
-- `POLICY_WRITING_PLAN.md` - 복지/정책 글 목록
-- `FINANCE_WRITING_PLAN.md` - 금융/대출/보험 글 목록
-- `TAX_WRITING_PLAN.md` - 세금/연말정산 글 목록
-- `REAL_ESTATE_WRITING_PLAN.md` - 부동산 글 목록
-- `CAREER_WRITING_PLAN.md` - 취업/커리어 글 목록
-- `LEGAL_WRITING_PLAN.md` - 법률/소비자 글 목록
-- `BUSINESS_WRITING_PLAN.md` - 창업/사업 글 목록
+- `plans/POLICY_WRITING_PLAN.md` - 복지/정책 글 목록
+- `plans/FINANCE_WRITING_PLAN.md` - 금융/대출/보험 글 목록
+- `plans/TAX_WRITING_PLAN.md` - 세금/연말정산 글 목록
+- `plans/REAL_ESTATE_WRITING_PLAN.md` - 부동산 글 목록
+- `plans/CAREER_WRITING_PLAN.md` - 취업/커리어 글 목록
+- `plans/LEGAL_WRITING_PLAN.md` - 법률/소비자 글 목록
+- `plans/BUSINESS_WRITING_PLAN.md` - 창업/사업 글 목록

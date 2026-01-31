@@ -9,8 +9,8 @@
 
 ## 📊 현황 요약
 
-- **작성 완료**: 0개
-- **작성 예정**: 317개 (도구 활용 콘텐츠 12개 포함)
+- **작성 완료**: 5개
+- **작성 예정**: 312개 (도구 활용 콘텐츠 12개 포함)
 - **총 목표**: 317개
 
 ---
@@ -43,11 +43,11 @@
 
 | # | 주제 | 파일명 | 상태 |
 |---|------|--------|------|
-| 1 | 사업자등록 방법 완벽 가이드 (온라인/오프라인) | `saeopja-deungrok-guide.mdx` | ⬜ |
-| 2 | 간이과세자 vs 일반과세자 뭐가 유리할까 | `gani-vs-ilban-gwaseja.mdx` | ⬜ |
-| 3 | 간이과세 기준 금액과 전환 조건 | `gani-gwase-gijun.mdx` | ⬜ |
-| 4 | 면세사업자 등록과 해당 업종 | `myeonse-saeopja-deungrok.mdx` | ⬜ |
-| 5 | 사업자등록증 발급 후 해야 할 일 5가지 | `saeopja-deungrok-hu.mdx` | ⬜ |
+| 1 | 사업자등록 방법 완벽 가이드 (온라인/오프라인) | `saeopja-deungrok-guide.mdx` | ✅ |
+| 2 | 간이과세자 vs 일반과세자 뭐가 유리할까 | `gani-vs-ilban-gwaseja.mdx` | ✅ |
+| 3 | 간이과세 기준 금액과 전환 조건 | `gani-gwase-gijun.mdx` | ✅ |
+| 4 | 면세사업자 등록과 해당 업종 | `myeonse-saeopja-deungrok.mdx` | ✅ |
+| 5 | 사업자등록증 발급 후 해야 할 일 5가지 | `saeopja-deungrok-hu.mdx` | ✅ |
 | 6 | 업종코드 선택 방법 (세금 영향) | `eopjong-code-seontaek.mdx` | ⬜ |
 | 7 | 사업장 임대차 계약 체크리스트 | `saeopjang-imdaecha.mdx` | ⬜ |
 | 8 | 공유오피스/가상오피스 사업자등록 | `gongyuoffice-saeopja.mdx` | ⬜ |

@@ -40,24 +40,24 @@
 
 | # | 주제 | 파일명 | 상태 |
 |---|------|--------|------|
-| 1 | 연말정산총정리 | `yeonmal-jeongsang-chongjeongli.mdx` | ⬜ |
-| 2 | 연말정산기간일정 | `yeonmal-gigan-iljung.mdx` | ⬜ |
-| 3 | 연말정산간소화서비스 | `yeonmal-gansohwa.mdx` | ⬜ |
-| 4 | 연말정산환급금계산 | `yeonmal-hwangeum-gyesan.mdx` | ⬜ |
-| 5 | 연말정산추가납부 | `yeonmal-chuga-napbu.mdx` | ⬜ |
-| 6 | 연말정산소득공제 | `yeonmal-sodeuk-gongje.mdx` | ⬜ |
-| 7 | 연말정산세액공제 | `yeonmal-seaek-gongje.mdx` | ⬜ |
-| 8 | 소득공제vs세액공제차이 | `sodeuk-vs-seaek-gongje.mdx` | ⬜ |
-| 9 | 인적공제총정리 | `injeok-gongje.mdx` | ⬜ |
-| 10 | 부양가족공제 | `buyang-gajok-gongje.mdx` | ⬜ |
-| 11 | 배우자공제 | `baewuja-gongje.mdx` | ⬜ |
-| 12 | 자녀공제 | `janyeo-gongje.mdx` | ⬜ |
-| 13 | 부모님공제 | `bumonim-gongje.mdx` | ⬜ |
-| 14 | 형제자매공제 | `hyeongje-jamae-gongje.mdx` | ⬜ |
-| 15 | 신용카드공제 | `sinyong-card-gongje.mdx` | ⬜ |
-| 16 | 체크카드공제 | `check-card-gongje.mdx` | ⬜ |
-| 17 | 현금영수증공제 | `hyeongeum-yeongsujeung.mdx` | ⬜ |
-| 18 | 카드공제한도 | `card-gongje-hando.mdx` | ⬜ |
+| 1 | 연말정산총정리 | `yeonmal-jeongsang-chongjeongli.mdx` | ✅ 완료 |
+| 2 | 연말정산기간일정 | `yeonmal-gigan-iljung.mdx` | ✅ 완료 |
+| 3 | 연말정산간소화서비스 | `yeonmal-gansohwa.mdx` | ✅ 완료 |
+| 4 | 연말정산환급금계산 | `yeonmal-hwangeum-gyesan.mdx` | ✅ 완료 |
+| 5 | 연말정산추가납부 | `yeonmal-chuga-napbu.mdx` | ✅ 완료 |
+| 6 | 연말정산소득공제 | `yeonmal-sodeuk-gongje.mdx` | ✅ 완료 |
+| 7 | 연말정산세액공제 | `yeonmal-seaek-gongje.mdx` | ✅ 완료 |
+| 8 | 소득공제vs세액공제차이 | `sodeuk-vs-seaek-gongje.mdx` | ✅ 완료 |
+| 9 | 인적공제총정리 | `injeok-gongje.mdx` | ✅ 완료 |
+| 10 | 부양가족공제 | `buyang-gajok-gongje.mdx` | ✅ 완료 |
+| 11 | 배우자공제 | `baewuja-gongje.mdx` | ✅ 완료 |
+| 12 | 자녀공제 | `janyeo-gongje.mdx` | ✅ 완료 |
+| 13 | 부모님공제 | `bumonim-gongje.mdx` | ✅ 완료 |
+| 14 | 형제자매공제 | `hyeongje-jamae-gongje.mdx` | ✅ 완료 |
+| 15 | 신용카드공제 | `sinyong-card-gongje.mdx` | ✅ 완료 |
+| 16 | 체크카드공제 | `check-card-gongje.mdx` | ✅ 완료 |
+| 17 | 현금영수증공제 | `hyeongeum-yeongsujeung.mdx` | ✅ 완료 |
+| 18 | 카드공제한도 | `card-gongje-hando.mdx` | ✅ 완료 |
 | 19 | 의료비공제 | `euryobi-gongje.mdx` | ⬜ |
 | 20 | 의료비공제한도 | `euryobi-gongje-hando.mdx` | ⬜ |
 | 21 | 실손보험의료비공제 | `silson-euryobi-gongje.mdx` | ⬜ |

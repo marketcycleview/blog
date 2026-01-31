@@ -9,8 +9,8 @@
 
 ## 📊 현황 요약
 
-- **작성 완료**: 0개
-- **작성 예정**: 310개 (도구 활용 콘텐츠 10개 포함)
+- **작성 완료**: 5개
+- **작성 예정**: 305개 (도구 활용 콘텐츠 10개 포함)
 - **총 목표**: 310개
 
 ---
@@ -42,11 +42,11 @@
 
 | # | 주제 | 파일명 | 상태 |
 |---|------|--------|------|
-| 1 | 온라인 쇼핑 환불 규정 총정리 (쿠팡/네이버) | `online-hwanbul-gyujeong.mdx` | ⬜ |
-| 2 | 청약철회권이란? 14일 환불 조건 | `cheongnyak-cheolhoe.mdx` | ⬜ |
-| 3 | 환불 거부 시 대처법 (소비자원 신고) | `hwanbul-geobu-daecheo.mdx` | ⬜ |
-| 4 | 제품 결함/하자 교환/환불 요구 방법 | `jepum-gyeolham-hwanbul.mdx` | ⬜ |
-| 5 | 전자상거래 소비자 보호법 핵심 | `jeonja-sanggeolae-boho.mdx` | ⬜ |
+| 1 | 온라인 쇼핑 환불 규정 총정리 (쿠팡/네이버) | `online-hwanbul-gyujeong.mdx` | ✅ |
+| 2 | 청약철회권이란? 14일 환불 조건 | `cheongnyak-cheolhoe.mdx` | ✅ |
+| 3 | 환불 거부 시 대처법 (소비자원 신고) | `hwanbul-geobu-daecheo.mdx` | ✅ |
+| 4 | 제품 결함/하자 교환/환불 요구 방법 | `jepum-gyeolham-hwanbul.mdx` | ✅ |
+| 5 | 전자상거래 소비자 보호법 핵심 | `jeonja-sanggeolae-boho.mdx` | ✅ |
 | 6 | 헬스장/학원 환불 규정 | `health-hakwon-hwanbul.mdx` | ⬜ |
 | 7 | 여행 취소 위약금 기준 | `yeohaeng-chwiso-wiyakgeum.mdx` | ⬜ |
 | 8 | 항공권 환불/취소 규정 총정리 | `hanggongkwon-hwanbul.mdx` | ⬜ |

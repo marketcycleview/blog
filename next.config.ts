@@ -16,6 +16,17 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+
+  // 삭제/변경된 URL 리다이렉트
+  async redirects() {
+    return [
+      {
+        source: "/ko/subsidy/2026-sileop-geupyeo",
+        destination: "/ko/subsidy/2026-silup-geupyeo",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
