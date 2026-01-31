@@ -486,6 +486,16 @@ export const TOOLS: Tool[] = [
 
   // === 지도 기반 도구 ===
   {
+    id: "lifestyle-location-finder",
+    title: { ko: "나에게 맞는 동네 찾기", en: "Lifestyle Location Finder" },
+    description: { ko: "라이프스타일 조건으로 서울 25개 구 맞춤 추천", en: "Find your ideal Seoul neighborhood by lifestyle preferences" },
+    icon: "🏠",
+    href: "/tools/lifestyle-location-finder",
+    category: "realestate",
+    isNew: true,
+    isPopular: true,
+  },
+  {
     id: "regional-welfare-map",
     title: { ko: "지역별 복지 혜택 지도", en: "Regional Welfare Map" },
     description: { ko: "지도에서 지역 선택 → 받을 수 있는 복지 혜택 확인", en: "Select region on map and find available welfare benefits" },

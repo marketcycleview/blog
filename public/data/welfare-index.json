@@ -1,5 +1,379 @@
 [
   {
+    "slug": "2026-busan-jeongicha-bojogeum",
+    "title": "2026년 부산 전기차 보조금 총정리 (지자체 보조금, 신청방법, 잔여 현황)",
+    "description": "2026년 부산시 전기차 보조금 금액을 정리했습니다. 국고 최대 680만원에 부산 지자체 보조금 약 500만원까지, 총 1,180만원 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "busan",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 11800000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 부산 지자체 약 500만원"
+    }
+  },
+  {
+    "slug": "2026-chungbuk-jeongicha-bojogeum",
+    "title": "2026년 충북 전기차 보조금 총정리 (시군별 금액, 신청방법, 잔여 현황)",
+    "description": "2026년 충청북도 전기차 보조금을 시군별로 정리했습니다. 국고 최대 680만원에 도비+시군비 추가로 총 보조금 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "chungbuk",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 10000000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 도비+시군비 약 350~450만원"
+    }
+  },
+  {
+    "slug": "2026-chungnam-jeongicha-bojogeum",
+    "title": "2026년 충남 전기차 보조금 총정리 (시군별 금액, 신청방법, 잔여 현황)",
+    "description": "2026년 충청남도 전기차 보조금을 시군별로 정리했습니다. 국고 최대 680만원에 도비+시군비 약 350~450만원, 총 보조금 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "chungnam",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 10000000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 도비+시군비 약 350~450만원"
+    }
+  },
+  {
+    "slug": "2026-daegu-jeongicha-bojogeum",
+    "title": "2026년 대구 전기차 보조금 총정리 (지자체 보조금, 신청방법, 잔여 현황)",
+    "description": "2026년 대구시 전기차 보조금 금액을 정리했습니다. 국고 최대 680만원에 대구 지자체 보조금 약 400~500만원, 총 1,100만원 이상 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "daegu",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 11000000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 대구 지자체 약 400~500만원"
+    }
+  },
+  {
+    "slug": "2026-daejeon-jeongicha-bojogeum",
+    "title": "2026년 대전 전기차 보조금 총정리 (지자체 보조금, 신청방법, 잔여 현황)",
+    "description": "2026년 대전시 전기차 보조금 금액을 정리했습니다. 전기승용차 최대 754만원, 전환지원금 130만원까지 총 보조금 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "daejeon",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 7540000,
+      "type": "onetime",
+      "note": "전기승용차 국비+시비 합산 최대 754만원 + 전환지원금 130만원"
+    }
+  },
+  {
+    "slug": "2026-gangwon-jeongicha-bojogeum",
+    "title": "2026년 강원도 전기차 보조금 총정리 (시군별 금액, 신청방법, 잔여 현황)",
+    "description": "2026년 강원도 전기차 보조금을 시군별로 정리했습니다. 국고 최대 680만원에 도비+시군비 추가, 총 1,000만원 이상 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "gangwon",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 10000000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 도비+시군비 추가로 1,000만원 이상 가능"
+    }
+  },
+  {
+    "slug": "2026-gwangju-jeongicha-bojogeum",
+    "title": "2026년 광주 전기차 보조금 총정리 (지자체 보조금, 신청방법, 잔여 현황)",
+    "description": "2026년 광주시 전기차 보조금 금액을 정리했습니다. 국고 최대 680만원에 광주 지자체 보조금 약 500만원, 총 1,180만원 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "gwangju",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 11800000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 광주 지자체 약 500만원"
+    }
+  },
+  {
+    "slug": "2026-gyeongbuk-jeongicha-bojogeum",
+    "title": "2026년 경북 전기차 보조금 총정리 (시군별 금액, 신청방법, 잔여 현황)",
+    "description": "2026년 경상북도 전기차 보조금을 시군별로 정리했습니다. 국고 최대 680만원에 도비+시군비 약 450~550만원, 울릉군 최대 1,100만원까지 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "gyeongbuk",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 12000000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 도비+시군비 약 450~550만원 (울릉군 최대 1,100만원)"
+    }
+  },
+  {
+    "slug": "2026-gyeonggi-jeongicha-bojogeum",
+    "title": "2026년 경기도 전기차 보조금 총정리 (시군별 금액, 신청방법, 잔여 현황)",
+    "description": "2026년 경기도 전기차 보조금을 시군별로 정리했습니다. 국고 최대 680만원에 도비 100만원, 시군비 추가로 최대 1,000만원 이상 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "gyeonggi",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 10000000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 도비 100만원 + 시군비 추가"
+    }
+  },
+  {
+    "slug": "2026-gyeongnam-jeongicha-bojogeum",
+    "title": "2026년 경남 전기차 보조금 총정리 (시군별 금액, 신청방법, 잔여 현황)",
+    "description": "2026년 경상남도 전기차 보조금을 시군별로 정리했습니다. 1,353억원 투입, 19,251대 보급, 전기승용차 최대 754만원 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "gyeongnam",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 12000000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 도비+시군비 약 450~550만원"
+    }
+  },
+  {
+    "slug": "2026-incheon-jeongicha-bojogeum",
+    "title": "2026년 인천 전기차 보조금 총정리 (지자체 보조금, 신청방법, 잔여 현황)",
+    "description": "2026년 인천시 전기차 보조금 금액을 정리했습니다. 전기승용차 최대 754만원, 전환지원금 130만원까지 총 보조금 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "incheon",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 7540000,
+      "type": "onetime",
+      "note": "전기승용차 국비+시비 합산 최대 754만원 + 전환지원금 130만원"
+    }
+  },
+  {
+    "slug": "2026-jeju-jeongicha-bojogeum",
+    "title": "2026년 제주 전기차 보조금 총정리 (지자체 보조금, 신청방법, 잔여 현황)",
+    "description": "2026년 제주도 전기차 보조금 금액을 정리했습니다. 국고 최대 680만원에 제주 지자체 보조금 최대 700만원까지, 총 1,380만원 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "jeju",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 13800000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 제주 지자체 최대 700만원"
+    }
+  },
+  {
+    "slug": "2026-jeonbuk-jeongicha-bojogeum",
+    "title": "2026년 전북 전기차 보조금 총정리 (시군별 금액, 신청방법, 잔여 현황)",
+    "description": "2026년 전북특별자치도 전기차 보조금을 시군별로 정리했습니다. 국고 최대 680만원에 도비+시군비 추가로 총 보조금 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "jeonbuk",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 11000000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 도비+시군비 약 400~500만원"
+    }
+  },
+  {
+    "slug": "2026-jeonnam-jeongicha-bojogeum",
+    "title": "2026년 전남 전기차 보조금 총정리 (시군별 금액, 신청방법, 잔여 현황)",
+    "description": "2026년 전라남도 전기차 보조금을 시군별로 정리했습니다. 국고 최대 680만원에 도비+시군비 추가로 총 보조금 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "jeonnam",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 10500000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 도비+시군비 약 350~500만원"
+    }
+  },
+  {
+    "slug": "2026-sejong-jeongicha-bojogeum",
+    "title": "2026년 세종 전기차 보조금 총정리 (지자체 보조금, 신청방법, 잔여 현황)",
+    "description": "2026년 세종시 전기차 보조금 금액을 정리했습니다. 전기승용차 최대 754만원, 전환지원금 130만원까지 받는 방법과 신청 절차를 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "sejong",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 7540000,
+      "type": "onetime",
+      "note": "전기승용차 최대 754만원 + 전환지원금 130만원"
+    }
+  },
+  {
+    "slug": "2026-seoul-jeongicha-bojogeum",
+    "title": "2026년 서울 전기차 보조금 총정리 (지자체 보조금, 신청방법, 잔여 현황)",
+    "description": "2026년 서울시 전기차 보조금 금액을 정리했습니다. 국고 최대 680만원에 서울 지자체 보조금 약 150만원, 총 830만원 받는 방법과 신청 절차를 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "seoul",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 8300000,
+      "type": "onetime",
+      "note": "국고 최대 680만원 + 서울 지자체 약 150만원"
+    }
+  },
+  {
+    "slug": "2026-ulsan-jeongicha-bojogeum",
+    "title": "2026년 울산 전기차 보조금 총정리 (지자체 보조금, 신청방법, 잔여 현황)",
+    "description": "2026년 울산시 전기차 보조금 금액을 정리했습니다. 승용 최대 893만원, 울산공장 생산 차종은 시비 30% 추가까지 받는 방법을 확인하세요.",
+    "date": "2026-01-31",
+    "category": "subsidy",
+    "eligibility": {
+      "income": {
+        "type": "none"
+      },
+      "targetGroups": [],
+      "region": "ulsan",
+      "gender": null,
+      "disabilityRequired": false,
+      "specialConditions": []
+    },
+    "benefit": {
+      "amount": 8930000,
+      "type": "onetime",
+      "note": "승용 최대 893만원 + 울산공장 생산 차종 시비 30% 추가"
+    }
+  },
+  {
     "slug": "1in-gagu-jungwi-bokji",
     "title": "1인가구 중위소득 복지 총정리 (2026년, 비율별 혜택)",
     "description": "1인가구 기준 중위소득은 월 256만원입니다. 소득인정액에 따라 생계급여 82만원부터 청년월세 20만원까지. 비율별 받을 수 있는 복지를 정리했습니다.",
