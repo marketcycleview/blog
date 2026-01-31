@@ -42,6 +42,7 @@ function extractHeadings(content: string): TocItem[] {
 
 export function TableOfContents({ content, locale = "ko" }: TableOfContentsProps) {
   const [activeId, setActiveId] = useState<string>("");
+  const [isOpen, setIsOpen] = useState(false);
   const headings = extractHeadings(content);
 
   // 스크롤 위치에 따라 현재 섹션 하이라이트
@@ -79,33 +80,43 @@ export function TableOfContents({ content, locale = "ko" }: TableOfContentsProps
   };
 
   return (
-    <nav className="bg-blue-50/60 rounded-lg p-5 mb-10 border border-blue-100">
-      <h2 className="text-sm font-semibold text-gray-900 mb-4 flex items-center gap-2">
-        <span>📑</span>
-        {locale === "ko" ? "목차" : "Table of Contents"}
-      </h2>
-      <ul className="space-y-1">
-        {headings.map((heading, index) => (
-          <li
-            key={`${heading.id}-${index}`}
-            className={heading.level === 3 ? "ml-4" : ""}
-          >
-            <button
-              onClick={() => handleClick(heading.id)}
-              className={`
-                text-left text-sm w-full py-1.5 px-3 rounded transition-colors
-                hover:bg-blue-100/70
-                ${activeId === heading.id
-                  ? "text-blue-700 font-semibold bg-blue-100"
-                  : "text-gray-600"
-                }
-              `}
+    <nav className="bg-blue-50/60 rounded-lg mb-10 border border-blue-100">
+      <button
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex items-center justify-between p-5 text-left"
+      >
+        <h2 className="text-sm font-semibold text-gray-900 flex items-center gap-2 m-0">
+          <span>📑</span>
+          {locale === "ko" ? "목차" : "Table of Contents"}
+        </h2>
+        <span className={`text-gray-400 text-xs transition-transform ${isOpen ? "rotate-180" : ""}`}>
+          ▼
+        </span>
+      </button>
+      {isOpen && (
+        <ul className="space-y-1 px-5 pb-5">
+          {headings.map((heading, index) => (
+            <li
+              key={`${heading.id}-${index}`}
+              className={heading.level === 3 ? "ml-4" : ""}
             >
-              {heading.text}
-            </button>
-          </li>
-        ))}
-      </ul>
+              <button
+                onClick={() => handleClick(heading.id)}
+                className={`
+                  text-left text-sm w-full py-1.5 px-3 rounded transition-colors
+                  hover:bg-blue-100/70
+                  ${activeId === heading.id
+                    ? "text-blue-700 font-semibold bg-blue-100"
+                    : "text-gray-600"
+                  }
+                `}
+              >
+                {heading.text}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
     </nav>
   );
 }

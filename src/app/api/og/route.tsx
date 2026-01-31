@@ -115,7 +115,7 @@ export async function GET(request: NextRequest) {
           >
             <div
               style={{
-                fontSize: 108,
+                fontSize: 130,
                 fontWeight: 800,
                 color: "white",
                 textShadow: "0 4px 20px rgba(0,0,0,0.3)",
@@ -125,7 +125,7 @@ export async function GET(request: NextRequest) {
             </div>
             <div
               style={{
-                fontSize: 52,
+                fontSize: 130,
                 fontWeight: 600,
                 color: "rgba(255, 255, 255, 0.75)",
               }}
@@ -137,7 +137,7 @@ export async function GET(request: NextRequest) {
           {/* 태그라인 */}
           <div
             style={{
-              fontSize: 64,
+              fontSize: 80,
               fontWeight: 700,
               color: "white",
               marginBottom: "28px",
@@ -150,7 +150,7 @@ export async function GET(request: NextRequest) {
           {/* 카테고리 */}
           <div
             style={{
-              fontSize: 34,
+              fontSize: 44,
               fontWeight: 500,
               color: "rgba(255, 255, 255, 0.65)",
               letterSpacing: "3px",

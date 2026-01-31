@@ -2,7 +2,7 @@ import { getAllPosts } from "@/lib/posts";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 const siteName = "InfoTalker";
-const siteDescription = "복지, 금융, 세금 정보를 한 곳에서 - 지원금, 대출, 연말정산";
+const siteDescription = "복지, 금융, 세금, 부동산, 커리어, 법률, 창업 정보를 한 곳에서 - 지원금, 대출, 연말정산";
 
 function escapeXml(text: string): string {
   return text
