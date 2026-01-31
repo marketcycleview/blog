@@ -25,6 +25,16 @@ const nextConfig: NextConfig = {
         destination: "/ko/subsidy/2026-silup-geupyeo",
         permanent: true,
       },
+      {
+        source: "/ko/subsidy/2026-ai-dolbom-service",
+        destination: "/ko/subsidy/2026-aidolbom-service",
+        permanent: true,
+      },
+      {
+        source: "/ko/subsidy/2026-cheosmansam-iyonggwon",
+        destination: "/ko/subsidy/2026-cheotmannam-iyonggwon",
+        permanent: true,
+      },
     ];
   },
 };
