@@ -86,6 +86,7 @@ export function calculateScores(
     return data.districts.map((d) => ({
       code: d.code,
       name: d.name,
+      region: d.region,
       lat: d.lat,
       lng: d.lng,
       totalScore: 0,
@@ -115,6 +116,7 @@ export function calculateScores(
     return {
       code: d.code,
       name: d.name,
+      region: d.region,
       lat: d.lat,
       lng: d.lng,
       totalScore,

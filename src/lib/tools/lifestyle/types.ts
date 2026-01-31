@@ -1,7 +1,15 @@
+/** 지역 구분 */
+export type RegionCode =
+  | "seoul" | "gyeonggi" | "incheon"
+  | "busan" | "daegu" | "gwangju" | "daejeon" | "ulsan"
+  | "sejong" | "chungbuk" | "chungnam" | "jeonbuk" | "jeonnam"
+  | "gyeongbuk" | "gyeongnam" | "gangwon" | "jeju";
+
 /** 구별 카테고리 POI 카운트 */
 export interface DistrictScores {
   code: string; // "gangnam", "mapo" 등
   name: string; // "강남구"
+  region: RegionCode; // "seoul", "gyeonggi", "incheon"
   lat: number;
   lng: number;
   counts: Record<string, number>; // { park: 45, cafe: 312, ... }
@@ -24,6 +32,7 @@ export interface UserPreference {
 export interface ScoredDistrict {
   code: string;
   name: string;
+  region: RegionCode;
   lat: number;
   lng: number;
   totalScore: number; // 0~100
