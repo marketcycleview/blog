@@ -37,7 +37,6 @@ function loadKakaoSdk(): Promise<void> {
     window.__kakaoSdkLoading = true;
     const script = document.createElement("script");
     script.src = "https://t1.kakaocdn.net/kakao_js_sdk/2.7.4/kakao.min.js";
-    script.integrity = "sha384-DKYJZ8NLiK8MN4/C5P2dtSmLQ4KwPaoqAfyA/DfmEc1VDxu4lqqLMBhDOBx0fEk";
     script.crossOrigin = "anonymous";
     script.onload = () => {
       window.__kakaoSdkLoading = false;
@@ -74,30 +73,46 @@ export function KakaoShareButton({
       .catch(() => {});
   }, []);
 
-  const handleShare = useCallback(() => {
-    if (!window.Kakao?.Share) return;
+  const handleShare = useCallback(async () => {
+    try {
+      // SDK가 아직 안 불러졌으면 다시 시도
+      if (!window.Kakao) {
+        await loadKakaoSdk();
+      }
+      if (window.Kakao && !window.Kakao.isInitialized()) {
+        const appKey = process.env.NEXT_PUBLIC_KAKAO_MAP_KEY;
+        if (appKey) window.Kakao.init(appKey);
+      }
+      if (!window.Kakao?.Share) {
+        alert("카카오톡 공유 기능을 불러오지 못했습니다. 링크 복사를 이용해주세요.");
+        return;
+      }
 
-    window.Kakao.Share.sendDefault({
-      objectType: "feed",
-      content: {
-        title,
-        description: description.slice(0, 200),
-        imageUrl: imageUrl || `${pageUrl.split("/").slice(0, 3).join("/")}/api/og?title=${encodeURIComponent(title)}`,
-        link: {
-          mobileWebUrl: pageUrl,
-          webUrl: pageUrl,
-        },
-      },
-      buttons: [
-        {
-          title: "자세히 보기",
+      window.Kakao.Share.sendDefault({
+        objectType: "feed",
+        content: {
+          title,
+          description: description.slice(0, 200),
+          imageUrl: imageUrl || `${pageUrl.split("/").slice(0, 3).join("/")}/api/og?title=${encodeURIComponent(title)}`,
           link: {
             mobileWebUrl: pageUrl,
             webUrl: pageUrl,
           },
         },
-      ],
-    });
+        buttons: [
+          {
+            title: "자세히 보기",
+            link: {
+              mobileWebUrl: pageUrl,
+              webUrl: pageUrl,
+            },
+          },
+        ],
+      });
+    } catch (e) {
+      console.error("카카오 공유 에러:", e);
+      alert("카카오톡 공유에 실패했습니다. 링크 복사를 이용해주세요.");
+    }
   }, [title, description, imageUrl, pageUrl]);
 
   /** URL 복사 fallback */
