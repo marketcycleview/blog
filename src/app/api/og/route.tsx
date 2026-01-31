@@ -109,13 +109,13 @@ export async function GET(request: NextRequest) {
             style={{
               display: "flex",
               alignItems: "baseline",
-              gap: "16px",
-              marginBottom: "24px",
+              gap: "20px",
+              marginBottom: "32px",
             }}
           >
             <div
               style={{
-                fontSize: 72,
+                fontSize: 108,
                 fontWeight: 800,
                 color: "white",
                 textShadow: "0 4px 20px rgba(0,0,0,0.3)",
@@ -125,9 +125,9 @@ export async function GET(request: NextRequest) {
             </div>
             <div
               style={{
-                fontSize: 36,
+                fontSize: 52,
                 fontWeight: 600,
-                color: "rgba(255, 255, 255, 0.7)",
+                color: "rgba(255, 255, 255, 0.75)",
               }}
             >
               인포토커
@@ -137,10 +137,10 @@ export async function GET(request: NextRequest) {
           {/* 태그라인 */}
           <div
             style={{
-              fontSize: 44,
+              fontSize: 64,
               fontWeight: 700,
               color: "white",
-              marginBottom: "20px",
+              marginBottom: "28px",
               textShadow: "0 2px 10px rgba(0,0,0,0.2)",
             }}
           >
@@ -150,10 +150,10 @@ export async function GET(request: NextRequest) {
           {/* 카테고리 */}
           <div
             style={{
-              fontSize: 24,
+              fontSize: 34,
               fontWeight: 500,
-              color: "rgba(255, 255, 255, 0.6)",
-              letterSpacing: "2px",
+              color: "rgba(255, 255, 255, 0.65)",
+              letterSpacing: "3px",
             }}
           >
             복지 · 금융 · 세금 · 부동산 · 커리어 · 법률 · 창업
