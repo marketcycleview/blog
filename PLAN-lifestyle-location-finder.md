@@ -1,8 +1,8 @@
 # 라이프스타일 맞춤 거주지 추천 도구 - 확장 계획
 
-## 현재 상태 (2026-01-31)
+## 현재 상태 (2026-02-01)
 
-**전국 17개 시/도 134개 지역 구 단위 분석 완료. 배포 완료 상태.**
+**전국 134개 지역 구 단위 + 서울·경기 42개 구 행정동 단위 분석 완료.**
 
 ---
 
@@ -10,23 +10,37 @@
 
 ```
 src/lib/tools/lifestyle/
-├── types.ts          # RegionCode (17개 시/도), DistrictScores, LifestyleData, UserPreference, ScoredDistrict
+├── types.ts          # RegionCode, DistrictScores, ScoredDistrict, DongScores, DongLifestyleData, ScoredDong
 ├── districts.ts      # ALL_DISTRICTS(134개), REGIONS(18개 탭), 사전점수 3종, DISTRICT_DESCRIPTIONS
 ├── categories.ts     # CATEGORY_GROUPS(8), ALL_CATEGORIES(43), PRESETS(7), CATEGORY_MAP
-└── scoring.ts        # normalizeScores, calculateScores, rankDistricts
+├── scoring.ts        # normalizeScores, calculateScores, rankDistricts, calculateDongScores, rankDongs
+├── seoul-dongs.ts    # 서울 422개 행정동 좌표 데이터 (자동 생성)
+└── gyeonggi-dongs.ts # 경기 213개 행정동 좌표 데이터 (자동 생성)
 
 src/components/tools/map/
-├── LifestyleLocationFinder.tsx  # 메인 UI 컴포넌트 (프리셋, 카테고리, 지도, 랭킹, 상세패널)
+├── LifestyleLocationFinder.tsx  # 메인 UI (프리셋, 카테고리, 지도, 랭킹, 상세패널, 동 드릴다운)
 └── KakaoMap.tsx                 # 카카오맵 래퍼
 
 src/app/[locale]/tools/lifestyle-location-finder/
 └── page.tsx                     # 페이지 (SSG, 메타데이터, SEO 콘텐츠)
 
 scripts/
-└── collect-lifestyle-data.ts    # 카카오 Local REST API 데이터 수집 (--only 옵션 지원)
+├── collect-lifestyle-data.ts          # 구 단위 카카오 API 수집 (--only 옵션)
+├── generate-seoul-dong-coords.ts      # 서울 동 좌표 geocoding 생성 (--gu 옵션)
+├── generate-gyeonggi-dong-coords.ts   # 경기 동 좌표 geocoding 생성 (--gu 옵션)
+└── collect-lifestyle-dong-data.ts     # 동 단위 카카오 API 수집 (서울+경기, --gu 옵션)
 
 public/data/
-└── lifestyle-scores.json        # 수집된 POI 데이터 (134개 지역 × 43개 카테고리)
+├── lifestyle-scores.json              # 구 단위 134개 지역 × 43개 카테고리
+└── lifestyle-dong/                    # 동 단위 (구별 분할)
+    ├── gangnam.json                   # 강남구 22개 동
+    ├── gangdong.json                  # 강동구 18개 동
+    ├── ...                            # (서울 25개 + 경기 17개 = 42개 파일)
+    ├── jungnang.json                  # 중랑구 16개 동
+    ├── sw_jangan.json                 # 수원 장안구 10개 동
+    ├── sn_bundang.json                # 성남 분당구 21개 동
+    ├── gy_ilsandong.json              # 고양 일산동구 10개 동
+    └── ...                            # (경기 17개 파일)
 ```
 
 ---
@@ -38,7 +52,7 @@ public/data/
 ### Stage 3: + 부산 16 + 대구 8 + 광주 5 + 대전 5 + 울산 5 = 102개 ✅
 ### Stage 4: + 세종 1 + 충북 4 + 충남 3 + 전북 4 + 전남 3 + 경북 5 + 경남 7 + 강원 3 + 제주 2 = 134개 ✅
 
-**지역 분포:**
+**구 단위 지역 분포:**
 | 지역 | 수량 | 상세 |
 |------|------|------|
 | 서울 | 25 | 25개 구 |
@@ -61,50 +75,113 @@ public/data/
 
 ---
 
-## Stage 5: 서울 동 단위 분석 (다음 작업)
+### Stage 5: 서울 422개 행정동 단위 분석 ✅
 
-### 개요
-- 서울 25개 구의 행정동(약 425개)을 추가하여 동 단위 세부 분석 제공
-- 현재 구 단위 분석과 별도 레이어(드릴다운 방식)로 구현
+**완료일: 2026-02-01**
 
-### 핵심 설계 결정사항
+#### 구현 내용
+- 서울 25개 구의 행정동(422개) 드릴다운 분석 기능
+- 구 상세 패널에서 "동 단위 분석 보기" 버튼 → 동별 순위 + 지도 줌인
 
-**1. 데이터 구조 (JSON 분할)**
-- 현재 `lifestyle-scores.json`은 구 단위 134개 → 그대로 유지
-- 동 단위는 구별로 별도 JSON 파일로 분할:
-  ```
-  public/data/lifestyle-dong/
-  ├── gangnam.json      # 강남구 22개 동
-  ├── gangdong.json     # 강동구 18개 동
-  ├── ...
-  └── jungnang.json     # 중랑구 16개 동
-  ```
-- 이유: 425개를 한 파일에 넣으면 ~500KB+로 초기 로딩에 부담
+#### 구현 상세
 
-**2. UI: 드릴다운 방식**
-```
-[구 단위 리스트 (현재)] → 구 클릭 → [해당 구의 동 리스트 표시]
-```
-- 구 상세 패널에 "동 단위 분석 보기" 버튼 추가
-- 클릭 시 해당 구의 동 JSON을 dynamic import로 로드
-- 지도도 해당 구 줌인 + 동 마커 표시
+| 단계 | 내용 | 상태 |
+|------|------|------|
+| 1 | 422개 행정동 좌표 수집 (카카오 geocoding API) | ✅ |
+| 2 | 동 단위 수집 스크립트 (반경 1.5km, 구별 JSON 분할) | ✅ |
+| 3 | 동 타입 정의 (DongScores, DongLifestyleData, ScoredDong) | ✅ |
+| 4 | 동 점수 계산 로직 (구 내 정규화) | ✅ |
+| 5 | UI 드릴다운 (서울 구 → 동 순위, 지도 줌인, 동 마커) | ✅ |
+| 6 | 데이터 수집 (25구 × 422동 × 43카테고리 = 18,146 API 호출) | ✅ |
+| 7 | SEO 업데이트 (제목, 설명, FAQ에 동 분석 반영) | ✅ |
 
-**3. 수집 스크립트**
-- 카카오 API 반경: 구 단위 3km → 동 단위 1~1.5km로 축소
-- 서울 행정동 좌표 목록 필요 (별도 데이터)
-- `--dong gangnam` 같은 옵션으로 구별 수집
-- 예상: 425동 × 43카테고리 = ~18,000 API 호출 (약 33분)
+#### 설계 결정사항
+- **데이터 분할**: 구별 별도 JSON (초기 로딩 부담 방지)
+- **정규화 범위**: 구 내 동끼리 비교 (전국 비교 X)
+- **검색 반경**: 1.5km (구 단위 3km의 절반, 동 면적에 적합)
+- **사전 점수**: 동 단위에서는 RIVER/NATURE_RATIO/BUS 미적용
+- **지도**: 동 보기 시 zoom level 6으로 줌인 + 동별 마커 표시
 
-**4. 구현 순서**
-1. 서울 425개 행정동 좌표 데이터 수집/정리
-2. 동 단위 수집 스크립트 작성 (반경 축소, 구별 JSON 분할 저장)
-3. 동 데이터 타입 정의 (DongScores 등)
-4. 동 단위 점수 계산 로직 (구 단위와 동일 알고리즘, 동 내부에서 정규화)
-5. UI: 구 상세 패널에 "동 분석" 드릴다운 추가
-6. 데이터 수집 실행 (25개 구 순차적으로)
-7. page.tsx SEO 업데이트
+#### 서울 동 분포 (25개 구, 422개 동)
+| 구 | 동 수 | 구 | 동 수 |
+|----|-------|----|-------|
+| 강남구 | 22 | 마포구 | 16 |
+| 강동구 | 18 | 서대문구 | 14 |
+| 강북구 | 13 | 서초구 | 18 |
+| 강서구 | 20 | 성동구 | 17 |
+| 관악구 | 21 | 성북구 | 20 |
+| 광진구 | 15 | 송파구 | 26 |
+| 구로구 | 15 | 양천구 | 18 |
+| 금천구 | 10 | 영등포구 | 18 |
+| 노원구 | 20 | 용산구 | 16 |
+| 도봉구 | 14 | 은평구 | 16 |
+| 동대문구 | 14 | 종로구 | 16 |
+| 동작구 | 15 | 중구 | 14 |
+|  |  | 중랑구 | 16 |
 
-### 주의사항
-- 지도 마커: 한 구의 동(15~25개)만 표시 → 성능 문제 없음
-- 정규화: 동 단위는 해당 구 내에서 정규화 (전국 비교 X, 구 내 비교)
-- 사전 점수(RIVER/NATURE_RATIO/BUS): 동 단위는 생략하거나, 구 점수를 그대로 사용
+---
+
+### Stage 6: 경기도 6개 시(17개 구) 213개 행정동 단위 분석 ✅
+
+**완료일: 2026-02-01**
+
+#### 구현 내용
+- 경기도 6개 시(수원·성남·고양·용인·안산·안양) 17개 구의 행정동(213개) 드릴다운 분석
+- Stage 5 서울 동 분석과 동일한 구조/패턴 적용
+
+#### 대상 시/구 (17개 구, 213개 동)
+
+| 시 | 구 | 코드 | 동 수 |
+|----|----|----|-------|
+| 수원시 | 장안구 | sw_jangan | 10 |
+| 수원시 | 권선구 | sw_gwonseon | 13 |
+| 수원시 | 팔달구 | sw_paldal | 11 |
+| 수원시 | 영통구 | sw_yeongtong | 11 |
+| 성남시 | 수정구 | sn_sujeong | 16 |
+| 성남시 | 중원구 | sn_jungwon | 10 |
+| 성남시 | 분당구 | sn_bundang | 21 |
+| 고양시 | 덕양구 | gy_deogyang | 19 |
+| 고양시 | 일산동구 | gy_ilsandong | 10 |
+| 고양시 | 일산서구 | gy_ilsanseo | 10 |
+| 용인시 | 처인구 | yi_cheoin | 4 |
+| 용인시 | 기흥구 | yi_giheung | 14 |
+| 용인시 | 수지구 | yi_suji | 10 |
+| 안산시 | 상록구 | as_sangnok | 12 |
+| 안산시 | 단원구 | as_danwon | 11 |
+| 안양시 | 만안구 | ay_manan | 18 |
+| 안양시 | 동안구 | ay_dongan | 13 |
+
+#### 구현 상세
+
+| 단계 | 내용 | 상태 |
+|------|------|------|
+| 1 | 경기 동 목록 + 좌표 수집 스크립트 (generate-gyeonggi-dong-coords.ts) | ✅ |
+| 2 | 좌표 geocoding 실행 (213/214 성공, 1건 실패) | ✅ |
+| 3 | gyeonggi-dongs.ts 자동 생성 (DongInfo 재사용) | ✅ |
+| 4 | collect-lifestyle-dong-data.ts 확장 (서울+경기 통합) | ✅ |
+| 5 | UI 동 드릴다운 조건 변경 (region==="seoul" → DONG_SUPPORTED set) | ✅ |
+| 6 | SEO 메타데이터/FAQ 업데이트 | ✅ |
+| 7 | 데이터 수집 (17구 × 213동 × 43카테고리 = 9,159 API 호출) | ✅ |
+
+#### 설계 결정사항
+- **별도 파일**: gyeonggi-dongs.ts (seoul-dongs.ts의 DongInfo 인터페이스 재사용)
+- **수집 스크립트 통합**: collect-lifestyle-dong-data.ts가 ALL_DONGS (서울+경기) 통합 사용
+- **UI 조건**: DONG_SUPPORTED Set으로 42개 구 코드 관리 (서울 25 + 경기 17)
+- **처인구 예외**: 동 4개만 존재 (읍/면 제외, 1.5km 반경 부적합)
+- **좌표 실패 1건**: 일산서구 송산동 (geocoding 실패, 10/11동 수집)
+
+#### 동 단위 분석 종합 현황
+| 지역 | 구 수 | 동 수 |
+|------|-------|-------|
+| 서울 | 25 | 422 |
+| 경기 | 17 | 213 |
+| **합계** | **42** | **635** |
+
+---
+
+## 향후 확장 아이디어
+
+- **Stage 7**: 실거래가/전월세 데이터 연동
+- **Stage 8**: 사용자 리뷰/만족도 데이터 수집
+- **Stage 9**: 출퇴근 시간 시뮬레이션 (직장 위치 입력 → 통근 고려 추천)
+- **Stage 10**: 인천·부산 등 추가 광역시 동 단위 분석

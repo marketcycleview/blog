@@ -39,3 +39,35 @@ export interface ScoredDistrict {
   breakdown: Record<string, number>; // 카테고리별 정규화 점수
   counts: Record<string, number>; // 원본 카운트
 }
+
+// ── 동 단위 타입 ──────────────────────────────────────
+
+/** 동별 카테고리 POI 카운트 */
+export interface DongScores {
+  code: string; // "sinsa", "nonhyeon1" 등 (구 내에서 유니크)
+  name: string; // "신사동"
+  parentCode: string; // 소속 구 코드 (e.g. "gangnam")
+  lat: number;
+  lng: number;
+  counts: Record<string, number>;
+}
+
+/** 구별 동 단위 수집 데이터 (per-gu JSON 파일) */
+export interface DongLifestyleData {
+  updatedAt: string;
+  guCode: string;
+  guName: string;
+  dongs: DongScores[];
+}
+
+/** 동 점수 계산 결과 */
+export interface ScoredDong {
+  code: string;
+  name: string;
+  parentCode: string;
+  lat: number;
+  lng: number;
+  totalScore: number;
+  breakdown: Record<string, number>;
+  counts: Record<string, number>;
+}

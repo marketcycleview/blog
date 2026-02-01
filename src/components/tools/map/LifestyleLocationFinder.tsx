@@ -2,7 +2,7 @@
 
 import { useState, useMemo, useCallback } from "react";
 import KakaoMap, { type MapMarker } from "./KakaoMap";
-import type { LifestyleData, UserPreference, ScoredDistrict, RegionCode } from "@/lib/tools/lifestyle/types";
+import type { LifestyleData, UserPreference, ScoredDistrict, RegionCode, DongLifestyleData, ScoredDong } from "@/lib/tools/lifestyle/types";
 import {
   CATEGORY_GROUPS,
   PRESETS,
@@ -10,7 +10,28 @@ import {
   type Preset,
 } from "@/lib/tools/lifestyle/categories";
 import { DISTRICT_DESCRIPTIONS, REGIONS } from "@/lib/tools/lifestyle/districts";
-import { calculateScores, rankDistricts } from "@/lib/tools/lifestyle/scoring";
+import { calculateScores, rankDistricts, calculateDongScores, rankDongs } from "@/lib/tools/lifestyle/scoring";
+
+/** 동 단위 드릴다운이 지원되는 지역 코드 */
+const DONG_SUPPORTED = new Set([
+  // 서울 25개 구
+  "gangnam", "gangdong", "gangbuk", "gangseo", "gwanak", "gwangjin",
+  "guro", "geumcheon", "nowon", "dobong", "dongdaemun", "dongjak",
+  "mapo", "seodaemun", "seocho", "seongdong", "seongbuk", "songpa",
+  "yangcheon", "yeongdeungpo", "yongsan", "eunpyeong", "jongno", "junggu", "jungnang",
+  // 경기 수원 4구
+  "sw_jangan", "sw_gwonseon", "sw_paldal", "sw_yeongtong",
+  // 경기 성남 3구
+  "sn_sujeong", "sn_jungwon", "sn_bundang",
+  // 경기 고양 3구
+  "gy_deogyang", "gy_ilsandong", "gy_ilsanseo",
+  // 경기 용인 3구
+  "yi_cheoin", "yi_giheung", "yi_suji",
+  // 경기 안산 2구
+  "as_sangnok", "as_danwon",
+  // 경기 안양 2구
+  "ay_manan", "ay_dongan",
+]);
 
 interface Props {
   data: LifestyleData;
@@ -76,6 +97,12 @@ export default function LifestyleLocationFinder({ data }: Props) {
   const [selectedDistrict, setSelectedDistrict] = useState<ScoredDistrict | null>(null);
   const [activePreset, setActivePreset] = useState<string | null>(null);
   const [regionFilter, setRegionFilter] = useState<RegionCode | "all">("all");
+
+  // ── 동 단위 드릴다운 ────────────────────────────────
+  const [dongData, setDongData] = useState<DongLifestyleData | null>(null);
+  const [dongLoading, setDongLoading] = useState(false);
+  const [dongView, setDongView] = useState(false);
+  const [selectedDong, setSelectedDong] = useState<ScoredDong | null>(null);
 
   // ── 활성 카테고리 수 ──────────────────────────────────
   const enabledCount = useMemo(
@@ -180,6 +207,9 @@ export default function LifestyleLocationFinder({ data }: Props) {
   const analyze = useCallback(() => {
     setAnalyzed(true);
     setSelectedDistrict(null);
+    setDongView(false);
+    setDongData(null);
+    setSelectedDong(null);
   }, []);
 
   // ── 활성 카테고리 목록 ─────────────────────────────────
@@ -187,6 +217,49 @@ export default function LifestyleLocationFinder({ data }: Props) {
     () => ALL_CATEGORIES.filter((c) => preferences[c.id]?.enabled),
     [preferences]
   );
+
+  // ── 동 단위 점수 계산 ─────────────────────────────────
+  const scoredDongs = useMemo(() => {
+    if (!dongData || !dongView) return [];
+    const prefs = Object.values(preferences);
+    return rankDongs(calculateDongScores(dongData, prefs));
+  }, [dongData, dongView, preferences]);
+
+  // ── 동 데이터 로드 ───────────────────────────────────
+  const loadDongData = useCallback(async (guCode: string) => {
+    setDongLoading(true);
+    setSelectedDong(null);
+    try {
+      const res = await fetch(`/data/lifestyle-dong/${guCode}.json`);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data: DongLifestyleData = await res.json();
+      setDongData(data);
+      setDongView(true);
+    } catch {
+      setDongData(null);
+      setDongView(false);
+    } finally {
+      setDongLoading(false);
+    }
+  }, []);
+
+  // ── 동 보기 닫기 ─────────────────────────────────────
+  const closeDongView = useCallback(() => {
+    setDongView(false);
+    setDongData(null);
+    setSelectedDong(null);
+  }, []);
+
+  // ── 동 마커 생성 ─────────────────────────────────────
+  const dongMarkers: MapMarker[] = useMemo(() => {
+    if (!dongView || scoredDongs.length === 0) return [];
+    return scoredDongs.map((d) => ({
+      lat: d.lat,
+      lng: d.lng,
+      title: d.name,
+      content: `<div style="text-align:center;min-width:70px;"><strong>${d.name}</strong><br/><span style="font-size:16px;font-weight:bold;color:${scoreColor(d.totalScore)}">${d.totalScore}점</span></div>`,
+    }));
+  }, [dongView, scoredDongs]);
 
   // ── 지역별 통계 ────────────────────────────────────────
   const regionCounts = useMemo(() => {
@@ -346,7 +419,7 @@ export default function LifestyleLocationFinder({ data }: Props) {
             {REGIONS.map((r) => (
               <button
                 key={r.code}
-                onClick={() => { setRegionFilter(r.code); setSelectedDistrict(null); }}
+                onClick={() => { setRegionFilter(r.code); setSelectedDistrict(null); closeDongView(); }}
                 className={`px-3 py-2 rounded-md text-sm font-medium transition-all ${
                   regionFilter === r.code
                     ? "bg-white text-blue-600 shadow-sm"
@@ -379,10 +452,10 @@ export default function LifestyleLocationFinder({ data }: Props) {
               </span>
             </div>
             <KakaoMap
-              center={currentRegion.center}
-              level={currentRegion.level}
+              center={dongView && selectedDistrict ? { lat: selectedDistrict.lat, lng: selectedDistrict.lng } : currentRegion.center}
+              level={dongView ? 6 : currentRegion.level}
               height="450px"
-              markers={markers}
+              markers={dongView ? dongMarkers : markers}
             />
           </div>
 
@@ -395,9 +468,10 @@ export default function LifestyleLocationFinder({ data }: Props) {
               {filteredScored.slice(0, 10).map((d, idx) => (
                 <button
                   key={d.code}
-                  onClick={() =>
-                    setSelectedDistrict(selectedDistrict?.code === d.code ? null : d)
-                  }
+                  onClick={() => {
+                    setSelectedDistrict(selectedDistrict?.code === d.code ? null : d);
+                    closeDongView();
+                  }}
                   className={`w-full text-left p-4 rounded-xl border transition-all ${
                     selectedDistrict?.code === d.code
                       ? "border-blue-500 bg-blue-50 shadow-md"
@@ -513,6 +587,104 @@ export default function LifestyleLocationFinder({ data }: Props) {
                 <p className="text-sm text-gray-600 bg-white rounded-lg p-3 border border-gray-100">
                   💡 {DISTRICT_DESCRIPTIONS[selectedDistrict.code]}
                 </p>
+              )}
+
+              {/* ── 동 단위 드릴다운 (서울 + 경기 주요 시) ── */}
+              {DONG_SUPPORTED.has(selectedDistrict.code) && (
+                <div className="mt-4">
+                  {!dongView ? (
+                    <button
+                      onClick={() => loadDongData(selectedDistrict.code)}
+                      disabled={dongLoading}
+                      className="w-full py-3 rounded-lg text-sm font-medium bg-indigo-600 text-white hover:bg-indigo-700 transition-all disabled:bg-gray-300 disabled:cursor-wait"
+                    >
+                      {dongLoading ? "⏳ 동 데이터 로딩 중..." : `🏘️ ${selectedDistrict.name} 동 단위 분석 보기`}
+                    </button>
+                  ) : (
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between">
+                        <h4 className="text-sm font-bold text-indigo-700">
+                          🏘️ {selectedDistrict.name} 동 단위 순위 ({scoredDongs.length}개 동)
+                        </h4>
+                        <button
+                          onClick={closeDongView}
+                          className="text-xs text-gray-400 hover:text-gray-600"
+                        >
+                          ✕ 동 분석 닫기
+                        </button>
+                      </div>
+
+                      <div className="space-y-1.5 max-h-[400px] overflow-y-auto">
+                        {scoredDongs.map((dong, idx) => (
+                          <button
+                            key={dong.code}
+                            onClick={() => setSelectedDong(selectedDong?.code === dong.code ? null : dong)}
+                            className={`w-full text-left p-3 rounded-lg border transition-all ${
+                              selectedDong?.code === dong.code
+                                ? "border-indigo-400 bg-indigo-50"
+                                : "border-gray-100 bg-white hover:border-gray-200"
+                            }`}
+                          >
+                            <div className="flex items-center justify-between">
+                              <div className="flex items-center gap-2">
+                                <span className="text-sm w-6 text-center font-medium text-gray-400">
+                                  {rankMedal(idx)}
+                                </span>
+                                <span className="text-sm font-medium text-gray-900">{dong.name}</span>
+                              </div>
+                              <div className="flex items-center gap-1.5">
+                                <span className="text-sm font-bold" style={{ color: scoreColor(dong.totalScore) }}>
+                                  {dong.totalScore}점
+                                </span>
+                                <span
+                                  className="text-[10px] px-1.5 py-0.5 rounded-full font-medium"
+                                  style={{
+                                    backgroundColor: scoreColor(dong.totalScore) + "20",
+                                    color: scoreColor(dong.totalScore),
+                                  }}
+                                >
+                                  {scoreGrade(dong.totalScore)}
+                                </span>
+                              </div>
+                            </div>
+
+                            {/* 선택된 동 상세 */}
+                            {selectedDong?.code === dong.code && (
+                              <div className="mt-3 pt-3 border-t border-gray-100 space-y-1.5">
+                                {enabledCategories.map((cat) => {
+                                  const score = dong.breakdown[cat.id] ?? 0;
+                                  const count = dong.counts[cat.id];
+                                  return (
+                                    <div key={cat.id} className="flex items-center gap-1.5">
+                                      <span className="text-xs w-4">{cat.icon}</span>
+                                      <span className="text-xs text-gray-600 w-20 truncate">{cat.label}</span>
+                                      <div className="flex-1 h-1.5 bg-gray-200 rounded-full overflow-hidden">
+                                        <div
+                                          className="h-full rounded-full"
+                                          style={{ width: `${score}%`, backgroundColor: scoreColor(score) }}
+                                        />
+                                      </div>
+                                      <span className="text-xs font-medium w-8 text-right" style={{ color: scoreColor(score) }}>
+                                        {Math.round(score)}
+                                      </span>
+                                      {count !== undefined && (
+                                        <span className="text-[10px] text-gray-400 w-10 text-right">({count})</span>
+                                      )}
+                                    </div>
+                                  );
+                                })}
+                              </div>
+                            )}
+                          </button>
+                        ))}
+                      </div>
+
+                      <p className="text-[10px] text-gray-400 text-center">
+                        동 단위 점수는 {selectedDistrict.name} 내에서 정규화됩니다 (구 내 상대 비교)
+                      </p>
+                    </div>
+                  )}
+                </div>
               )}
             </div>
           )}

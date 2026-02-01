@@ -10,27 +10,30 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://infotalker.com";
 export const revalidate = 86400;
 
 export const metadata: Metadata = {
-  title: "나에게 맞는 동네 찾기 | 전국 134개 지역 라이프스타일 맞춤 추천",
+  title: "나에게 맞는 동네 찾기 | 전국 134개 지역 + 서울·경기 동 단위 분석",
   description:
-    "서울·경기·인천·부산·대구·광주·대전·울산·세종·충청·전라·경상·강원·제주 전국 134개 지역의 생활 인프라를 비교해서 나에게 맞는 동네를 추천합니다.",
+    "전국 134개 지역 비교는 물론, 서울 25개 구와 경기도 6개 시(수원·성남·고양·용인·안산·안양) 17개 구까지 행정동 단위 세부 분석. 카카오 지도 데이터 기반 라이프스타일 맞춤 거주지 추천.",
   keywords: [
     "살기 좋은 동네 추천",
     "서울 거주지 추천",
+    "서울 동별 비교",
+    "강남구 살기 좋은 동",
+    "마포구 동별 분석",
     "경기도 살기 좋은 곳",
+    "분당 동별 비교",
+    "수원 살기 좋은 동",
+    "일산 동별 분석",
     "부산 살기 좋은 동네",
-    "대구 거주지 추천",
-    "제주 살기 좋은 곳",
     "전국 거주지 비교",
-    "동네 추천",
     "라이프스타일 맞춤 동네",
-    "전국 지역 비교",
     "이사 추천 지역",
     "나에게 맞는 동네",
+    "행정동 단위 분석",
   ],
   openGraph: {
-    title: "나에게 맞는 동네 찾기 | 전국 라이프스타일 맞춤 추천",
+    title: "나에게 맞는 동네 찾기 | 전국 134개 지역 + 서울·경기 동 단위 분석",
     description:
-      "전국 134개 지역의 생활 인프라를 비교해서 나에게 맞는 동네를 추천합니다.",
+      "전국 134개 지역 비교 + 서울·경기 42개 구의 행정동 세부 분석. 라이프스타일 맞춤 거주지 추천.",
     url: `${siteUrl}/ko/tools/lifestyle-location-finder`,
     type: "website",
   },
@@ -78,8 +81,8 @@ export default async function LifestyleLocationFinderPage({
         </h1>
         <p className="text-gray-600">
           {locale === "ko"
-            ? "라이프스타일 조건을 선택하면 전국 134개 지역별 점수를 매겨 나에게 맞는 동네를 추천합니다."
-            : "Select your lifestyle preferences and we'll score 134 districts across all major Korean cities to find your best match."}
+            ? "전국 134개 지역 비교 + 서울·경기 42개 구는 행정동 단위까지 분석합니다. 조건을 선택하면 나에게 맞는 동네를 추천합니다."
+            : "Compare 134 districts nationwide + Seoul & Gyeonggi drill-down to administrative dongs. Select your lifestyle preferences to find your best match."}
         </p>
       </div>
 
@@ -104,8 +107,9 @@ export default async function LifestyleLocationFinderPage({
         <p>
           이 도구는 카카오 지도 데이터를 기반으로 전국 17개 시/도의 134개 지역
           생활 인프라를 43개 카테고리로 분석합니다.
-          원하는 조건과 중요도를 설정하면 지역별 종합 점수를 계산해서
-          나에게 맞는 동네를 추천해 드립니다.
+          서울 25개 구는 물론, 경기도 6개 시(수원·성남·고양·용인·안산·안양) 17개 구까지
+          행정동 단위 드릴다운 분석이 가능합니다.
+          같은 구 안에서도 어느 동이 나한테 더 잘 맞는지 비교해 보세요.
         </p>
 
         <h3>사용 방법</h3>
@@ -114,6 +118,7 @@ export default async function LifestyleLocationFinderPage({
           <li>카테고리를 체크하고 <strong>중요도(1~5)</strong>를 조절하세요. 5에 가까울수록 해당 조건이 점수에 크게 반영됩니다.</li>
           <li><strong>분석하기</strong>를 누르면 134개 지역의 점수가 계산되고, 지도와 랭킹으로 결과를 확인할 수 있습니다.</li>
           <li><strong>지역 탭</strong>으로 시/도별 필터를 전환하고, 지역을 클릭하면 카테고리별 상세 점수를 볼 수 있습니다.</li>
+          <li>서울 구 또는 경기 주요 시의 구를 선택하면 <strong>동 단위 분석 보기</strong> 버튼이 나타납니다. 클릭하면 해당 구의 행정동별 순위를 확인할 수 있습니다.</li>
         </ol>
 
         <h3>분석 가능한 카테고리</h3>
@@ -184,8 +189,18 @@ export default async function LifestyleLocationFinderPage({
           충북(청주), 충남(천안·아산), 전북(전주·군산·익산), 전남(여수·순천·목포),
           경북(포항·구미·경주), 경남(창원·김해·진주), 강원(춘천·원주·강릉), 제주
           총 134개 지역을 분석합니다.
-          상단 지역 탭으로 시/도별로 필터링할 수 있습니다.
-          동 단위 세부 분석은 향후 업데이트 예정입니다.
+          서울 25개 구와 경기도 6개 시(수원·성남·고양·용인·안산·안양) 17개 구는
+          행정동 단위까지 드릴다운 분석이 가능합니다.
+          구 상세 패널에서 &ldquo;동 단위 분석 보기&rdquo; 버튼을 클릭하세요.
+        </p>
+
+        <h4>Q. 동 단위 분석은 어떻게 다른가요?</h4>
+        <p>
+          구 단위 분석은 전국 134개 지역끼리 비교하지만,
+          동 단위 분석은 같은 구 안의 동끼리 비교합니다.
+          검색 반경도 구(3km)보다 작은 1.5km로 축소되어 더 정밀한 데이터를 제공합니다.
+          서울뿐 아니라 분당구 안에서 판교동과 정자동 비교, 일산동구 안에서 마두동과 정발산동 비교 등
+          경기도 주요 시의 구 내 동별 비교도 가능합니다.
         </p>
 
         <h4>Q. 점수가 높으면 무조건 좋은 동네인가요?</h4>
